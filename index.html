@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dimopoulos Law — Homepage</title>
+  <link rel="stylesheet" href="design-system.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="podcast-blocks.css">
+  <link rel="stylesheet" href="episodes.css">
+  <link rel="stylesheet" href="newsroom-variants.css">
+  <style>
+    html, body { margin: 0; background: #f6f4ef; }
+    body { font-family: 'Source Sans 3', system-ui, sans-serif; color: #1f1d1a; }
+
+    /* The VariationB layout was designed at a 1280px artboard width.
+       Scale it up to fill the viewport so this reads as a real homepage,
+       not a 1280px island floating on grey. */
+    .stage {
+      width: 100vw;
+      overflow-x: hidden;
+    }
+    .stage-frame {
+      width: 1280px;
+      transform-origin: top left;
+    }
+
+    
+  </style>
+</head>
+<body>
+  <div class="stage">
+    <div class="stage-frame" id="stage-frame">
+      <div id="root"></div>
+    </div>
+  </div>
+
+  <script>
+    // Scale the 1280-px artboard to the viewport width so the page
+    // reads like a deployed homepage instead of a fixed-width mock.
+    (function () {
+      const frame = document.getElementById('stage-frame');
+      const stage = frame.parentElement;
+      const fit = () => {
+        const w = window.innerWidth;
+        const scale = w / 1280;
+        frame.style.transform = 'scale(' + scale + ')';
+        // Match stage height to scaled frame so scroll length is correct.
+        stage.style.height = (frame.scrollHeight * scale) + 'px';
+      };
+      window.__refit = fit;
+      window.addEventListener('resize', fit);
+      window.addEventListener('load', () => { fit(); setTimeout(fit, 400); setTimeout(fit, 1500); });
+      new MutationObserver(fit).observe(frame, { childList: true, subtree: true });
+    })();
+  </script>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <script type="text/babel" src="tweaks-panel.jsx"></script>
+  <script type="text/babel" src="data.jsx"></script>
+  <script type="text/babel" src="shared.jsx"></script>
+  <script type="text/babel" src="SplitCover.jsx"></script>
+  <script type="text/babel" src="PodcastBlocks.jsx"></script>
+  <script type="text/babel" src="EpisodesData.jsx"></script>
+  <script type="text/babel" src="EpisodesRow.jsx"></script>
+  <script type="text/babel" src="NewsroomVariants.jsx"></script>
+  <script type="text/babel" src="VariationB.jsx"></script>
+
+  <script type="text/babel">
+    const { useEffect } = React;
+    const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+      "headline": "When everything is on the line, experience matters.",
+      "accent": "#3F6FA8",
+      "hero_image": ""
+    }/*EDITMODE-END*/;
+
+    function App() {
+      const [tweaks, setTweak] = useTweaks(TWEAK_DEFAULTS);
+
+      useEffect(() => {
+        document.documentElement.style.setProperty('--hp-accent', tweaks.accent);
+      }, [tweaks.accent]);
+
+      // Refit the scaled stage after the React tree renders.
+      useEffect(() => {
+        if (window.__refit) {
+          window.__refit();
+          setTimeout(window.__refit, 100);
+          setTimeout(window.__refit, 600);
+        }
+      });
+
+      return (
+        <>
+          <VariationB />
+
+          <TweaksPanel title="Tweaks">
+            <TweakSection label="Color">
+              <TweakColor
+                label="Accent"
+                value={tweaks.accent}
+                options={['#B85940', '#8E3F2C', '#A88B4A', '#3F6FA8', '#1F8A5B']}
+                onChange={(v) => setTweak('accent', v)}
+              />
+            </TweakSection>
+            <TweakSection label="Headline">
+              <TweakText
+                label="Hero headline"
+                value={tweaks.headline}
+                onChange={(v) => setTweak('headline', v)}
+              />
+            </TweakSection>
+            <TweakSection label="Hero image">
+              <TweakText
+                label="Image URL"
+                placeholder="blank = default portrait"
+                value={tweaks.hero_image}
+                onChange={(v) => setTweak('hero_image', v)}
+              />
+            </TweakSection>
+          </TweaksPanel>
+        </>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>
