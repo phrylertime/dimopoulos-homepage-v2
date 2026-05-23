@@ -3,130 +3,513 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dimopoulos Law — Homepage</title>
-  <link rel="stylesheet" href="design-system.css">
+  <title>Dimopoulos Law Firm — Matrimonial &amp; Family Law in New York</title>
+  <meta name="description" content="When everything is on the line, experience matters. Gus Dimopoulos leads a New York family law firm focused on complex matrimonial, custody, and high-conflict matters.">
   <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="podcast-blocks.css">
-  <link rel="stylesheet" href="episodes.css">
-  <link rel="stylesheet" href="newsroom-variants.css">
   <style>
-    html, body { margin: 0; background: #f6f4ef; }
-    body { font-family: 'Source Sans 3', system-ui, sans-serif; color: #1f1d1a; }
-
-    /* The VariationB layout was designed at a 1280px artboard width.
-       Scale it up to fill the viewport so this reads as a real homepage,
-       not a 1280px island floating on grey. */
-    .stage {
-      width: 100vw;
-      overflow-x: hidden;
+    /* The user picked the steel-blue accent in the design tool (TWEAK_DEFAULTS.accent
+       = '#3F6FA8'). The static CSS defaults to terracotta, so we override here to
+       match the version they signed off on. --hp-accent-soft (peach) stays untouched
+       — it's hardcoded in the source styles and we keep it for the soft fills. */
+    :root {
+      --hp-accent: #3F6FA8;
+      --hp-accent-deep: #2A537F;
+      --hp-deep: #0F2748;
+      --hp-accent-blue: #2A5C8A;
     }
-    .stage-frame {
-      width: 1280px;
-      transform-origin: top left;
-    }
+    html, body { margin: 0; background: var(--hp-bone, #FBFAF6); }
+    body { font-family: 'Source Sans 3', system-ui, sans-serif; color: var(--hp-ink, #0F2748); }
 
-    
+    /* Episode-card thumb backgrounds — the source uses data:image SVG placeholders
+       generated at runtime; we substitute simple gradient fills for production. */
+    .epx-thumb-bg { position: absolute; inset: 0; }
   </style>
 </head>
 <body>
-  <div class="stage">
-    <div class="stage-frame" id="stage-frame">
-      <div id="root"></div>
+  <div class="hp-root" data-variation="B">
+
+    <!-- ===== Top nav ===== -->
+    <header class="hp-nav">
+      <div class="hp-nav-row">
+        <nav class="hp-nav-tabs">
+          <a class="is-active" href="#home">Home</a>
+          <a href="#attorneys">Attorneys</a>
+          <a href="#practice">Practice</a>
+        </nav>
+        <a class="hp-nav-logo" href="#home" aria-label="Dimopoulos Law Firm, home">
+          <img src="assets/dimopoulos-logo.png" alt="Dimopoulos Law Firm, P.C.">
+        </a>
+        <div class="hp-nav-end">
+          <span class="hp-nav-phone">914.472.4242</span>
+          <button class="hp-nav-cta" type="button">Consultation</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ===== Hero ===== -->
+    <section id="home" class="hpB-hero" data-screen-label="Hero">
+      <div class="hpB-hero-grid">
+        <div class="hpB-hero-img-side">
+          <img class="hpB-hero-img" src="assets/gus-hero-smokey.jpg" alt="Gus Dimopoulos, Managing Partner">
+        </div>
+        <div class="hpB-hero-text-side">
+          <div class="hpB-hero-text hp-reveal is-visible">
+            <span class="hpB-label">Matrimonial · Custody · High-Conflict</span>
+            <h1>When everything is on the line, <span class="accent">experience</span> <em>matters</em>.</h1>
+            <p class="hpB-hero-sub">When divorce turns high-stakes, clients turn to Gus Dimopoulos for clarity, strategy, and results.</p>
+            <details class="hpB-hero-more">
+              <summary>
+                <span class="lbl">More about Gus</span>
+                <span class="chev" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="14" height="14"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+              </summary>
+              <p>As managing partner of Dimopoulos Law Firm, Gus is recognized by Super Lawyers, Lawyers of Distinction, and Premier Lawyers of America. With 20+ years of courtroom wins, he&rsquo;s trusted to handle the most combative cases &mdash; often involving mental health challenges, coercive control, addiction, and narcissism. He&rsquo;s secured sole custody in high-conflict cases and defended clients from unjustified claims. Whether resolving complex financial disputes or de-escalating crises before court, Gus brings unmatched judgment and discretion when your children, future, and peace of mind are at stake.</p>
+            </details>
+            <div class="hpB-hero-actions">
+              <button class="hp-cta-primary" type="button">Schedule a consultation <span class="arr"></span></button>
+              <a class="hp-cta-ghost on-dark" href="tel:9144724242">914.472.4242</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Awards ticker (badges variant) ===== -->
+    <div class="hpB-marquee hpB-ticker--badges" data-screen-label="Recognition" aria-label="Firm recognition and awards">
+      <div class="hpB-marquee-track hpB-tick-badges-track">
+        <!-- Row repeated twice for seamless loop -->
+        <span class="hpB-tick-row">
+          <span class="hpB-tick-badge" title="Super Lawyers — 5 Years Honored"><img src="assets/award-super-lawyers-5yr.png" alt="Super Lawyers — 5 Years Honored"></span>
+          <span class="hpB-tick-badge" title="Super Lawyers — Selected 2025"><img src="assets/award-super-lawyers-2025.png" alt="Super Lawyers — Selected 2025"></span>
+          <span class="hpB-tick-badge" title="Avvo 5 Star Reviews"><img src="assets/award-avvo-5star.png" alt="Avvo 5 Star Reviews"></span>
+          <span class="hpB-tick-badge" title="Avvo Rating 10.0 — Top Attorney"><img src="assets/award-avvo-10.png" alt="Avvo Rating 10.0 — Top Attorney"></span>
+          <span class="hpB-tick-badge" title="10 Best Attorney — Client Satisfaction"><img src="assets/award-10best-attorney.png" alt="10 Best Attorney — Client Satisfaction"></span>
+          <span class="hpB-tick-badge" title="Avvo Clients' Choice Award"><img src="assets/award-avvo-clients-choice.png" alt="Avvo Clients' Choice Award"></span>
+          <span class="hpB-tick-badge" title="Lawyers of Distinction"><img src="assets/award-lawyers-distinction.png" alt="Lawyers of Distinction"></span>
+          <span class="hpB-tick-badge" title="10 Best Law Firm — Client Satisfaction"><img src="assets/award-10best-lawfirm.png" alt="10 Best Law Firm — Client Satisfaction"></span>
+          <span class="hpB-tick-badge" title="Faces of Westchester"><img src="assets/award-faces-westchester.png" alt="Faces of Westchester"></span>
+          <span class="hpB-tick-badge" title="Martindale-Hubbell — Peer Reviewed"><img src="assets/award-martindale.png" alt="Martindale-Hubbell — Peer Reviewed"></span>
+        </span>
+        <span class="hpB-tick-row" aria-hidden="true">
+          <span class="hpB-tick-badge"><img src="assets/award-super-lawyers-5yr.png" alt=""></span>
+          <span class="hpB-tick-badge"><img src="assets/award-super-lawyers-2025.png" alt=""></span>
+          <span class="hpB-tick-badge"><img src="assets/award-avvo-5star.png" alt=""></span>
+          <span class="hpB-tick-badge"><img src="assets/award-avvo-10.png" alt=""></span>
+          <span class="hpB-tick-badge"><img src="assets/award-10best-attorney.png" alt=""></span>
+          <span class="hpB-tick-badge"><img src="assets/award-avvo-clients-choice.png" alt=""></span>
+          <span class="hpB-tick-badge"><img src="assets/award-lawyers-distinction.png" alt=""></span>
+          <span class="hpB-tick-badge"><img src="assets/award-10best-lawfirm.png" alt=""></span>
+          <span class="hpB-tick-badge"><img src="assets/award-faces-westchester.png" alt=""></span>
+          <span class="hpB-tick-badge"><img src="assets/award-martindale.png" alt=""></span>
+        </span>
+      </div>
     </div>
+
+    <!-- ===== About ===== -->
+    <section class="hpB-about" data-screen-label="About">
+      <div class="hpB-about-inner">
+        <div class="hpB-about-side hp-reveal is-visible">
+          <span class="hp-eyebrow">Why Dimopoulos Law</span>
+          <h2>Built for <em>complicated</em> matters.</h2>
+        </div>
+        <div class="hpB-about-prose hp-reveal is-visible">
+          <p class="lead">At Dimopoulos Law, we handle the divorce and custody cases others can&rsquo;t &mdash; high conflict, mental health challenges, addiction, coercive control, financial complexity, and the well-being of children caught in the middle.</p>
+          <p>Known for strategic litigation and relentless preparation, Gus Dimopoulos is a trusted advocate in and out of the courtroom.</p>
+          <p>Through his podcast, <em>Split: A Podcast on Modern Divorce</em>, social media presence, and thought leadership, Gus has become a leading voice on the realities of modern family conflict &mdash; giving clients clarity, perspective, and fierce representation when the stakes are highest.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Testimonial spotlight ===== -->
+    <section id="testimonials" class="hpB-testimonials" data-screen-label="Testimonials">
+      <div class="hpB-testimonials-inner">
+        <div class="hpB-test-lede hp-reveal is-visible">
+          <p>In any line of work, there is no greater compliment than the kind words of satisfied clients.</p>
+        </div>
+        <div class="hp-reveal is-visible">
+          <p class="hpB-test-mark" aria-hidden="true">&ldquo;</p>
+          <blockquote class="hpB-test-quote" data-testimonial-quote>From the moment I met Gus, I knew I was in good hands. He was empathetic, patient when I needed something explained, strong when I felt weak &mdash; and my prize fighter in the ring.</blockquote>
+          <span class="hpB-test-author" data-testimonial-author>&mdash; Lisa · Divorce, Westchester</span>
+        </div>
+        <div class="hpB-test-dots" data-testimonial-dots role="tablist" aria-label="Testimonial selector">
+          <button type="button" class="is-active" aria-label="Testimonial 1" data-index="0"></button>
+          <button type="button" aria-label="Testimonial 2" data-index="1"></button>
+          <button type="button" aria-label="Testimonial 3" data-index="2"></button>
+        </div>
+        <div class="hpB-test-cta hp-reveal is-visible">
+          <a href="#testimonials-all" class="hp-cta-primary on-dark">Read more testimonials <span class="arr"></span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Podcast (Option C — Studio Portrait) ===== -->
+    <section class="pcC" data-podcast-option="C">
+      <!-- SVG filter — tone lift + unsharp-mask for the studio portrait. -->
+      <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <filter id="pcC-sharpen" color-interpolation-filters="sRGB">
+          <feComponentTransfer>
+            <feFuncR type="linear" slope="1.18" intercept="0.06"/>
+            <feFuncG type="linear" slope="1.18" intercept="0.05"/>
+            <feFuncB type="linear" slope="1.14" intercept="0.04"/>
+          </feComponentTransfer>
+          <feConvolveMatrix order="3" preserveAlpha="true"
+            kernelMatrix="0 -0.85 0  -0.85 4.4 -0.85  0 -0.85 0"/>
+        </filter>
+      </svg>
+
+      <div class="pcC-image">
+        <img src="assets/gus-podcast-studio.png" alt="Gus Dimopoulos recording Split, a podcast on modern divorce">
+        <span class="pcC-image-cap">
+          <span class="dot"></span> Recording &mdash; Studio · NY
+        </span>
+      </div>
+
+      <div class="pcC-panel">
+        <span class="pcC-rail" aria-hidden="true"></span>
+        <div class="pcC-panel-inner">
+          <span class="pcC-eyebrow">&mdash; The Podcast &mdash;</span>
+          <h2 class="pcC-title">
+            <em>Split:</em>
+            <span>A Podcast on <span class="accent">Modern Divorce.</span></span>
+          </h2>
+          <p class="pcC-body">
+            Beyond the paperwork &mdash; expert-driven, thought-provoking, and sometimes unexpectedly funny conversations about what it really means to end a marriage today. Hosted by New York family law attorney <strong>Gus&nbsp;Dimopoulos</strong>.
+          </p>
+          <div class="pcC-meta">
+            <div><span class="lbl">New episodes</span><span class="val">Monthly</span></div>
+            <div><span class="lbl">Latest</span><span class="val">Ep. 11 · 20 min</span></div>
+          </div>
+          <div class="pc-platforms">
+            <span class="pc-platforms-label" style="color: rgba(246,244,239,0.55)">Listen on</span>
+            <a class="pc-chip" href="#" style="background: rgba(246,244,239,0.06); border-color: rgba(246,244,239,0.16); color: #f6f4ef">
+              <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#1DB954"/><path d="M7.2 9.5c3.4-1 7.2-.8 10 .8M7.8 12.5c2.9-.8 6.1-.6 8.4.7M8.4 15.5c2.4-.6 5-.4 6.9.6" stroke="#000" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg>
+              Spotify
+            </a>
+            <a class="pc-chip" href="#" style="background: rgba(246,244,239,0.06); border-color: rgba(246,244,239,0.16); color: #f6f4ef">
+              <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><defs><linearGradient id="apg" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#F452FF"/><stop offset="1" stop-color="#832BC1"/></linearGradient></defs><circle cx="12" cy="12" r="11" fill="url(#apg)"/><path d="M12 6.5a1 1 0 011 1v6.2a2.4 2.4 0 11-2-2.36V7.5a1 1 0 011-1z" fill="#fff"/></svg>
+              Apple Podcasts
+            </a>
+            <a class="pc-chip" href="#" style="background: rgba(246,244,239,0.06); border-color: rgba(246,244,239,0.16); color: #f6f4ef">
+              <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#FF0000"/><path d="M16 12l-6 3.5v-7z" fill="#fff"/></svg>
+              YouTube
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Episodes carousel ===== -->
+    <section class="epx epx--dark" data-screen-label="Episodes">
+      <div class="epx-head">
+        <span class="epx-eyebrow">&mdash; Split Podcast &mdash;</span>
+      </div>
+      <div class="epx-stage">
+        <button class="epx-nav epx-nav--prev" type="button" aria-label="Previous episodes" data-epx-prev disabled>
+          <svg viewBox="0 0 24 24" width="22" height="22"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="epx-viewport">
+          <div class="epx-track" data-epx-track>
+            <!-- Episode cards (6 episodes from EpisodesData.jsx) -->
+            <article class="epx-card">
+              <div class="epx-thumb">
+                <div class="epx-thumb-bg" style="background:linear-gradient(to bottom,#9aa0a4,#3a3d40)"></div>
+                <span class="epx-stroke epx-stroke--tl" aria-hidden="true"></span>
+                <span class="epx-stroke epx-stroke--br" aria-hidden="true"></span>
+                <button class="epx-play" type="button" aria-label="Play episode 11"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button>
+              </div>
+              <div class="epx-body">
+                <span class="epx-num">Ep. 11</span>
+                <h3 class="epx-title">When Suspicion Meets Strategy: Divorce Law &amp; Investigation</h3>
+                <p class="epx-guest">With Jessica Zannetti</p>
+                <div class="epx-foot">
+                  <span>split.fm</span><span class="epx-dot" aria-hidden="true"></span>
+                  <span>Apr 14, 2026</span><span class="epx-dot" aria-hidden="true"></span>
+                  <span>20 min</span>
+                </div>
+              </div>
+            </article>
+            <article class="epx-card">
+              <div class="epx-thumb">
+                <div class="epx-thumb-bg" style="background:linear-gradient(135deg,#4a4742,#1c1a18)"></div>
+                <span class="epx-stroke epx-stroke--tl" aria-hidden="true"></span>
+                <span class="epx-stroke epx-stroke--br" aria-hidden="true"></span>
+                <button class="epx-play" type="button" aria-label="Play episode 10"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button>
+              </div>
+              <div class="epx-body">
+                <span class="epx-num">Ep. 10</span>
+                <h3 class="epx-title">The Biggest Trends Reshaping Divorce Law in 2026</h3>
+                <p class="epx-guest">With Jill Spielberg, Esq., Abrams Fensterman</p>
+                <div class="epx-foot">
+                  <span>split.fm</span><span class="epx-dot" aria-hidden="true"></span>
+                  <span>Mar 10, 2026</span><span class="epx-dot" aria-hidden="true"></span>
+                  <span>23 min</span>
+                </div>
+              </div>
+            </article>
+            <article class="epx-card">
+              <div class="epx-thumb">
+                <div class="epx-thumb-bg" style="background:linear-gradient(135deg,#4a4742,#1c1a18)"></div>
+                <span class="epx-stroke epx-stroke--tl" aria-hidden="true"></span>
+                <span class="epx-stroke epx-stroke--br" aria-hidden="true"></span>
+                <button class="epx-play" type="button" aria-label="Play episode 9"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button>
+              </div>
+              <div class="epx-body">
+                <span class="epx-num">Ep. 09</span>
+                <h3 class="epx-title">Divorce &amp; Money: Financial Abuse, Hidden Assets, and Crypto</h3>
+                <p class="epx-guest">With Nick Himonidis &amp; Gus Dimopoulos</p>
+                <div class="epx-foot">
+                  <span>split.fm</span><span class="epx-dot" aria-hidden="true"></span>
+                  <span>Feb 18, 2026</span><span class="epx-dot" aria-hidden="true"></span>
+                  <span>34 min</span>
+                </div>
+              </div>
+            </article>
+            <article class="epx-card">
+              <div class="epx-thumb">
+                <div class="epx-thumb-bg" style="background:linear-gradient(135deg,#4a4742,#1c1a18)"></div>
+                <span class="epx-stroke epx-stroke--tl" aria-hidden="true"></span>
+                <span class="epx-stroke epx-stroke--br" aria-hidden="true"></span>
+                <button class="epx-play" type="button" aria-label="Play episode 8"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button>
+              </div>
+              <div class="epx-body">
+                <span class="epx-num">Ep. 08</span>
+                <h3 class="epx-title">Navigating Complex Dynamics in Divorce</h3>
+                <p class="epx-guest">With Heidi Davidson &amp; Gus Dimopoulos</p>
+                <div class="epx-foot">
+                  <span>split.fm</span><span class="epx-dot" aria-hidden="true"></span>
+                  <span>Jan 27, 2026</span><span class="epx-dot" aria-hidden="true"></span>
+                  <span>29 min</span>
+                </div>
+              </div>
+            </article>
+            <article class="epx-card">
+              <div class="epx-thumb">
+                <div class="epx-thumb-bg" style="background:linear-gradient(135deg,#4a4742,#1c1a18)"></div>
+                <span class="epx-stroke epx-stroke--tl" aria-hidden="true"></span>
+                <span class="epx-stroke epx-stroke--br" aria-hidden="true"></span>
+                <button class="epx-play" type="button" aria-label="Play episode 7"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button>
+              </div>
+              <div class="epx-body">
+                <span class="epx-num">Ep. 07</span>
+                <h3 class="epx-title">Safe Exchange and Supervised Visitation</h3>
+                <p class="epx-guest">With Tiffany Hamilton, YWCA CEO</p>
+                <div class="epx-foot">
+                  <span>split.fm</span><span class="epx-dot" aria-hidden="true"></span>
+                  <span>Jan 7, 2026</span><span class="epx-dot" aria-hidden="true"></span>
+                  <span>31 min</span>
+                </div>
+              </div>
+            </article>
+            <article class="epx-card">
+              <div class="epx-thumb">
+                <div class="epx-thumb-bg" style="background:linear-gradient(135deg,#4a4742,#1c1a18)"></div>
+                <span class="epx-stroke epx-stroke--tl" aria-hidden="true"></span>
+                <span class="epx-stroke epx-stroke--br" aria-hidden="true"></span>
+                <button class="epx-play" type="button" aria-label="Play episode 6"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button>
+              </div>
+              <div class="epx-body">
+                <span class="epx-num">Ep. 06</span>
+                <h3 class="epx-title">Litigation Strategy &amp; Tactical Decision-Making</h3>
+                <p class="epx-guest">With Heidi Davidson &amp; Gus Dimopoulos</p>
+                <div class="epx-foot">
+                  <span>split.fm</span><span class="epx-dot" aria-hidden="true"></span>
+                  <span>Dec 9, 2025</span><span class="epx-dot" aria-hidden="true"></span>
+                  <span>36 min</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+        <button class="epx-nav epx-nav--next" type="button" aria-label="Next episodes" data-epx-next>
+          <svg viewBox="0 0 24 24" width="22" height="22"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+      <div class="epx-cta-row">
+        <a class="epx-cta" href="#podcast">Click for all episodes</a>
+      </div>
+    </section>
+
+    <!-- ===== Attorneys ===== -->
+    <section id="attorneys" class="hpB-attorneys" data-screen-label="Attorneys">
+      <div class="hpB-attorneys-inner">
+        <div class="hpB-attorneys-head hp-reveal is-visible">
+          <div>
+            <span class="hp-eyebrow">The team</span>
+            <h2>Counsel <em>worth</em> hiring.</h2>
+          </div>
+          <p style="font-family: var(--hp-serif); font-style: italic; font-size: 19px; color: var(--hp-mute-deep); max-width: 40ch; margin: 0;">A focused team that prioritizes depth over headcount. Each member is empowered to own the work in front of them.</p>
+        </div>
+        <div class="hpB-att-row hp-reveal-stagger is-visible">
+          <article class="hpB-att">
+            <div class="photo"><img src="assets/attorney-gus.webp" alt="Gus Dimopoulos"></div>
+            <div class="meta">
+              <span class="role">Managing Partner</span>
+              <span class="name">Gus Dimopoulos</span>
+            </div>
+          </article>
+          <article class="hpB-att">
+            <div class="photo"><img src="assets/attorney-kathleen.webp" alt="Kathleen Seavy"></div>
+            <div class="meta">
+              <span class="role">Associate</span>
+              <span class="name">Kathleen Seavy</span>
+            </div>
+          </article>
+          <article class="hpB-att">
+            <div class="photo"><img src="assets/attorney-hannah.webp" alt="Hannah Gaudet"></div>
+            <div class="meta">
+              <span class="role">Law Clerk</span>
+              <span class="name">Hannah Gaudet</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Newsroom (N3 — Dark) ===== -->
+    <section id="newsroom" class="nrN3" data-screen-label="Newsroom">
+      <div class="nrN3-inner">
+        <header class="nrN3-head">
+          <span class="nrN3-eyebrow">&mdash; Newsroom &mdash;</span>
+          <h2 class="nrN3-title"><em>Recent</em> thinking.</h2>
+          <p class="nrN3-sub">Writing, podcasts, and announcements from the firm.</p>
+        </header>
+        <div class="nrN3-grid">
+          <article class="nrN3-card">
+            <div class="nrN3-top">
+              <span class="nrN3-num">01</span>
+              <span class="nrN3-kind">Podcast</span>
+            </div>
+            <h3 class="nrN3-headline">Hidden assets: when the marital balance sheet doesn&rsquo;t add up</h3>
+            <footer class="nrN3-foot">
+              <span>Episode 14</span><span class="nrN3-dot" aria-hidden="true"></span><span>32 min</span>
+              <a class="nrN3-cta" href="#" aria-label="Read more"><svg viewBox="0 0 24 24" width="14" height="14"><path d="M5 12h13M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            </footer>
+          </article>
+          <article class="nrN3-card">
+            <div class="nrN3-top">
+              <span class="nrN3-num">02</span>
+              <span class="nrN3-kind">Article</span>
+            </div>
+            <h3 class="nrN3-headline">What changed in NY spousal-maintenance law &mdash; and what it means for you</h3>
+            <footer class="nrN3-foot">
+              <span>Sep 2024</span><span class="nrN3-dot" aria-hidden="true"></span><span>6 min read</span>
+              <a class="nrN3-cta" href="#" aria-label="Read more"><svg viewBox="0 0 24 24" width="14" height="14"><path d="M5 12h13M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            </footer>
+          </article>
+          <article class="nrN3-card">
+            <div class="nrN3-top">
+              <span class="nrN3-num">03</span>
+              <span class="nrN3-kind">Newsroom</span>
+            </div>
+            <h3 class="nrN3-headline">Gus Dimopoulos named to Super Lawyers for the fifth consecutive year</h3>
+            <footer class="nrN3-foot">
+              <span>Aug 2024</span><span class="nrN3-dot" aria-hidden="true"></span><span>2 min read</span>
+              <a class="nrN3-cta" href="#" aria-label="Read more"><svg viewBox="0 0 24 24" width="14" height="14"><path d="M5 12h13M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            </footer>
+          </article>
+        </div>
+        <div class="nrN3-cta-row">
+          <a class="nrN3-all" href="#newsroom-all">All articles <svg viewBox="0 0 24 24" width="16" height="16"><path d="M5 12h13M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Practice areas ===== -->
+    <section id="practice" class="hpB-practice" data-screen-label="Practice">
+      <div class="hpB-practice-head hp-reveal is-visible">
+        <div>
+          <h2>Our <em>Practice</em> Areas.</h2>
+        </div>
+        <p>Comprehensive matrimonial and family law representation tailored to every stage of the process &mdash; from prenuptial agreements and divorce strategy to custody disputes, high-conflict litigation, appeals, and crisis management. We guide clients through complex personal and legal challenges with clarity, discretion, and experienced advocacy.</p>
+      </div>
+      <div class="hpB-pa-grid hp-reveal-stagger is-visible">
+        <article class="hpB-pa feature feature--image">
+          <div class="img"><img src="assets/practice-divorce.jpeg" alt="Practice area feature"></div>
+        </article>
+        <article class="hpB-pa">
+          <span class="n">01</span>
+          <h3>High Net Worth Divorce</h3>
+          <p>We represent clients in the dissolution of marriage, including the management of complex valuations and equitable distribution of closely held businesses, professional practices, investment portfolios, trusts, real estate holdings, and more.</p>
+          <span class="arr">Read more &rarr;</span>
+        </article>
+        <article class="hpB-pa">
+          <span class="n">02</span>
+          <h3>Custody</h3>
+          <p>Strategic counsel and advocacy for parents navigating the complex and emotionally charged issues of custody, parenting time, decision-making, and co-parenting before and after divorce.</p>
+          <span class="arr">Read more &rarr;</span>
+        </article>
+        <article class="hpB-pa">
+          <span class="n">03</span>
+          <h3>Child Support</h3>
+          <p>Expert counsel and strategic insight on child support matters, including high-income and above-guideline cases, focused on protecting children&rsquo;s needs, preserving lifestyle considerations, and creating sustainable financial outcomes.</p>
+          <span class="arr">Read more &rarr;</span>
+        </article>
+        <article class="hpB-pa">
+          <span class="n">04</span>
+          <h3>Spousal Maintenance</h3>
+          <p>Counsel and advocacy on spousal maintenance and alimony matters, focused on achieving fair, sustainable financial outcomes that reflect the realities of the marriage and support long-term stability after divorce.</p>
+          <span class="arr">Read more &rarr;</span>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section id="faq" class="hpB-faq" data-screen-label="FAQ">
+      <div class="hpB-faq-inner">
+        <div class="hpB-faq-side hp-reveal is-visible">
+          <span class="hp-eyebrow">FAQ</span>
+          <h2>Questions <em>clients ask first</em>.</h2>
+          <p>Have a question we don&rsquo;t answer here?<br>Call us: <a href="tel:9144724242" class="hpB-faq-phone">914-472-4242</a></p>
+        </div>
+        <div class="hpB-faq-list hp-reveal is-visible">
+          <details open>
+            <summary>How long does a divorce in New York take?</summary>
+            <div class="a">An uncontested divorce can be finalized in a few months; contested matters &mdash; especially involving complex assets or custody &mdash; can run a year or more. We work to keep your matter on the shortest defensible timeline.</div>
+          </details>
+          <details>
+            <summary>Do you handle cases outside Westchester?</summary>
+            <div class="a">Yes. The firm regularly practices in New York City, Putnam, Dutchess, Rockland, and Orange Counties.</div>
+          </details>
+          <details>
+            <summary>What does an initial consultation cost?</summary>
+            <div class="a">We offer a paid initial consultation. We will explain our fee structure clearly before any work begins.</div>
+          </details>
+          <details>
+            <summary>Will my matter be handled discreetly?</summary>
+            <div class="a">Discretion is foundational to our practice. We routinely represent professionals, executives, and public figures whose privacy is non-negotiable.</div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Contact band ===== -->
+    <section id="contact" class="hpB-contact" data-screen-label="Contact">
+      <div class="hpB-contact-inner">
+        <div class="hp-reveal is-visible">
+          <span class="hp-eyebrow on-dark">Get in touch</span>
+          <h2>Let&rsquo;s <em>begin</em>.</h2>
+          <p class="lead">Tell us what you are facing. We&rsquo;ll respond within one business day.</p>
+          <button class="hp-cta-primary" type="button">Schedule a consultation <span class="arr"></span></button>
+        </div>
+        <dl class="hpB-contact-info hp-reveal is-visible">
+          <div><dt>Phone</dt><dd>914-472-4242</dd></div>
+          <div><dt>Office</dt><dd>73 Main Street, Tuckahoe, NY 10707</dd></div>
+          <div><dt>Hours</dt><dd>Mon&ndash;Fri · 9:00&ndash;6:00</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ===== Footer ===== -->
+    <footer class="hpA-footer">
+      <div class="hpA-footer-row">
+        <span>© 2007&ndash; Dimopoulos Law Firm PC. All rights reserved.</span>
+        <span>Westchester · NYC · Putnam · Dutchess · Rockland · Orange</span>
+      </div>
+    </footer>
+
   </div>
 
-  <script>
-    // Scale the 1280-px artboard to the viewport width so the page
-    // reads like a deployed homepage instead of a fixed-width mock.
-    (function () {
-      const frame = document.getElementById('stage-frame');
-      const stage = frame.parentElement;
-      const fit = () => {
-        const w = window.innerWidth;
-        const scale = w / 1280;
-        frame.style.transform = 'scale(' + scale + ')';
-        // Match stage height to scaled frame so scroll length is correct.
-        stage.style.height = (frame.scrollHeight * scale) + 'px';
-      };
-      window.__refit = fit;
-      window.addEventListener('resize', fit);
-      window.addEventListener('load', () => { fit(); setTimeout(fit, 400); setTimeout(fit, 1500); });
-      new MutationObserver(fit).observe(frame, { childList: true, subtree: true });
-    })();
-  </script>
-
-  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
-
-  <script type="text/babel" src="tweaks-panel.jsx"></script>
-  <script type="text/babel" src="data.jsx"></script>
-  <script type="text/babel" src="shared.jsx"></script>
-  <script type="text/babel" src="SplitCover.jsx"></script>
-  <script type="text/babel" src="PodcastBlocks.jsx"></script>
-  <script type="text/babel" src="EpisodesData.jsx"></script>
-  <script type="text/babel" src="EpisodesRow.jsx"></script>
-  <script type="text/babel" src="NewsroomVariants.jsx"></script>
-  <script type="text/babel" src="VariationB.jsx"></script>
-
-  <script type="text/babel">
-    const { useEffect } = React;
-    const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
-      "headline": "When everything is on the line, experience matters.",
-      "accent": "#3F6FA8",
-      "hero_image": ""
-    }/*EDITMODE-END*/;
-
-    function App() {
-      const [tweaks, setTweak] = useTweaks(TWEAK_DEFAULTS);
-
-      useEffect(() => {
-        document.documentElement.style.setProperty('--hp-accent', tweaks.accent);
-      }, [tweaks.accent]);
-
-      // Refit the scaled stage after the React tree renders.
-      useEffect(() => {
-        if (window.__refit) {
-          window.__refit();
-          setTimeout(window.__refit, 100);
-          setTimeout(window.__refit, 600);
-        }
-      });
-
-      return (
-        <>
-          <VariationB />
-
-          <TweaksPanel title="Tweaks">
-            <TweakSection label="Color">
-              <TweakColor
-                label="Accent"
-                value={tweaks.accent}
-                options={['#B85940', '#8E3F2C', '#A88B4A', '#3F6FA8', '#1F8A5B']}
-                onChange={(v) => setTweak('accent', v)}
-              />
-            </TweakSection>
-            <TweakSection label="Headline">
-              <TweakText
-                label="Hero headline"
-                value={tweaks.headline}
-                onChange={(v) => setTweak('headline', v)}
-              />
-            </TweakSection>
-            <TweakSection label="Hero image">
-              <TweakText
-                label="Image URL"
-                placeholder="blank = default portrait"
-                value={tweaks.hero_image}
-                onChange={(v) => setTweak('hero_image', v)}
-              />
-            </TweakSection>
-          </TweaksPanel>
-        </>
-      );
-    }
-
-    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
-  </script>
+  <script src="script.js" defer></script>
 </body>
 </html>
