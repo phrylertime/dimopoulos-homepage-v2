@@ -1,5 +1,5 @@
 /* Dimopoulos Law — homepage_v2 bundled styles
-   Built from Claude Design export 2026-05-23.
+   Built from Claude Design export 2026-05-25.
    Sections: colors_and_type, layout/variation-B, podcast-blocks, episodes, newsroom-variants
 */
 
@@ -285,7 +285,7 @@ code, pre, .mono {
   border-radius: var(--radius-sm);
 }
 
-/* ===== styles.css (shared + Variation B) ===== */
+/* ===== styles.css (shared + Variation B + nav dropdowns + FAQ callout + social) ===== */
 /* ============================================================
    Dimopoulos Homepage v2 — shared styles
    ============================================================ */
@@ -374,11 +374,19 @@ img { max-width: 100%; display: block; }
 .hp-reveal-stagger.is-visible > *:nth-child(6) { transition-delay: 400ms; }
 .hp-reveal-stagger.is-visible > *:nth-child(7) { transition-delay: 480ms; }
 
+/* Reserve space at the top of every page for the portaled nav rail.
+   The rail is fixed in viewport space at the same scale as the stage,
+   so a design-space spacer of ~76px keeps content below the nav. */
+.hp-root,
+.bio-root,
+.faq-root,
+.test-root { padding-top: 76px; }
+
 /* Shared site chrome — top nav (compact, modern: white bar with centered word logo + tabs) */
 .hp-nav {
-  position: sticky; top: 0; z-index: 30;
   background: rgba(251,250,246,0.92);
   backdrop-filter: blur(10px);
+  pointer-events: auto;
   -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--hp-rule-soft);
 }
@@ -388,15 +396,124 @@ img { max-width: 100%; display: block; }
   padding: 18px 48px;
   gap: 24px;
 }
-.hp-nav-tabs { display: flex; gap: 32px; }
+.hp-nav-tabs { display: flex; gap: 28px; align-items: center; }
 .hp-nav-tabs a {
   font-size: 12px; letter-spacing: 0.20em; text-transform: uppercase; font-weight: 500;
   color: var(--hp-mute-deep);
+  white-space: nowrap;
+  cursor: pointer;
+  text-decoration: none;
   transition: color 200ms ease;
 }
 .hp-nav-tabs a:hover, .hp-nav-tabs a.is-active { color: var(--hp-ink); }
 .hp-nav-tabs a.is-active { position: relative; color: var(--hp-ink); }
-.hp-nav-tabs a.is-active::before { content: ''; position: absolute; left: 50%; top: -8px; width: 18px; height: 1px; background: var(--hp-accent); transform: translateX(-50%); }
+
+/* Dropdown — Attorneys */
+.hp-nav-item.has-dropdown { position: relative; display: inline-flex; align-items: center; }
+.hp-nav-item .hp-nav-trigger {
+  display: inline-flex; align-items: center; gap: 6px;
+  white-space: nowrap;
+  cursor: pointer;
+  text-decoration: none;
+}
+.hp-nav-caret {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 8px; height: 5px;
+  opacity: 0.4;
+  transition: transform 200ms ease, opacity 200ms ease;
+  color: currentColor;
+}
+.hp-nav-item.has-dropdown:hover .hp-nav-caret { transform: rotate(180deg); opacity: 0.85; }
+
+.hp-nav-menu {
+  position: absolute; top: calc(100% + 14px); left: 0;
+  transform: translateY(-6px);
+  min-width: 280px;
+  background: var(--hp-bone);
+  border: 1px solid var(--hp-rule-soft);
+  box-shadow: 0 24px 60px rgba(15, 39, 72, 0.18);
+  padding: 8px 0;
+  opacity: 0; pointer-events: none;
+  transition: opacity 180ms ease, transform 180ms ease;
+  z-index: 40;
+}
+.hp-nav-menu::before {
+  content: '';
+  position: absolute; top: -7px; left: 28px; transform: rotate(45deg);
+  width: 12px; height: 12px;
+  background: var(--hp-bone);
+  border-top: 1px solid var(--hp-rule-soft);
+  border-left: 1px solid var(--hp-rule-soft);
+}
+.hp-nav-item.has-dropdown:hover .hp-nav-menu,
+.hp-nav-item.has-dropdown:focus-within .hp-nav-menu {
+  opacity: 1; pointer-events: auto;
+  transform: translateY(0);
+}
+/* Invisible bridge so cursor can travel from tab to menu without closing */
+.hp-nav-menu::after {
+  content: ''; position: absolute; top: -14px; left: 0; right: 0; height: 14px;
+}
+
+.hp-nav-menu-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 24px;
+  padding: 14px 22px;
+  text-decoration: none;
+  text-transform: none; letter-spacing: 0;
+  font-size: 16px;
+  transition: background 160ms ease;
+  min-height: 56px;
+}
+/* Attorney variant — italic name + small uppercase role */
+.hp-nav-menu-item.is-attorney .name {
+  font-family: var(--hp-serif); font-weight: 400; font-style: italic;
+  font-size: 22px; line-height: 1.1;
+  color: var(--hp-ink);
+  letter-spacing: -0.005em;
+  white-space: nowrap;
+  text-align: left;
+}
+.hp-nav-menu-item.is-attorney .role {
+  font-family: var(--hp-sans);
+  font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 600;
+  color: var(--hp-mute);
+}
+/* Content variant — label (+ optional description below) */
+.hp-nav-menu-item:not(.is-attorney) {
+  grid-template-columns: 1fr;
+  gap: 4px;
+  align-items: start;
+}
+.hp-nav-menu-item .lbl {
+  font-family: var(--hp-serif); font-weight: 400;
+  font-size: 20px; line-height: 1.15;
+  color: var(--hp-ink);
+  letter-spacing: -0.005em;
+}
+.hp-nav-menu-item.has-desc .lbl { font-style: italic; }
+.hp-nav-menu-item .desc {
+  font-family: var(--hp-sans);
+  font-size: 12px; line-height: 1.4;
+  color: var(--hp-mute);
+}
+.hp-nav-menu-item:hover { background: rgba(15, 39, 72, 0.04); }
+.hp-nav-menu-item:hover .name,
+.hp-nav-menu-item:hover .lbl { color: var(--hp-accent); }
+
+.hp-nav-menu-foot {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 22px;
+  margin-top: 4px;
+  border-top: 1px solid var(--hp-rule-soft);
+  font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; font-weight: 600;
+  color: var(--hp-mute-deep);
+  text-decoration: none;
+}
+.hp-nav-menu-foot .arr { font-size: 14px; }
+.hp-nav-menu-foot:hover { color: var(--hp-ink); }
 
 .hp-nav-logo {
   display: flex; align-items: center; cursor: pointer; line-height: 1;
@@ -411,10 +528,14 @@ img { max-width: 100%; display: block; }
   color: var(--hp-mute); margin-top: 4px; font-weight: 500;
 }
 
-.hp-nav-end { display: flex; justify-content: flex-end; gap: 16px; align-items: center; }
+.hp-nav-end { display: flex; justify-content: flex-end; gap: 24px; align-items: center; }
 .hp-nav-phone {
   font-family: var(--hp-serif); font-style: italic; font-size: 17px; color: var(--hp-ink);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 200ms ease, color 200ms ease;
 }
+.hp-nav-phone:hover { color: var(--hp-accent); border-bottom-color: currentColor; }
 .hp-nav-cta {
   font-size: 11px; letter-spacing: 0.20em; text-transform: uppercase; font-weight: 600;
   padding: 10px 16px; border: 1px solid var(--hp-ink); color: var(--hp-ink);
@@ -1093,6 +1214,62 @@ img { max-width: 100%; display: block; }
   transition: color 180ms ease, border-color 180ms ease;
 }
 .hpB-faq-phone:hover { color: var(--hp-accent); border-bottom-color: var(--hp-deep); }
+
+/* Callout linking to the full FAQ page */
+.hpB-faq-callout {
+  display: flex; flex-direction: column; gap: 14px;
+  margin-top: 32px;
+  padding: 24px 24px 22px;
+  background: var(--hp-bone);
+  border: 1px solid var(--hp-rule);
+  border-left: 2px solid var(--hp-accent);
+  text-decoration: none;
+  color: var(--hp-ink);
+  transition: background 240ms ease, border-color 240ms ease, transform 240ms ease;
+  max-width: 320px;
+}
+.hpB-faq-callout:hover {
+  background: #fff;
+  border-color: var(--hp-accent);
+  transform: translateY(-1px);
+}
+.hpB-faq-callout .meta {
+  display: flex; align-items: center; gap: 12px;
+}
+.hpB-faq-callout .eye {
+  font-family: var(--hp-sans);
+  font-size: 10px; font-weight: 600; letter-spacing: 0.24em; text-transform: uppercase;
+  color: var(--hp-accent);
+}
+.hpB-faq-callout .cnt {
+  font-family: var(--hp-serif); font-style: italic;
+  font-size: 13px; color: var(--hp-mute);
+  position: relative; padding-left: 14px;
+}
+.hpB-faq-callout .cnt::before {
+  content: ''; position: absolute; left: 0; top: 50%;
+  width: 6px; height: 1px; background: var(--hp-mute);
+}
+.hpB-faq-callout .lbl {
+  display: inline-flex; align-items: center; gap: 14px;
+  font-family: var(--hp-serif); font-weight: 400; font-style: italic;
+  font-size: 26px; line-height: 1.1;
+  color: var(--hp-ink);
+  letter-spacing: -0.01em;
+}
+.hpB-faq-callout:hover .lbl { color: var(--hp-accent); }
+.hpB-faq-callout .arr {
+  width: 20px; height: 1px; background: currentColor;
+  position: relative;
+  transition: width 240ms ease;
+}
+.hpB-faq-callout .arr::after {
+  content: ''; position: absolute; right: 0; top: -4px;
+  width: 8px; height: 8px;
+  border-right: 1px solid currentColor; border-top: 1px solid currentColor;
+  transform: rotate(45deg);
+}
+.hpB-faq-callout:hover .arr { width: 28px; }
 .hpB-faq-list details { border-top: 1px solid var(--hp-rule); padding: 28px 0; }
 .hpB-faq-list details:last-child { border-bottom: 1px solid var(--hp-rule); }
 .hpB-faq-list summary {
@@ -1116,6 +1293,35 @@ img { max-width: 100%; display: block; }
 .hpB-contact-info dd { font-family: var(--hp-serif); font-size: 22px; margin: 0; color: #fff; }
 .hpB-contact .hp-cta-primary { background: var(--hp-bone); color: var(--hp-ink); }
 .hpB-contact .hp-cta-primary:hover { background: var(--hp-ink); color: var(--hp-bone); }
+
+/* Social row on the contact band */
+.hpB-contact-social {
+  display: flex; align-items: center; gap: 16px;
+  margin-top: 36px;
+}
+.hpB-contact-social .lbl {
+  font-family: var(--hp-sans);
+  font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 600;
+  color: rgba(251, 250, 246, 0.72);
+}
+.hpB-contact-social .rule {
+  width: 28px; height: 1px;
+  background: rgba(251, 250, 246, 0.4);
+}
+.hpB-contact-social a {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 42px; height: 42px;
+  border: 1px solid rgba(251, 250, 246, 0.32);
+  border-radius: 50%;
+  color: var(--hp-bone);
+  transition: background 220ms ease, border-color 220ms ease, transform 220ms ease, color 220ms ease;
+}
+.hpB-contact-social a:hover {
+  background: var(--hp-bone);
+  border-color: var(--hp-bone);
+  color: var(--hp-accent);
+  transform: translateY(-2px);
+}
 
 /* ============================================================
    Variation C — "The Verdict"

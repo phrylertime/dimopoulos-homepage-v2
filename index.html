@@ -20,6 +20,11 @@
     html, body { margin: 0; background: var(--hp-bone, #FBFAF6); }
     body { font-family: 'Source Sans 3', system-ui, sans-serif; color: var(--hp-ink, #0F2748); }
 
+    /* The source design portals the nav OUTSIDE the scaled 1280px artboard and
+       reserves 76px at the top of .hp-root for it. Our production build uses an
+       inline sticky nav inside .hp-root, so zero the padding back out. */
+    .hp-root { padding-top: 0; }
+
     /* Episode-card thumb backgrounds — the source uses data:image SVG placeholders
        generated at runtime; we substitute simple gradient fills for production. */
     .epx-thumb-bg { position: absolute; inset: 0; }
@@ -29,18 +34,84 @@
   <div class="hp-root" data-variation="B">
 
     <!-- ===== Top nav ===== -->
+    <!-- Three dropdown tabs (Attorneys, About, Insights) flank the centered
+         logo. Logo is the Home link; phone is a tel: link in the CTA cluster.
+         Dropdowns open on hover/focus-within — no JS needed. -->
     <header class="hp-nav">
       <div class="hp-nav-row">
-        <nav class="hp-nav-tabs">
-          <a class="is-active" href="#home">Home</a>
-          <a href="#attorneys">Attorneys</a>
-          <a href="#practice">Practice</a>
+        <nav class="hp-nav-tabs" aria-label="Primary">
+          <div class="hp-nav-item has-dropdown">
+            <a class="hp-nav-trigger" href="#attorneys">
+              Attorneys
+              <span class="hp-nav-caret" aria-hidden="true">
+                <svg viewBox="0 0 10 6" width="10" height="6"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </a>
+            <div class="hp-nav-menu" role="menu">
+              <a href="Attorney - Gus Dimopoulos.html" role="menuitem" class="hp-nav-menu-item is-attorney">
+                <span class="name">Gus Dimopoulos</span>
+                <span class="role">Managing Partner</span>
+              </a>
+              <a href="Attorney - Kathleen Seavy.html" role="menuitem" class="hp-nav-menu-item is-attorney">
+                <span class="name">Kathleen Seavy</span>
+                <span class="role">Associate</span>
+              </a>
+              <a href="Attorney - Hannah Gaudet.html" role="menuitem" class="hp-nav-menu-item is-attorney">
+                <span class="name">Hannah Gaudet</span>
+                <span class="role">Associate</span>
+              </a>
+            </div>
+          </div>
+          <div class="hp-nav-item has-dropdown">
+            <a class="hp-nav-trigger" href="#about">
+              About
+              <span class="hp-nav-caret" aria-hidden="true">
+                <svg viewBox="0 0 10 6" width="10" height="6"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </a>
+            <div class="hp-nav-menu" role="menu">
+              <a href="#about" role="menuitem" class="hp-nav-menu-item"><span class="lbl">The Firm</span></a>
+              <a href="#practice" role="menuitem" class="hp-nav-menu-item"><span class="lbl">Practice Areas</span></a>
+              <a href="#recognition" role="menuitem" class="hp-nav-menu-item"><span class="lbl">Awards &amp; Recognition</span></a>
+              <a href="Testimonials.html" role="menuitem" class="hp-nav-menu-item"><span class="lbl">Testimonials</span></a>
+            </div>
+          </div>
+          <div class="hp-nav-item has-dropdown">
+            <a class="hp-nav-trigger" href="#podcast">
+              Insights
+              <span class="hp-nav-caret" aria-hidden="true">
+                <svg viewBox="0 0 10 6" width="10" height="6"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </a>
+            <div class="hp-nav-menu" role="menu">
+              <a href="#podcast" role="menuitem" class="hp-nav-menu-item has-desc">
+                <span class="lbl">Split Podcast</span>
+                <span class="desc">A podcast on modern divorce</span>
+              </a>
+              <a href="#blog" role="menuitem" class="hp-nav-menu-item has-desc">
+                <span class="lbl">Blog</span>
+                <span class="desc">Notes from practice</span>
+              </a>
+              <a href="#newsroom" role="menuitem" class="hp-nav-menu-item has-desc">
+                <span class="lbl">In the Media</span>
+                <span class="desc">Press &amp; commentary</span>
+              </a>
+              <a href="#speaking" role="menuitem" class="hp-nav-menu-item has-desc">
+                <span class="lbl">Speaking</span>
+                <span class="desc">Talks &amp; appearances</span>
+              </a>
+              <a href="FAQ.html" role="menuitem" class="hp-nav-menu-item has-desc">
+                <span class="lbl">FAQ</span>
+                <span class="desc">44 questions, answered</span>
+              </a>
+            </div>
+          </div>
         </nav>
-        <a class="hp-nav-logo" href="#home" aria-label="Dimopoulos Law Firm, home">
+        <a class="hp-nav-logo" href="index.html" aria-label="Dimopoulos Law Firm, home">
           <img src="assets/dimopoulos-logo.png" alt="Dimopoulos Law Firm, P.C.">
         </a>
         <div class="hp-nav-end">
-          <span class="hp-nav-phone">914.472.4242</span>
+          <a class="hp-nav-phone" href="tel:9144724242">914.472.4242</a>
           <button class="hp-nav-cta" type="button">Consultation</button>
         </div>
       </div>
@@ -338,7 +409,7 @@
             <span class="hp-eyebrow">The team</span>
             <h2>Counsel <em>worth</em> hiring.</h2>
           </div>
-          <p style="font-family: var(--hp-serif); font-style: italic; font-size: 19px; color: var(--hp-mute-deep); max-width: 40ch; margin: 0;">A focused team that prioritizes depth over headcount. Each member is empowered to own the work in front of them.</p>
+          <p style="font-family: var(--hp-serif); font-style: italic; font-size: 19px; color: var(--hp-mute-deep); max-width: 46ch; margin: 0;">A deeply experienced team known for strategic thinking, discretion, courtroom strength, and sophisticated family law expertise. Every matter receives hands-on attention, sharp judgment, and a commitment to achieving the strongest possible outcome for our clients.</p>
         </div>
         <div class="hpB-att-row hp-reveal-stagger is-visible">
           <article class="hpB-att">
@@ -461,6 +532,13 @@
           <span class="hp-eyebrow">FAQ</span>
           <h2>Questions <em>clients ask first</em>.</h2>
           <p>Have a question we don&rsquo;t answer here?<br>Call us: <a href="tel:9144724242" class="hpB-faq-phone">914-472-4242</a></p>
+          <a href="FAQ.html" class="hpB-faq-callout">
+            <span class="meta">
+              <span class="eye">Full library</span>
+              <span class="cnt">44 Questions · 7 Sections</span>
+            </span>
+            <span class="lbl">Browse all FAQs <span class="arr" aria-hidden="true"></span></span>
+          </a>
         </div>
         <div class="hpB-faq-list hp-reveal is-visible">
           <details open>
@@ -491,6 +569,27 @@
           <h2>Let&rsquo;s <em>begin</em>.</h2>
           <p class="lead">Tell us what you are facing. We&rsquo;ll respond within one business day.</p>
           <button class="hp-cta-primary" type="button">Schedule a consultation <span class="arr"></span></button>
+          <div class="hpB-contact-social" aria-label="Follow Dimopoulos Law Firm">
+            <span class="lbl">Follow</span>
+            <span class="rule" aria-hidden="true"></span>
+            <a href="https://www.instagram.com/gusdimopoulos/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="5"/>
+                <circle cx="12" cy="12" r="4"/>
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+              </svg>
+            </a>
+            <a href="https://www.facebook.com/dimopouloslawfirm" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                <path d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.7c0-.9.3-1.5 1.6-1.5h1.7V4.3c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.5-4 4.1v2.4H7.6V14h2.8v8h3.1z"/>
+              </svg>
+            </a>
+            <a href="https://www.linkedin.com/company/dimopoulos-law-firm/posts/?feedView=all" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                <path d="M6.94 5.5a1.94 1.94 0 1 1-3.88 0 1.94 1.94 0 0 1 3.88 0zM3.3 8.4h3.3V21H3.3V8.4zm5.5 0h3.16v1.72h.05c.44-.83 1.5-1.71 3.1-1.71 3.31 0 3.92 2.18 3.92 5.02V21H15.7v-6.18c0-1.47-.03-3.37-2.05-3.37-2.05 0-2.37 1.6-2.37 3.27V21H8.8V8.4z"/>
+              </svg>
+            </a>
+          </div>
         </div>
         <dl class="hpB-contact-info hp-reveal is-visible">
           <div><dt>Phone</dt><dd>914-472-4242</dd></div>
@@ -503,7 +602,7 @@
     <!-- ===== Footer ===== -->
     <footer class="hpA-footer">
       <div class="hpA-footer-row">
-        <span>© 2007&ndash; Dimopoulos Law Firm PC. All rights reserved.</span>
+        <span>© 2007&ndash;2026 Dimopoulos Law Firm PC. All rights reserved.</span>
         <span>Westchester · NYC · Putnam · Dutchess · Rockland · Orange</span>
       </div>
     </footer>
