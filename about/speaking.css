@@ -161,7 +161,7 @@
 
 /* ---- Topics grid -------------------------------------------- */
 .sp-topics {
-  background: var(--slate-100);
+  background: var(--hp-bone);
   padding: 96px 0;
 }
 .sp-topics-inner { max-width: 1240px; margin: 0 auto; padding: 0 32px; }
@@ -207,7 +207,7 @@
   min-height: 200px;
   transition: background 240ms ease, color 240ms ease;
 }
-.sp-topic:hover { background: var(--hp-paper); }
+.sp-topic:hover { background: var(--slate-100); }
 .sp-topic .n {
   font-family: var(--hp-sans);
   font-size: 11px; letter-spacing: 0.22em;
@@ -310,7 +310,7 @@
   transition: opacity 200ms ease;
 }
 .sp-format:hover::before { opacity: 1; }
-.sp-format:hover { background: var(--hp-paper); }
+.sp-format:hover { background: var(--slate-100); }
 
 /* ---- Booking CTA band --------------------------------------- */
 .sp-book {
