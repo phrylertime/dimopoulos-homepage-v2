@@ -63,6 +63,39 @@
     apply();
   }
 
+  // ===== FAQ sticky-rail scroll-spy =====
+  // Highlights the active section in the left-rail TOC as the user scrolls
+  // through the FAQ sections. Mirrors the IntersectionObserver in FAQPage.jsx.
+  const railList = document.querySelector('[data-faq-rail]');
+  if (railList) {
+    const sections = Array.from(document.querySelectorAll('.faq-sec[id^="faq-sec-"]'));
+    const railItems = Array.from(railList.querySelectorAll('li'));
+    const byId = new Map(railItems.map((li) => {
+      const a = li.querySelector('a[href^="#faq-sec-"]');
+      const id = a ? a.getAttribute('href').slice('#faq-sec-'.length) : null;
+      return [id, li];
+    }));
+    const setActive = (id) => {
+      railItems.forEach((li) => li.classList.remove('is-active'));
+      const el = byId.get(id);
+      if (el) el.classList.add('is-active');
+    };
+    if (sections.length && 'IntersectionObserver' in window) {
+      const io = new IntersectionObserver(
+        (entries) => {
+          const visible = entries
+            .filter((e) => e.isIntersecting)
+            .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+          if (visible[0]) {
+            setActive(visible[0].target.id.replace('faq-sec-', ''));
+          }
+        },
+        { rootMargin: '-30% 0px -60% 0px', threshold: [0, 0.2, 0.5, 1] }
+      );
+      sections.forEach((s) => io.observe(s));
+    }
+  }
+
   // ===== Scroll-reveal (progressive enhancement) =====
   // The source design fades sections in on scroll. If reduced-motion is set
   // we skip this entirely — content is already marked `is-visible` in markup
