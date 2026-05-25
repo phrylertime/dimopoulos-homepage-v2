@@ -5026,3 +5026,29 @@ img { max-width: 100%; display: block; }
 }
 .bio-footer-row .footer-link:hover,
 .hpA-footer-row .footer-link:hover { color: var(--hp-ink, #0F2748); }
+
+/* ---- Be-a-Guest CTA (homepage Option C, v3) ----------------------------- */
+.pcC-guest-cta {
+  display: inline-flex; align-items: center; gap: 14px;
+  margin-top: 28px;
+  padding: 16px 26px;
+  border: 1px solid rgba(123, 169, 200, 0.5);
+  background: rgba(123, 169, 200, 0.06);
+  color: #f6f4ef;
+  font-family: 'Source Sans 3', system-ui, sans-serif;
+  font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
+  font-weight: 600;
+  text-decoration: none; cursor: pointer;
+  transition: background 200ms ease, border-color 200ms ease, color 200ms ease;
+}
+.pcC-guest-cta:hover {
+  background: #7BA9C8;
+  color: #0F2748;
+  border-color: #7BA9C8;
+}
+.pcC-guest-cta .arr {
+  width: 22px; height: 1px;
+  background: currentColor;
+  transition: width 200ms ease;
+}
+.pcC-guest-cta:hover .arr { width: 32px; }

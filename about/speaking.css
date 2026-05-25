@@ -161,7 +161,7 @@
 
 /* ---- Topics grid -------------------------------------------- */
 .sp-topics {
-  background: var(--hp-bone);
+  background: var(--slate-100);
   padding: 96px 0;
 }
 .sp-topics-inner { max-width: 1240px; margin: 0 auto; padding: 0 32px; }
