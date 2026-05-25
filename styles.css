@@ -5003,3 +5003,26 @@ img { max-width: 100%; display: block; }
 }
 .hp-nav-menu.is-mega .mega-foot:hover { color: var(--hp-ink); }
 .hp-nav-menu.is-mega .mega-foot .arr { font-size: 14px; letter-spacing: 0; }
+
+
+/* ---- AI Disclosure link in pa-footer (v3) -------------------- */
+.pa-footer-row .pa-footer-link {
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  color: rgba(251,250,246,0.55);
+  text-decoration: none;
+  transition: color 180ms ease;
+}
+.pa-footer-row .pa-footer-link:hover { color: rgba(251,250,246,0.9); }
+
+
+/* ---- AI Disclosure link in bio/hpA footers --------------------- */
+.bio-footer-row .footer-link,
+.hpA-footer-row .footer-link {
+  font-size: 12px;
+  color: var(--hp-mute-deep, #5B6E89);
+  text-decoration: none;
+  transition: color 180ms ease;
+}
+.bio-footer-row .footer-link:hover,
+.hpA-footer-row .footer-link:hover { color: var(--hp-ink, #0F2748); }
