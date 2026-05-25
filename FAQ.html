@@ -22,55 +22,77 @@
   <div class="bio-root faq-root">
 
     <!-- ===== Top nav (Insights active, since FAQ lives under Insights) ===== -->
-    <header class="hp-nav">
-      <div class="hp-nav-row">
-        <nav class="hp-nav-tabs" aria-label="Primary">
-          <div class="hp-nav-item has-dropdown">
-            <a class="hp-nav-trigger" href="index.html#attorneys">
-              Attorneys
-              <span class="hp-nav-caret" aria-hidden="true"><svg viewBox="0 0 10 6" width="10" height="6"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-            </a>
-            <div class="hp-nav-menu" role="menu">
-              <a href="Attorney - Gus Dimopoulos.html" role="menuitem" class="hp-nav-menu-item is-attorney"><span class="name">Gus Dimopoulos</span><span class="role">Managing Partner</span></a>
-              <a href="Attorney - Kathleen Seavy.html" role="menuitem" class="hp-nav-menu-item is-attorney"><span class="name">Kathleen Seavy</span><span class="role">Associate</span></a>
-              <a href="Attorney - Hannah Gaudet.html" role="menuitem" class="hp-nav-menu-item is-attorney"><span class="name">Hannah Gaudet</span><span class="role">Associate</span></a>
-            </div>
-          </div>
-          <div class="hp-nav-item has-dropdown">
-            <a class="hp-nav-trigger" href="index.html#about">
-              About
-              <span class="hp-nav-caret" aria-hidden="true"><svg viewBox="0 0 10 6" width="10" height="6"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-            </a>
-            <div class="hp-nav-menu" role="menu">
-              <a href="index.html#about" role="menuitem" class="hp-nav-menu-item"><span class="lbl">The Firm</span></a>
-              <a href="index.html#practice" role="menuitem" class="hp-nav-menu-item"><span class="lbl">Practice Areas</span></a>
-              <a href="index.html#recognition" role="menuitem" class="hp-nav-menu-item"><span class="lbl">Awards &amp; Recognition</span></a>
-              <a href="Testimonials.html" role="menuitem" class="hp-nav-menu-item"><span class="lbl">Testimonials</span></a>
-            </div>
-          </div>
-          <div class="hp-nav-item has-dropdown is-active">
-            <a class="hp-nav-trigger is-active" href="#">
-              Insights
-              <span class="hp-nav-caret" aria-hidden="true"><svg viewBox="0 0 10 6" width="10" height="6"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-            </a>
-            <div class="hp-nav-menu" role="menu">
-              <a href="index.html#podcast" role="menuitem" class="hp-nav-menu-item has-desc"><span class="lbl">Split Podcast</span><span class="desc">A podcast on modern divorce</span></a>
-              <a href="#blog" role="menuitem" class="hp-nav-menu-item has-desc"><span class="lbl">Blog</span><span class="desc">Notes from practice</span></a>
-              <a href="index.html#newsroom" role="menuitem" class="hp-nav-menu-item has-desc"><span class="lbl">In the Media</span><span class="desc">Press &amp; commentary</span></a>
-              <a href="#speaking" role="menuitem" class="hp-nav-menu-item has-desc"><span class="lbl">Speaking</span><span class="desc">Talks &amp; appearances</span></a>
-              <a href="FAQ.html" role="menuitem" class="hp-nav-menu-item has-desc"><span class="lbl">FAQ</span><span class="desc">44 questions, answered</span></a>
-            </div>
-          </div>
-        </nav>
-        <a class="hp-nav-logo" href="index.html" aria-label="Dimopoulos Law Firm, home">
-          <img src="assets/dimopoulos-logo.png" alt="Dimopoulos Law Firm, P.C.">
+    <header class="hp-nav" role="banner">
+  <div class="hp-nav-row">
+    <nav class="hp-nav-tabs" aria-label="Primary">
+      <div class="hp-nav-item has-dropdown">
+        <a class="hp-nav-trigger" href="index.html#about" aria-haspopup="true">About
+          <span class="hp-nav-caret" aria-hidden="true"><svg viewBox="0 0 10 6" width="10" height="6"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         </a>
-        <div class="hp-nav-end">
-          <a class="hp-nav-phone" href="tel:9144724242">914.472.4242</a>
-          <a class="hp-nav-cta" href="#contact">Consultation</a>
+        <div class="hp-nav-menu" role="menu">
+          <a href="Attorney - Gus Dimopoulos.html" class="hp-nav-menu-item is-attorney"><span class="name">Gus Dimopoulos</span><span class="role">Managing Partner</span></a>
+          <a href="Attorney - Kathleen Seavy.html" class="hp-nav-menu-item is-attorney"><span class="name">Kathleen Seavy</span><span class="role">Associate</span></a>
+          <a href="Attorney - Hannah Gaudet.html" class="hp-nav-menu-item is-attorney"><span class="name">Hannah Gaudet</span><span class="role">Associate</span></a>
+          <a href="index.html#about"       class="hp-nav-menu-item"><span class="lbl">The Firm</span></a>
+          <a href="index.html#recognition" class="hp-nav-menu-item"><span class="lbl">Awards &amp; Recognition</span></a>
+          <a href="Testimonials.html"      class="hp-nav-menu-item"><span class="lbl">Testimonials</span></a>
         </div>
       </div>
-    </header>
+      <div class="hp-nav-item has-dropdown">
+        <a class="hp-nav-trigger" href="practice-areas/" aria-haspopup="true">Practice Areas
+          <span class="hp-nav-caret" aria-hidden="true"><svg viewBox="0 0 10 6" width="10" height="6"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
+        <div class="hp-nav-menu is-mega" role="menu">
+          <div class="mega-grid">
+            <div class="mega-col">
+              <span class="mega-col-label">Divorce</span>
+              <a class="mega-link" href="practice-areas/divorce.html">Divorce</a>
+              <a class="mega-link" href="practice-areas/high-net-worth-divorce.html">High Net Worth Divorce</a>
+              <a class="mega-link" href="practice-areas/equitable-distribution.html">Equitable Distribution</a>
+            </div>
+            <div class="mega-col">
+              <span class="mega-col-label">Children</span>
+              <a class="mega-link" href="practice-areas/child-custody.html">Child Custody</a>
+              <a class="mega-link" href="practice-areas/international-custody-disputes.html">International Custody Disputes</a>
+              <a class="mega-link" href="practice-areas/parental-relocation.html">Parental Relocation</a>
+            </div>
+            <div class="mega-col">
+              <span class="mega-col-label">Support</span>
+              <a class="mega-link" href="practice-areas/spousal-maintenance.html">Spousal Maintenance</a>
+              <a class="mega-link" href="practice-areas/child-support.html">Child Support</a>
+            </div>
+            <div class="mega-col">
+              <span class="mega-col-label">Agreements &amp; disputes</span>
+              <a class="mega-link" href="practice-areas/prenuptial-separation-postnuptial-agreements.html">Prenup, Sep. &amp; Postnup</a>
+              <a class="mega-link" href="practice-areas/domestic-violence-and-protective-orders.html">Domestic Violence</a>
+              <a class="mega-link" href="practice-areas/crisis-management.html">Crisis Management</a>
+              <a class="mega-link" href="practice-areas/matrimonial-appeals.html">Matrimonial Appeals</a>
+              <a class="mega-link" href="practice-areas/enforcement-and-modification.html">Enforcement &amp; Modification</a>
+            </div>
+          </div>
+          <a class="mega-foot" href="practice-areas/">All practice areas <span class="arr">&rarr;</span></a>
+        </div>
+      </div>
+      <div class="hp-nav-item has-dropdown is-active">
+        <a class="hp-nav-trigger is-active" href="index.html#podcast" aria-haspopup="true">Insights
+          <span class="hp-nav-caret" aria-hidden="true"><svg viewBox="0 0 10 6" width="10" height="6"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
+        <div class="hp-nav-menu" role="menu">
+          <a href="index.html#podcast"  class="hp-nav-menu-item has-desc"><span class="lbl">Split Podcast</span><span class="desc">A podcast on modern divorce</span></a>
+          <a href="index.html#newsroom" class="hp-nav-menu-item has-desc"><span class="lbl">In the Media</span><span class="desc">Press &amp; commentary</span></a>
+          <a href="FAQ.html"            class="hp-nav-menu-item has-desc"><span class="lbl">FAQ</span><span class="desc">44 questions, answered</span></a>
+        </div>
+      </div>
+    </nav>
+    <a class="hp-nav-logo" href="index.html" aria-label="Dimopoulos Law Firm, home">
+      <img src="assets/dimopoulos-logo.png" alt="Dimopoulos Law Firm, P.C.">
+    </a>
+    <div class="hp-nav-end">
+      <a class="hp-nav-phone" href="tel:9144724242">914.472.4242</a>
+      <a class="hp-nav-cta" href="#contact">Consultation</a>
+    </div>
+  </div>
+</header>
 
     <!-- ===== Hero ===== -->
     <section class="faq-hero">

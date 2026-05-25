@@ -4943,3 +4943,63 @@ img { max-width: 100%; display: block; }
   top: 0;
   z-index: 50;
 }
+
+
+/* ---- Mega-menu in the global nav (ported from practice-areas/styles.css) -- */
+.hp-nav-menu.is-mega {
+  min-width: 880px;
+  max-width: min(960px, calc(100vw - 64px));
+  padding: 18px 32px 12px;
+}
+.hp-nav-menu.is-mega .mega-link {
+  text-transform: none;
+  letter-spacing: -0.005em;
+}
+.hp-nav-menu.is-mega .mega-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px 24px;
+}
+.hp-nav-menu.is-mega .mega-col {
+  display: flex; flex-direction: column;
+  padding: 8px 6px 0;
+}
+.hp-nav-menu.is-mega .mega-col-label {
+  font-family: var(--hp-sans);
+  font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+  font-weight: 600; color: var(--hp-ink-deep);
+  padding-bottom: 10px;
+  margin-bottom: 6px;
+  border-bottom: 1px solid var(--hp-rule-soft);
+}
+.hp-nav-menu.is-mega .mega-link {
+  display: block;
+  padding: 8px 6px;
+  font-family: var(--hp-serif);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.2;
+  color: var(--hp-ink);
+  text-decoration: none;
+  transition: color 160ms ease, background 160ms ease;
+}
+.hp-nav-menu.is-mega .mega-link:hover {
+  color: var(--steel-deep);
+  background: rgba(63, 111, 168, 0.05);
+}
+.hp-nav-menu.is-mega .mega-link.is-active {
+  color: var(--steel-deep);
+  font-style: italic;
+}
+.hp-nav-menu.is-mega .mega-foot {
+  margin-top: 10px;
+  padding: 14px 0 4px;
+  display: flex; align-items: center; justify-content: space-between;
+  border-top: 1px solid var(--hp-rule-soft);
+  font-family: var(--hp-sans);
+  font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; font-weight: 600;
+  color: var(--hp-mute-deep);
+  text-decoration: none;
+}
+.hp-nav-menu.is-mega .mega-foot:hover { color: var(--hp-ink); }
+.hp-nav-menu.is-mega .mega-foot .arr { font-size: 14px; letter-spacing: 0; }
