@@ -5030,6 +5030,8 @@ img { max-width: 100%; display: block; }
 /* ---- Be-a-Guest CTA (homepage Option C, v3) ----------------------------- */
 .pcC-guest-cta {
   display: inline-flex; align-items: center; gap: 14px;
+  align-self: flex-start;
+  width: max-content;
   margin-top: 28px;
   padding: 16px 26px;
   border: 1px solid rgba(123, 169, 200, 0.5);
