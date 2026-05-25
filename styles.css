@@ -4930,3 +4930,16 @@ img { max-width: 100%; display: block; }
   font-size: 12px; letter-spacing: 0.20em; text-transform: uppercase;
   color: var(--t-mute-deep); font-weight: 600; margin-top: 12px;
 }
+
+/* ===== production overrides =====
+   The source CSS expects .hp-nav / .bio-nav to be portaled into a body-level
+   fixed #nav-rail (the 1280px artboard-scaling hack from shared.jsx). Since
+   the static build uses inline navs instead, the nav has no positioning of
+   its own and the hero's stacking context paints over the dropdown menus.
+   Make the nav properly sticky and put it on top. */
+.hp-nav,
+.bio-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
