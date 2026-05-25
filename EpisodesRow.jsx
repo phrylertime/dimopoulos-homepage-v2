@@ -1,7 +1,7 @@
 /* global React, PODCAST_EPISODES */
 const { useState: useStateEp } = React;
 
-function EpisodesRow({ tone = 'light', sectionTitle = 'Split Podcast', allHref = '#podcast' }) {
+function EpisodesRow({ tone = 'light', sectionTitle = 'Split Podcast', allHref = 'pages/podcast.html' }) {
   const eps = PODCAST_EPISODES;
   const visible = 3;
   const max = Math.max(0, eps.length - visible);
@@ -26,17 +26,27 @@ function EpisodesRow({ tone = 'light', sectionTitle = 'Split Podcast', allHref =
             {eps.map((ep, i) => (
               <article key={ep.n} className="epx-card" aria-hidden={i < start || i >= start + visible}>
                 <div className="epx-thumb">
-                  <img src={ep.img} alt="" />
+                  <img src={ep.img} alt={ep.imgAlt || ''} loading="lazy" />
                   {/* angled brand-blue accent stroke, à la Law Disrupted teal */}
                   <span className="epx-stroke epx-stroke--tl" aria-hidden="true"></span>
                   <span className="epx-stroke epx-stroke--br" aria-hidden="true"></span>
-                  <button className="epx-play" aria-label={`Play episode ${ep.n}`}>
-                    <svg viewBox="0 0 24 24" width="20" height="20"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
-                  </button>
+                  {ep.listen ? (
+                    <a className="epx-play" href={ep.listen} target="_blank" rel="noopener noreferrer" aria-label={`Listen to episode ${ep.n}: ${ep.title}`}>
+                      <svg viewBox="0 0 24 24" width="100%" height="100%" aria-hidden="true"><path d="M6 4l14 8-14 8V4z" fill="currentColor"/></svg>
+                    </a>
+                  ) : (
+                    <button className="epx-play" aria-label={`Play episode ${ep.n}`} type="button">
+                      <svg viewBox="0 0 24 24" width="100%" height="100%" aria-hidden="true"><path d="M6 4l14 8-14 8V4z" fill="currentColor"/></svg>
+                    </button>
+                  )}
                 </div>
                 <div className="epx-body">
                   <span className="epx-num">Ep. {String(ep.n).padStart(2, '0')}</span>
-                  <h3 className="epx-title">{ep.title}</h3>
+                  <h3 className="epx-title">
+                    {ep.listen
+                      ? <a className="epx-title-link" href={ep.listen} target="_blank" rel="noopener noreferrer">{ep.title}</a>
+                      : ep.title}
+                  </h3>
                   <p className="epx-guest">{ep.guest}</p>
                   <div className="epx-foot">
                     <span>split.fm</span>
