@@ -5141,7 +5141,11 @@ html, body { overflow-x: hidden; }
 /* Lock body scroll when drawer is open (avoid double-scroll). */
 body.is-nav-open { overflow: hidden; }
 
-@media (max-width: 768px) {
+/* Switch to hamburger drawer up to 1080px — below that the three desktop
+   nav tabs + logo + phone+CTA cluster crowd the row and the logo gets
+   horizontally squeezed. 1080 is the smallest width that keeps the
+   desktop nav readable; tablets and small laptops use the drawer. */
+@media (max-width: 1080px) {
   /* The header's backdrop-filter creates a containing block for fixed
      descendants — that traps the drawer inside the 60px header. Drop the
      blur on mobile so the drawer can position against the viewport. */

@@ -146,6 +146,6 @@
     if (e.key === 'Escape' && nav.classList.contains('is-open')) setOpen(false);
   });
   window.addEventListener('resize', () => {
-    if (window.innerWidth > 768 && nav.classList.contains('is-open')) setOpen(false);
+    if (window.innerWidth > 1080 && nav.classList.contains('is-open')) setOpen(false);
   });
 })();
