@@ -1340,6 +1340,33 @@
   font-size: 13px; line-height: 1.5; color: var(--hp-mute-deep);
 }
 
+/* =========================================================================
+   MOBILE RESPONSIVE FIXES — practice-area pages
+   The existing @media (max-width: 900px) collapses .pa-layout to 1fr, but
+   .pa-sidebar is a grid item with default min-width: auto, and its
+   .pa-sidebar-list has overflow-x: auto with nowrap items. Without
+   min-width: 0 on the grid item, the track expands to the unbreakable
+   content size (~2000px) and overflows the viewport.
+   ========================================================================= */
+@media (max-width: 900px) {
+  .pa-layout,
+  .pa-sidebar,
+  .pa-sidebar-list,
+  .pa-main { min-width: 0; }
+  /* .pa-main has max-width: 720px but no constraint to viewport on phone. */
+  .pa-main { max-width: 100%; }
+}
+@media (max-width: 720px) {
+  /* Tighten section padding/typography for phone widths. */
+  .pa-hero { padding: 48px 20px; }
+  .pa-hero-h1 { font-size: clamp(34px, 9vw, 48px); }
+  .pa-hero-lede { font-size: 17px; }
+  .pa-main > * + * { margin-top: 40px; }
+  .pa-section--simple h2,
+  .pa-section--simple .pa-h2 { font-size: clamp(26px, 7vw, 36px); }
+  .pa-section--simple p { font-size: 17px; }
+}
+
 /* ---- Print -------------------------------------------------- */
 @media print {
   .pa-nav, .pa-awards, .pa-safety-strip, .pa-anchor-nav, .pa-related, .pa-contact, .pa-footer { display: none; }

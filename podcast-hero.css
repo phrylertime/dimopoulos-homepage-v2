@@ -16,7 +16,9 @@
   background: #0b0a09;
 }
 @media (max-width: 900px) {
-  .podx-hero { grid-template-columns: 1fr; min-height: 0; }
+  /* `1fr` alone falls back to `minmax(auto, 1fr)`, letting the hero image's
+     intrinsic width blow past the viewport. Use minmax(0, 1fr) instead. */
+  .podx-hero { grid-template-columns: minmax(0, 1fr); min-height: 0; }
 }
 
 .podx-hero-img {
@@ -72,7 +74,6 @@
 }
 @media (max-width: 1180px) { .podx-hero-panel { padding: 80px 56px; } }
 @media (max-width: 900px)  { .podx-hero-panel { padding: 56px 24px 64px; } }
-
 .podx-hero-inner { max-width: 580px; }
 
 .podx-kicker {
@@ -283,3 +284,21 @@
   transition: width 200ms ease;
 }
 .podx-guest-cta:hover .arr { width: 32px; }
+
+/* =========================================================================
+   MOBILE RESPONSIVE — appended last so it wins over earlier base rules.
+   ========================================================================= */
+@media (max-width: 720px) {
+  /* Container is too narrow for the desktop heading size — scale down and
+     allow long words ("Podcast", "Divorce") to wrap instead of overflowing. */
+  .podx-hero-inner { max-width: 100%; min-width: 0; }
+  .podx-h1 {
+    font-size: clamp(36px, 9.5vw, 56px);
+    overflow-wrap: anywhere;
+  }
+  .podx-meta { flex-wrap: wrap; gap: 16px 32px; }
+  .podx-lede { font-size: 16px; }
+  /* Listen-on row was flex-wrap: nowrap — overflows the phone viewport. */
+  .podx-listen { flex-wrap: wrap; gap: 8px; }
+}
+

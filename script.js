@@ -119,3 +119,33 @@
     targets.forEach((el) => io.observe(el));
   }
 })();
+
+/* Mobile nav drawer — toggles .is-open on .hp-nav and locks body scroll. */
+(function mobileNavDrawer() {
+  const nav = document.querySelector('.hp-nav');
+  const btn = document.querySelector('.hp-nav-mobile-toggle');
+  if (!nav || !btn) return;
+
+  const setOpen = (open) => {
+    nav.classList.toggle('is-open', open);
+    document.body.classList.toggle('is-nav-open', open);
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  };
+
+  btn.addEventListener('click', () => setOpen(!nav.classList.contains('is-open')));
+
+  // Close when any nav link is tapped.
+  nav.addEventListener('click', (e) => {
+    const a = e.target.closest('a');
+    if (a && nav.classList.contains('is-open')) setOpen(false);
+  });
+
+  // Close on Escape and on resize past the breakpoint.
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && nav.classList.contains('is-open')) setOpen(false);
+  });
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768 && nav.classList.contains('is-open')) setOpen(false);
+  });
+})();

@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Dimopoulos Law Firm — Matrimonial &amp; Family Law in New York</title>
   <meta name="description" content="When everything is on the line, experience matters. Gus Dimopoulos leads a New York family law firm focused on complex matrimonial, custody, and high-conflict matters.">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=launch">
   <style>
     /* The user picked the steel-blue accent in the design tool (TWEAK_DEFAULTS.accent
        = '#3F6FA8'). The static CSS defaults to terracotta, so we override here to
@@ -42,7 +42,7 @@
          Dropdowns open on hover/focus-within — no JS needed. -->
     <header class="hp-nav" role="banner">
   <div class="hp-nav-row">
-    <nav class="hp-nav-tabs" aria-label="Primary">
+    <nav id="hp-nav-drawer" class="hp-nav-tabs" aria-label="Primary">
       <div class="hp-nav-item has-dropdown">
         <a class="hp-nav-trigger" href="index.html#about" aria-haspopup="true">About
           <span class="hp-nav-caret" aria-hidden="true"><svg viewBox="0 0 10 6" width="10" height="6"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
@@ -109,6 +109,11 @@
       <a class="hp-nav-phone" href="tel:9144724242">914.472.4242</a>
       <a class="hp-nav-cta" href="#contact">Consultation</a>
     </div>
+    <button class="hp-nav-mobile-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="hp-nav-drawer">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </button>
   </div>
 </header>
 
@@ -631,8 +636,8 @@
 
   </div>
 
-  <script src="script.js" defer></script>
-  <script src="consult-modal.js" defer></script>
-  <script src="guest-modal.js" defer></script>
+  <script src="script.js?v=launch" defer></script>
+  <script src="consult-modal.js?v=launch" defer></script>
+  <script src="guest-modal.js?v=launch" defer></script>
 </body>
 </html>
