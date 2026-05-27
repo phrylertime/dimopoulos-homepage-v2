@@ -421,7 +421,7 @@
       el.matches('a.hp-nav-cta, button.hp-nav-cta, a.bio-nav-cta, button.bio-nav-cta')
     ) && text === 'consultation') return true;
     if (el.matches && (
-      el.matches('a.hp-cta-primary, button.hp-cta-primary, a.cta-primary, button.cta-primary, a.bio-cta')
+      el.matches('a.hp-cta-primary, button.hp-cta-primary, a.cta-primary, button.cta-primary, a.bio-cta, button.bio-cta, a.cta, button.cta')
     ) && /schedule a consultation/.test(text)) return true;
     // Bare href="#" CTAs labeled "Schedule a consultation"
     if (el.tagName === 'A' && (href === '#' || href === '') && /schedule a consultation/.test(text)) return true;
