@@ -2247,20 +2247,24 @@ img { max-width: 100%; display: block; }
   position: absolute;
   top: 50%; left: 50%;
   transform: translate(-50%, -50%);
-  width: 56px; height: 56px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.92);
-  color: #0F2748;
+  width: 64px; height: 64px;
+  background: none;
+  border-radius: 0;
   border: 0;
+  box-shadow: none;
+  color: #fff;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 8px 22px rgba(0,0,0,0.35);
-  transition: transform 180ms ease, background 180ms ease;
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.55));
+  transition: transform 180ms ease, filter 180ms ease;
 }
 .epx-play svg { margin-left: 3px; }
-.epx-card:hover .epx-play { transform: translate(-50%, -50%) scale(1.06); background: #fff; }
+.epx-card:hover .epx-play {
+  transform: translate(-50%, -50%) scale(1.08);
+  filter: drop-shadow(0 6px 18px rgba(0,0,0,0.7));
+}
 
 /* Body */
 .epx-body {
