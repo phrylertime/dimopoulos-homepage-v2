@@ -5606,3 +5606,41 @@ body.is-nav-open { overflow: hidden; }
     gap: 24px 20px;
   }
 }
+
+/* =========================================================================
+   LEGAL DISCLAIMER — "Prior results do not guarantee a similar outcome."
+   Required by NY attorney advertising rules. Appears below every contact
+   module and inside every footer row.
+   ========================================================================= */
+
+/* Contact-module disclaimer — sits directly under the "Schedule a
+   consultation" button (inside the left column of each contact grid).
+   Color flips based on the section's background. */
+.contact-disclaimer {
+  margin: 14px 0 0;
+  max-width: 44ch;
+  font-family: var(--hp-serif, 'Cormorant Garamond', Georgia, serif);
+  font-style: italic;
+  font-size: 13px;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  opacity: 0.78;
+}
+.hpB-contact .contact-disclaimer { color: rgba(251, 250, 246, 0.78); }
+.bio-contact  .contact-disclaimer { color: var(--b-mute-deep, #3B4658); }
+.pa-contact   .contact-disclaimer { color: rgba(251, 250, 246, 0.72); }
+
+@media (max-width: 768px) {
+  .contact-disclaimer {
+    margin-top: 12px;
+    font-size: 12.5px;
+  }
+}
+
+/* Footer-row disclaimer — inline span between AI Disclosure link and the
+   areas list. Inherits footer-row's 12px font size + muted color. */
+.footer-disclaimer {
+  font-style: italic;
+  opacity: 0.85;
+}
+
