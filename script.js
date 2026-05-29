@@ -28,15 +28,45 @@
   const dotsRoot = document.querySelector('[data-testimonial-dots]');
   if (quoteEl && authorEl && dotsRoot) {
     const dots = dotsRoot.querySelectorAll('button');
+    const navRoot = document.querySelector('[data-testimonial-nav]');
+    const prevBtn = document.querySelector('[data-testimonial-prev]');
+    const nextBtn = document.querySelector('[data-testimonial-next]');
+    const ROTATE_MS = 7000;
+    let index = 0;
+    let timer = null;
+
     const show = (i) => {
-      const t = testimonials[i];
+      index = ((i % testimonials.length) + testimonials.length) % testimonials.length;
+      const t = testimonials[index];
       quoteEl.textContent = t.quote;
       authorEl.textContent = '— ' + t.author + ' · ' + t.context;
-      dots.forEach((d, di) => d.classList.toggle('is-active', di === i));
+      dots.forEach((d, di) => d.classList.toggle('is-active', di === index));
     };
+
+    const stop = () => { if (timer) { clearInterval(timer); timer = null; } };
+    const start = () => { stop(); timer = setInterval(() => show(index + 1), ROTATE_MS); };
+    const restart = () => { stop(); start(); };
+
     dots.forEach((d) => {
-      d.addEventListener('click', () => show(parseInt(d.dataset.index, 10)));
+      d.addEventListener('click', () => { show(parseInt(d.dataset.index, 10)); restart(); });
     });
+    if (prevBtn) prevBtn.addEventListener('click', () => { show(index - 1); restart(); });
+    if (nextBtn) nextBtn.addEventListener('click', () => { show(index + 1); restart(); });
+
+    // Pause auto-rotate while user hovers the quote/controls; resume on leave.
+    const hoverHost = quoteEl.closest('.hpB-testimonials') || quoteEl.parentElement;
+    if (hoverHost) {
+      hoverHost.addEventListener('mouseenter', stop);
+      hoverHost.addEventListener('mouseleave', start);
+    }
+    // Also pause when the tab is hidden, resume when it returns.
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) stop(); else start();
+    });
+    // Respect reduced-motion users: no auto-rotate, only manual controls.
+    if (!window.matchMedia || !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      start();
+    }
   }
 
   // ===== Episodes carousel =====
