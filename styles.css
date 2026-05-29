@@ -799,6 +799,15 @@ img { max-width: 100%; display: block; }
   background: var(--hp-ink);
   overflow: hidden;
 }
+/* When "More about Gus" is expanded, release the fixed/max height + the
+   overflow:hidden clip so the extra paragraph can flow instead of being
+   cropped at the panel edge. Image side stretches to match. */
+.hpB-hero:has(details.hpB-hero-more[open]) {
+  height: auto;
+  min-height: 720px;
+  max-height: none;
+  overflow: visible;
+}
 .hpB-hero-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
