@@ -1,0 +1,17 @@
+# macOS Finder metadata
+.DS_Store
+**/.DS_Store
+
+# Editor / OS scratch
+*.swp
+*.swo
+*~
+Thumbs.db
+
+# Local dev artifacts
+.playwright-mcp/
+/tmp/
+
+# Local env (just in case — none are checked in today)
+.env
+.env.local
