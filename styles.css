@@ -3416,7 +3416,11 @@ img { max-width: 100%; display: block; }
 }
 .bioC3-hero-img { position: absolute; inset: 0; }
 .bioC3-hero-img img {
-  width: 100%; height: 100%; object-fit: cover; object-position: center 18%;
+  width: 100%; height: 100%; object-fit: cover;
+  /* `center top` pins the photo's top edge to the panel top so Gus's full
+     head stays visible at every viewport. Same fix applied to the homepage
+     hero. The bottom crops instead, which is the safer trade. */
+  object-position: center top;
   filter: contrast(1.04);
 }
 /* Gradient scrim — slight top, heavier bottom for legibility */
