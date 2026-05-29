@@ -25,13 +25,12 @@
 
   const quoteEl = document.querySelector('[data-testimonial-quote]');
   const authorEl = document.querySelector('[data-testimonial-author]');
-  const dotsRoot = document.querySelector('[data-testimonial-dots]');
-  if (quoteEl && authorEl && dotsRoot) {
-    const dots = dotsRoot.querySelectorAll('button');
-    const navRoot = document.querySelector('[data-testimonial-nav]');
+  if (quoteEl && authorEl) {
+    const dotsRoot = document.querySelector('[data-testimonial-dots]');
+    const dots = dotsRoot ? dotsRoot.querySelectorAll('button') : [];
     const prevBtn = document.querySelector('[data-testimonial-prev]');
     const nextBtn = document.querySelector('[data-testimonial-next]');
-    const ROTATE_MS = 7000;
+    const ROTATE_MS = 5000;
     let index = 0;
     let timer = null;
 
