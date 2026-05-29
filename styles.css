@@ -2069,11 +2069,10 @@ img { max-width: 100%; display: block; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* The portrait shot puts Gus + the SPLIT neon in the LOWER portion of
-     the frame and the abstract wall art at the top. Pinning bottom keeps
-     the storytelling content visible at every viewport — the wall art
-     crops off the top instead. */
-  object-position: center bottom;
+  /* Center pin keeps both the SPLIT neon (upper-middle of the frame)
+     and Gus's face (middle) visible at every viewport — wall art at the
+     top and desk/books at the bottom crop instead. */
+  object-position: center center;
   display: block;
   /* Compound: SVG filter (lift + unsharp-mask) then CSS for final polish. */
   filter: url(#pcC-sharpen) contrast(1.08) saturate(1.1);
