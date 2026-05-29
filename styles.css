@@ -1090,7 +1090,7 @@ img { max-width: 100%; display: block; }
 /* Attorneys — horizontal scroll-feel cards */
 .hpB-attorneys { padding: 120px 48px; background: var(--hp-bone); }
 .hpB-attorneys-inner { max-width: 1280px; margin: 0 auto; }
-.hpB-attorneys-head { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: end; margin-bottom: 56px; }
+.hpB-attorneys-head { display: grid; grid-template-columns: 1fr 1.45fr; gap: 64px; align-items: start; margin-bottom: 56px; }
 .hpB-attorneys-head h2 { font-family: var(--hp-serif); font-weight: 400; font-size: clamp(48px, 5.5vw, 88px); line-height: 0.98; letter-spacing: -0.025em; margin: 16px 0 0; }
 .hpB-attorneys-head h2 em { font-style: italic; color: var(--hp-accent); }
 .hpB-att-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
