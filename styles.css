@@ -2069,10 +2069,10 @@ img { max-width: 100%; display: block; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* Center pin keeps both the SPLIT neon (upper-middle of the frame)
-     and Gus's face (middle) visible at every viewport — wall art at the
-     top and desk/books at the bottom crop instead. */
-  object-position: center center;
+  /* Bias slightly below center (60%) so the SPLIT neon AND its tagline
+     ("A PODCAST ON MODERN DIVORCE") both stay in frame on narrow widths.
+     Pure center clipped the tagline at the bottom of the visible window. */
+  object-position: center 60%;
   display: block;
   /* Compound: SVG filter (lift + unsharp-mask) then CSS for final polish. */
   filter: url(#pcC-sharpen) contrast(1.08) saturate(1.1);
