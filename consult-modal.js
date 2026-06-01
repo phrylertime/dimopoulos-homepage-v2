@@ -96,6 +96,10 @@
   .cm-help { font-family: var(--hp-serif, "Cormorant Garamond", serif); font-style: italic; font-size: 13px; color: var(--hp-mute-deep, #5B6E89); margin-top: 4px; }
   .cm-help.on-textarea { margin-top: 8px; }
 
+  /* Conditional "Names and ages of children" input — shown when Children = Yes. */
+  .cm-children-names-wrap { margin-top: 12px; display: flex; flex-direction: column; gap: 6px; }
+  .cm-children-names-wrap[hidden] { display: none; }
+
   .cm-modal-foot { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 22px 48px 32px; border-top: 1px solid var(--hp-rule, #D7CFB8); background: var(--hp-paper, #F6F3EB); }
   .cm-modal-foot .note { font-family: var(--hp-serif, "Cormorant Garamond", serif); font-style: italic; font-size: 14px; color: var(--hp-mute-deep, #5B6E89); max-width: 42ch; }
   .cm-modal-foot .actions { display: flex; align-items: center; gap: 20px; }
@@ -230,11 +234,15 @@
               </select>
             </div>
             <div class="cm-field">
-              <label>Children involved?</label>
-              <div class="cm-radio-row" role="radiogroup" aria-label="Children involved">
-                <label class="cm-chip"><input type="radio" name="children" value="Yes"><span>Yes</span></label>
+              <label>Children involved? <span class="req" aria-hidden="true">*</span></label>
+              <div class="cm-radio-row" role="radiogroup" aria-label="Children involved" aria-required="true">
+                <label class="cm-chip"><input type="radio" name="children" value="Yes" required><span>Yes</span></label>
                 <label class="cm-chip"><input type="radio" name="children" value="No"><span>No</span></label>
                 <label class="cm-chip"><input type="radio" name="children" value="Expecting"><span>Expecting</span></label>
+              </div>
+              <div class="cm-children-names-wrap" id="cm-children-names-wrap" hidden>
+                <label for="cm-children-names">Names and ages of children <span class="req" aria-hidden="true">*</span></label>
+                <input id="cm-children-names" name="children_names" type="text" placeholder="E.g., Sarah (6), James (4)">
               </div>
             </div>
             <div class="cm-field">
@@ -309,9 +317,9 @@
               <span class="cm-help on-textarea">This form is reviewed by our intake team only. Please do not include privileged or sensitive information; the consultation itself is the right place for that.</span>
             </div>
             <div class="cm-field span-2">
-              <label for="cm-conflict">Names of other parties (for conflict check)</label>
-              <input id="cm-conflict" name="conflict_names" type="text" placeholder="Your spouse, ex-spouse, or opposing party — first and last name">
-              <span class="cm-help">We run a quick conflict check before scheduling. Optional now, required before the consultation.</span>
+              <label for="cm-conflict">Names of other parties (for conflict check) <span class="req" aria-hidden="true">*</span></label>
+              <input id="cm-conflict" name="conflict_names" type="text" placeholder="Your spouse, ex-spouse, or opposing party — first and last name" required>
+              <span class="cm-help">We run a quick conflict check before scheduling.</span>
             </div>
           </div>
         </section>
@@ -390,14 +398,57 @@
 
     const form = document.getElementById('cm-form');
     if (form) {
+      // Show/hide "Names and ages of children" field based on Children radio.
+      const childrenRadios = form.querySelectorAll('input[name="children"]');
+      const childrenNamesWrap = document.getElementById('cm-children-names-wrap');
+      const childrenNamesInput = document.getElementById('cm-children-names');
+      const toggleChildrenNames = () => {
+        const sel = form.querySelector('input[name="children"]:checked');
+        const show = sel && sel.value === 'Yes';
+        if (childrenNamesWrap) childrenNamesWrap.hidden = !show;
+        if (childrenNamesInput) {
+          if (show) {
+            childrenNamesInput.setAttribute('required', '');
+          } else {
+            childrenNamesInput.removeAttribute('required');
+            childrenNamesInput.value = '';
+            childrenNamesInput.style.borderColor = '';
+          }
+        }
+      };
+      childrenRadios.forEach(r => r.addEventListener('change', toggleChildrenNames));
+
       form.addEventListener('submit', e => {
         e.preventDefault();
         let ok = true;
-        ['cm-name', 'cm-email', 'cm-phone'].forEach(id => {
+        let firstInvalid = null;
+        const markInvalid = (el) => { ok = false; if (el && !firstInvalid) firstInvalid = el; if (el) el.style.borderColor = '#b35a3c'; };
+
+        // Required text inputs
+        ['cm-name', 'cm-email', 'cm-phone', 'cm-conflict'].forEach(id => {
           const f = document.getElementById(id);
-          if (!f || !f.value.trim()) { ok = false; if (f) { f.style.borderColor = '#b35a3c'; f.focus(); } }
+          if (!f || !f.value.trim()) markInvalid(f);
         });
-        if (!ok) return;
+
+        // Required radio group: Children involved
+        const childrenSel = form.querySelector('input[name="children"]:checked');
+        if (!childrenSel) {
+          const row = form.querySelector('.cm-radio-row[aria-label="Children involved"]');
+          if (row) row.style.outline = '1px solid #b35a3c';
+          markInvalid(row);
+        } else {
+          const row = form.querySelector('.cm-radio-row[aria-label="Children involved"]');
+          if (row) row.style.outline = '';
+          // If Yes, names of children is required
+          if (childrenSel.value === 'Yes') {
+            if (!childrenNamesInput || !childrenNamesInput.value.trim()) markInvalid(childrenNamesInput);
+          }
+        }
+
+        if (!ok) {
+          if (firstInvalid && firstInvalid.focus) firstInvalid.focus();
+          return;
+        }
         modal.setAttribute('data-state', 'success');
       });
     }
