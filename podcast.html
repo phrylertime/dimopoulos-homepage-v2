@@ -9,6 +9,12 @@
     gtag('js', new Date());
     gtag('config', 'G-4YYY48ZHSR');
   </script>
+  <!-- Performance: preconnect to third-party origins hit on every page -->
+  <link rel="preconnect" href="https://widget.meetvolley.com" crossorigin>
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link rel="dns-prefetch" href="https://widget.meetvolley.com">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+
 
   <!-- Volley widget -->
   <link rel="stylesheet" href="https://widget.meetvolley.com/static/css/widget.css">
@@ -31,10 +37,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Sans+3:wght@400;500;600;700&display=swap">
 
-    <link rel="stylesheet" href="styles.css?v=launch-43">
-  <link rel="stylesheet" href="practice-areas/styles.css?v=launch-43">
-  <link rel="stylesheet" href="episodes.css?v=launch-43">
-  <link rel="stylesheet" href="podcast-hero.css?v=launch-43">
+    <link rel="stylesheet" href="styles.css?v=launch-44">
+  <link rel="stylesheet" href="practice-areas/styles.css?v=launch-44">
+  <link rel="stylesheet" href="episodes.css?v=launch-44">
+  <link rel="stylesheet" href="podcast-hero.css?v=launch-44">
 
   <style>
     html, body { margin: 0; background: #0b0a09; }
@@ -116,7 +122,7 @@
       </nav>
       <div class="hp-nav-logo">
         <a href="index.html" aria-label="Dimopoulos Law Firm, home">
-          <img src="assets/dimopoulos-logo.png" alt="Dimopoulos Law Firm, P.C.">
+          <img src="assets/dimopoulos-logo.webp" alt="Dimopoulos Law Firm, P.C." width="9993" height="1867">
         </a>
       </div>
       <div class="hp-nav-end">
@@ -136,7 +142,7 @@
     <!-- HERO -->
     <section class="podx-hero" aria-labelledby="podx-h1">
       <div class="podx-hero-img">
-        <img src="assets/gus-podcast-studio.png?v=launch-43" alt="Gus Dimopoulos in the Split podcast studio, behind a microphone, with the neon Split sign and blue artwork in the background.">
+        <img fetchpriority="high" loading="eager" decoding="async" src="assets/gus-podcast-studio.webp?v=launch-44" alt="Gus Dimopoulos in the Split podcast studio, behind a microphone, with the neon Split sign and blue artwork in the background." width="1086" height="1448">
         <span class="podx-rec-pill">Recording &mdash; Studio &middot; NY</span>
       </div>
       <div class="podx-hero-panel">
@@ -216,9 +222,9 @@
     root.render(<EpisodesGrid tone="dark" />);
   </script>
 
-  <script src="consult-modal.js?v=launch-43" defer></script>
-  <script src="guest-modal.js?v=launch-43" defer></script>
-  <script src="script.js?v=launch-43" defer></script>
-  <script src="analytics.js?v=launch-43" defer></script>
+  <script src="consult-modal.js?v=launch-44" defer></script>
+  <script src="guest-modal.js?v=launch-44" defer></script>
+  <script src="script.js?v=launch-44" defer></script>
+  <script src="analytics.js?v=launch-44" defer></script>
 </body>
 </html>
