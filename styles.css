@@ -3464,6 +3464,12 @@ img { max-width: 100%; display: block; }
   object-position: right top;
   filter: contrast(1.04);
 }
+/* At tablet / small-laptop widths the image was wide enough to bleed into
+   the name's column on the left. Constrain the image area to the right
+   half so the name always sits on clear panel background. */
+@media (max-width: 1280px) {
+  .bioC3-hero-img { left: 50%; }
+}
 /* Gradient scrim — slight top, heavier bottom for legibility */
 .bioC3-hero-scrim {
   position: absolute; inset: 0;
