@@ -355,18 +355,33 @@
 
   /* ---------- Behavior ---------- */
   let lastFocus = null;
+  let openSourcePath = '';     // remembered between open() and close()
+  let submittedSinceOpen = false;
+
+  function track(name, params) {
+    if (typeof window.dimoTrack === 'function') return window.dimoTrack(name, params || {});
+    if (typeof window.gtag === 'function') {
+      try { window.gtag('event', name, params || {}); } catch (e) {}
+    }
+  }
 
   function open(e) {
     if (e) e.preventDefault();
     const modal = document.getElementById('cm-consult-modal');
     if (!modal) return;
     const src = document.getElementById('cm-source-page');
-    if (src) src.value = location.pathname + location.hash;
+    openSourcePath = location.pathname + location.hash;
+    if (src) src.value = openSourcePath;
+    submittedSinceOpen = false;
     lastFocus = document.activeElement;
     modal.setAttribute('data-open', 'true');
     modal.setAttribute('aria-hidden', 'false');
     modal.removeAttribute('data-state');
     document.body.classList.add('cm-modal-open');
+    track('consult_modal_open', {
+      source_page: openSourcePath,
+      trigger_text: (e && e.currentTarget && (e.currentTarget.textContent || '').trim().slice(0, 60)) || ''
+    });
     setTimeout(() => {
       const first = modal.querySelector('input, select, textarea, button');
       if (first) first.focus();
@@ -375,9 +390,15 @@
   function close() {
     const modal = document.getElementById('cm-consult-modal');
     if (!modal) return;
+    const wasOpen = modal.getAttribute('data-open') === 'true';
     modal.removeAttribute('data-open');
     modal.setAttribute('aria-hidden', 'true');
     document.body.classList.remove('cm-modal-open');
+    if (wasOpen && !submittedSinceOpen) {
+      track('consult_modal_close_abandoned', {
+        source_page: openSourcePath
+      });
+    }
     if (lastFocus && typeof lastFocus.focus === 'function') {
       try { lastFocus.focus(); } catch (e) {}
     }
@@ -447,8 +468,28 @@
 
         if (!ok) {
           if (firstInvalid && firstInvalid.focus) firstInvalid.focus();
+          track('consult_form_submit_invalid', {
+            source_page: openSourcePath,
+            first_invalid_field: (firstInvalid && (firstInvalid.id || firstInvalid.name || firstInvalid.className)) || 'unknown'
+          });
           return;
         }
+
+        // Snapshot useful fields for the submit event (no PII — just selections).
+        const fd = new FormData(form);
+        const matters = fd.getAll('matter');
+        track('consult_form_submit', {
+          source_page: openSourcePath,
+          children_involved: (fd.get('children') || ''),
+          urgency: (fd.get('urgency') || ''),
+          format: (fd.get('format') || ''),
+          referral: (fd.get('referral') || ''),
+          county: (fd.get('county') || ''),
+          voicemail: (fd.get('voicemail') || ''),
+          matter_count: matters.length,
+          matters: matters.join(',').slice(0, 200)
+        });
+        submittedSinceOpen = true;
         modal.setAttribute('data-state', 'success');
       });
     }
