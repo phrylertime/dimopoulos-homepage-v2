@@ -3456,11 +3456,12 @@ img { max-width: 100%; display: block; }
 }
 .bioC3-hero-img { position: absolute; inset: 0; }
 .bioC3-hero-img img {
-  width: 100%; height: 100%; object-fit: cover;
-  /* Bias the visible window slightly down through the portrait shot so the
-     face moves up in the panel and the chin lands above the "Dimopoulos"
-     name instead of overlapping it. Top of head still mostly visible. */
-  object-position: center 22%;
+  width: 100%; height: 100%;
+  /* "Zoom out" — show the entire portrait instead of cropping. Tucked to
+     the right so the name on the left sits on the panel background, not
+     the photo. The dark navy hero bg fills the empty area on the left. */
+  object-fit: contain;
+  object-position: right top;
   filter: contrast(1.04);
 }
 /* Gradient scrim — slight top, heavier bottom for legibility */
