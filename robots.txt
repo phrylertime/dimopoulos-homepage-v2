@@ -1,0 +1,11 @@
+# https://www.dimolaw.com/robots.txt
+
+User-agent: *
+Allow: /
+
+# Block obvious admin / temp paths if they ever exist
+Disallow: /admin/
+Disallow: /tmp/
+Disallow: /.git/
+
+Sitemap: https://www.dimolaw.com/sitemap.xml
