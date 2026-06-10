@@ -348,17 +348,30 @@
 .pa-body { padding: 64px 0 96px; }
 .pa-body-inner {
   max-width: 1240px; margin: 0 auto;
-  display: grid; grid-template-columns: 1fr; gap: 80px;
+  display: grid; grid-template-columns: 240px 1fr; gap: 64px;
   padding: 0 32px;
+  align-items: start;
+}
+.pa-body-main {
+  display: grid; grid-template-columns: 1fr; gap: 80px;
+  min-width: 0;
+}
+.pa-body .pa-sidebar { top: 130px; }
+@media (max-width: 1080px) {
+  .pa-body-inner { grid-template-columns: 220px 1fr; gap: 40px; }
+}
+@media (max-width: 900px) {
+  .pa-body-inner { grid-template-columns: 1fr; gap: 24px; }
 }
 @media (max-width: 720px) {
   .pa-body { padding: 40px 0 64px; }
-  .pa-body-inner { gap: 56px; padding: 0 20px; }
+  .pa-body-inner { padding: 0 20px; }
+  .pa-body-main { gap: 56px; }
 }
 
 .pa-section { scroll-margin-top: 130px; }
 .pa-section-inner {
-  display: grid; grid-template-columns: 280px 1fr; gap: 64px;
+  display: grid; grid-template-columns: 200px 1fr; gap: 48px;
   align-items: start;
 }
 .pa-section-num {
