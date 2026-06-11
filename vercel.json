@@ -1,0 +1,37 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/Attorney - Gus Dimopoulos.html",
+      "destination": "/attorneys/gus-dimopoulos",
+      "permanent": true
+    },
+    {
+      "source": "/Attorney - Hannah Gaudet.html",
+      "destination": "/attorneys/hannah-gaudet",
+      "permanent": true
+    },
+    {
+      "source": "/Attorney - Kathleen Seavy.html",
+      "destination": "/attorneys/kathleen-seavy",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)\\.(css|js|webp|jpg|jpeg|png|svg|woff2|ico)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "X-Frame-Options", "value": "SAMEORIGIN" }
+      ]
+    }
+  ]
+}
