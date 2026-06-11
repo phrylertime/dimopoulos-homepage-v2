@@ -40,9 +40,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link rel="stylesheet" href="../styles.css?v=launch-56">
-  <link rel="stylesheet" href="../practice-areas/styles.css?v=launch-56">
-  <link rel="stylesheet" href="speaking.css?v=launch-56">
+  <link rel="stylesheet" href="../styles.css?v=launch-57">
+  <link rel="stylesheet" href="../practice-areas/styles.css?v=launch-57">
+  <link rel="stylesheet" href="speaking.css?v=launch-57">
 
   <script type="application/ld+json">
   {
@@ -612,7 +612,7 @@
         if (e.key === 'Escape' && modal.getAttribute('data-open') === 'true') close();
       });
 
-      // Submit -> success state (front-end demo; wire to backend later)
+      // Submit -> intake Worker -> Postmark
       form.addEventListener('submit', function (e) {
         e.preventDefault();
         // simple required-field check
@@ -622,13 +622,33 @@
           if (!f.value.trim()) { ok = false; f.focus(); f.style.borderColor = '#b35a3c'; }
         });
         if (!ok) return;
-        modal.setAttribute('data-state', 'success');
+
+        var submitBtn = document.querySelector('button[form="book-form"]');
+        if (submitBtn) submitBtn.disabled = true;
+
+        fetch('https://autumn-dimo.phil-fe5.workers.dev/speaking', {
+          method: 'POST',
+          body: new FormData(form),
+        })
+          .then(function (r) { return r.json().catch(function () { return { error: 'Network error' }; }); })
+          .then(function (data) {
+            if (data && data.ok) {
+              modal.setAttribute('data-state', 'success');
+            } else {
+              throw new Error((data && data.error) || 'Send failed');
+            }
+          })
+          .catch(function (err) {
+            if (submitBtn) submitBtn.disabled = false;
+            alert('Something went wrong sending your inquiry. Please call us at 914.472.4242 or email speaking@dimolaw.com.');
+            console.error('Speaking form submit failed', err);
+          });
       });
     })();
   </script>
 
-  <script src="../consult-modal.js?v=launch-56" defer></script>
-  <script src="../script.js?v=launch-56" defer></script>
-  <script src="../analytics.js?v=launch-56" defer></script>
+  <script src="../consult-modal.js?v=launch-57" defer></script>
+  <script src="../script.js?v=launch-57" defer></script>
+  <script src="../analytics.js?v=launch-57" defer></script>
 </body>
 </html>

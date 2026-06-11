@@ -283,7 +283,28 @@
           if (!f || !f.value.trim()) { ok = false; if (f) { f.style.borderColor = '#b35a3c'; f.focus(); } }
         });
         if (!ok) return;
-        modal.setAttribute('data-state', 'success');
+
+        // Send to intake Worker -> Postmark
+        const submitBtn = document.querySelector('button[form="gm-form"]');
+        if (submitBtn) submitBtn.disabled = true;
+
+        fetch('https://autumn-dimo.phil-fe5.workers.dev/podcast', {
+          method: 'POST',
+          body: new FormData(form),
+        })
+          .then(r => r.json().catch(() => ({ error: 'Network error' })))
+          .then(data => {
+            if (data && data.ok) {
+              modal.setAttribute('data-state', 'success');
+            } else {
+              throw new Error((data && data.error) || 'Send failed');
+            }
+          })
+          .catch(err => {
+            if (submitBtn) submitBtn.disabled = false;
+            alert('Something went wrong sending your inquiry. Please call us at 914.472.4242 or email gd@dimolaw.com.');
+            console.error('Podcast guest form submit failed', err);
+          });
       });
     }
   }

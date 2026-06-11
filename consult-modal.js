@@ -489,8 +489,29 @@
           matter_count: matters.length,
           matters: matters.join(',').slice(0, 200)
         });
-        submittedSinceOpen = true;
-        modal.setAttribute('data-state', 'success');
+        // Send to intake Worker -> Postmark
+        const submitBtn = document.querySelector('button[form="cm-form"]');
+        if (submitBtn) submitBtn.disabled = true;
+
+        fetch('https://autumn-dimo.phil-fe5.workers.dev/consult', {
+          method: 'POST',
+          body: fd,
+        })
+          .then(r => r.json().catch(() => ({ error: 'Network error' })))
+          .then(data => {
+            if (data && data.ok) {
+              submittedSinceOpen = true;
+              modal.setAttribute('data-state', 'success');
+            } else {
+              throw new Error((data && data.error) || 'Send failed');
+            }
+          })
+          .catch(err => {
+            if (submitBtn) submitBtn.disabled = false;
+            track('consult_form_submit_error', { error: String(err.message || err).slice(0, 200) });
+            alert('Something went wrong sending your inquiry. Please call us at 914.472.4242 or email gd@dimolaw.com.');
+            console.error('Consult form submit failed', err);
+          });
       });
     }
   }
