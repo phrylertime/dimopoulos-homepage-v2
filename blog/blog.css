@@ -471,3 +471,15 @@
   transition: color 160ms ease;
 }
 .art-related-card:hover h3 { color: var(--steel, #4F7FB8); }
+
+/* ====================================================== */
+/* TEMP: hide all blog images while we source originals    */
+/* ====================================================== */
+/* When real article hero images land, remove this block.  */
+/* Affects: blog index card thumbnails, article hero, and  */
+/* related-article thumbnails on each article page.        */
+.blogx-card-thumb,
+.art-hero,
+.art-related-card .thumb {
+  display: none !important;
+}
