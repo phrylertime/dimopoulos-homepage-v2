@@ -156,6 +156,8 @@
 
       <div class="gm-modal-body">
         <form class="gm-form" id="gm-form" novalidate>
+          <!-- Honeypot: hidden from humans; bots auto-fill and get silently dropped by Worker -->
+          <input type="text" name="_honeypot" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" aria-hidden="true">
           <div class="gm-grid">
             <div class="gm-field span-2">
               <label for="gm-name">Contact <span class="req">*</span></label>

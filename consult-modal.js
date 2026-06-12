@@ -150,6 +150,8 @@
       </header>
 
       <form class="cm-modal-body" id="cm-form" novalidate>
+        <!-- Honeypot: hidden from humans; bots auto-fill and get silently dropped by Worker -->
+        <input type="text" name="_honeypot" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" aria-hidden="true">
         <!-- 1. About you -->
         <section class="cm-section">
           <div class="cm-section-h"><span class="num">i.</span><span class="lbl">About you</span></div>
