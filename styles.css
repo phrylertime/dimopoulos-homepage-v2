@@ -3111,7 +3111,7 @@ img { max-width: 100%; display: block; }
   display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; font-size: 12px;
 }
 
-/* Shared contact band — light bone (closer above is navy, so we flip) */
+/* Shared contact band — light bone tone, sits below the navy closer. */
 .bio-contact {
   background: var(--b-bone); color: var(--b-ink);
   padding: 88px 48px;

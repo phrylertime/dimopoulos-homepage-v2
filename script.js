@@ -127,7 +127,7 @@
 
   // ===== Scroll-reveal (progressive enhancement) =====
   // The source design fades sections in on scroll. If reduced-motion is set
-  // we skip this entirely — content is already marked `is-visible` in markup
+  // Skipped — content already has `is-visible` set in markup.
   // so it stays accessible without JS.
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (!prefersReduced && 'IntersectionObserver' in window) {
