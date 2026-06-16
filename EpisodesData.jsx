@@ -4,6 +4,16 @@
 
 const PODCAST_EPISODES = [
   {
+    n: 12,
+    date: 'Jun 16, 2026',
+    title: 'Red Flag / Green Flag',
+    guest: 'With Heidi Davidson',
+    minutes: '24 min',
+    listen: 'https://www.podomatic.com/podcasts/split88595/episodes/2026-06-16T06_00_00-07_00',
+    img: 'assets/podcast/ep-12-red-flag-green-flag.png',
+    imgAlt: 'Red and green flags — Split podcast episode 12 with Heidi Davidson',
+  },
+  {
     n: 11,
     date: 'Apr 14, 2026',
     title: 'When Suspicion Meets Strategy: Divorce Law & Investigation',
