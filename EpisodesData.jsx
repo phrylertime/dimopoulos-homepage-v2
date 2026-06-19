@@ -10,7 +10,7 @@ const PODCAST_EPISODES = [
     guest: 'With Heidi Davidson',
     minutes: '24 min',
     listen: 'https://www.podomatic.com/podcasts/split88595/episodes/2026-06-16T06_00_00-07_00',
-    img: 'assets/podcast/ep-12-red-flag-green-flag.png',
+    img: 'assets/podcast/ep-12-red-flag-green-flag.webp',
     imgAlt: 'Red and green flags — Split podcast episode 12 with Heidi Davidson',
   },
   {
