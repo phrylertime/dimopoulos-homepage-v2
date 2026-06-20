@@ -84,7 +84,8 @@
       prevBtn.disabled = start <= 0;
       nextBtn.disabled = start >= max;
       cards.forEach((card, i) => {
-        card.setAttribute('aria-hidden', i < start || i >= start + visible ? 'true' : 'false');
+        const hidden = i < start || i >= start + visible;
+        card.toggleAttribute('inert', hidden);
       });
     };
     prevBtn.addEventListener('click', () => { start = Math.max(0, start - 1); apply(); });
