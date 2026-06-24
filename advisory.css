@@ -460,21 +460,6 @@
 
 .adv-impact { position: relative; }
 
-.adv-dossier-meta {
-  max-width: 1040px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-family: var(--adv-sans);
-  font-size: 14px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  font-weight: 600;
-  color: var(--adv-ink-deep);
-  padding-bottom: 16px;
-}
-
 [data-problem-style="dossier"] .adv-impact-grid {
   display: block;
   counter-reset: dossier;
@@ -822,7 +807,6 @@
   .adv-offerings { grid-template-columns: 1fr; }
   .adv-offering { padding: 36px 28px; }
   .adv-about-quote { padding: 32px 28px; }
-  .adv-dossier-meta { max-width: none; }
   [data-problem-style="dossier"] .adv-impact-grid li {
     grid-template-columns: 40px 1fr;
     gap: 6px 18px;
