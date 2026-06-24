@@ -66,8 +66,8 @@
 }
 .adv-nav-cta {
   font-family: var(--adv-sans);
-  font-size: 11px;
-  letter-spacing: 0.24em;
+  font-size: 14px;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   font-weight: 600;
   color: var(--adv-bone);
@@ -82,7 +82,7 @@
 @media (max-width: 640px) {
   .adv-nav-row { padding: 16px 20px; gap: 12px; }
   .adv-nav-brand img { height: 27px; }
-  .adv-nav-cta { padding: 11px 16px; font-size: 10px; letter-spacing: 0.2em; }
+  .adv-nav-cta { padding: 11px 16px; font-size: 13px; letter-spacing: 0.16em; }
 }
 
 /* ===== MINIMAL FOOTER ===== */
@@ -109,14 +109,14 @@
 }
 .adv-foot-copy {
   font-family: var(--adv-sans);
-  font-size: 12px;
-  letter-spacing: 0.06em;
-  color: rgba(231, 235, 240, 0.7);
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  color: rgba(231, 235, 240, 0.78);
 }
 .adv-foot-note {
   font-family: var(--adv-serif);
   font-style: italic;
-  font-size: 14px;
+  font-size: 16px;
   color: var(--adv-steel-soft);
 }
 @media (max-width: 720px) {
@@ -127,8 +127,8 @@
 /* ===== Shared bits ===== */
 .adv-eyebrow {
   font-family: var(--adv-sans);
-  font-size: 11px;
-  letter-spacing: 0.26em;
+  font-size: 14px;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   font-weight: 600;
   color: var(--adv-steel);
@@ -185,8 +185,8 @@
 .adv-hero-text { max-width: 580px; }
 .adv-hero-kicker {
   font-family: var(--adv-sans);
-  font-size: 11px;
-  letter-spacing: 0.26em;
+  font-size: 14px;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   font-weight: 600;
   color: var(--adv-steel-soft);
@@ -229,8 +229,8 @@
 }
 .adv-hero .hp-cta-primary {
   font-family: var(--adv-sans);
-  font-size: 13px;
-  letter-spacing: 0.22em;
+  font-size: 15px;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   font-weight: 600;
   color: var(--adv-ink);
@@ -264,8 +264,8 @@
 .adv-hero-meta div { display: flex; flex-direction: column; gap: 4px; }
 .adv-hero-meta dt {
   font-family: var(--adv-sans);
-  font-size: 12px;
-  letter-spacing: 0.18em;
+  font-size: 14px;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   font-weight: 600;
   color: #C8DBED;
@@ -306,8 +306,8 @@
   gap: 12px;
   margin-top: 38px;
   font-family: var(--adv-sans);
-  font-size: 10px;
-  letter-spacing: 0.26em;
+  font-size: 14px;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   font-weight: 600;
   color: var(--adv-steel-soft);
@@ -357,8 +357,8 @@
 }
 .adv-lede-side {
   font-family: var(--adv-sans);
-  font-size: 11px;
-  letter-spacing: 0.26em;
+  font-size: 14px;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   font-weight: 600;
   color: var(--adv-steel);
@@ -424,8 +424,8 @@
 .adv-about-quote blockquote p em { color: var(--adv-steel-soft); }
 .adv-about-quote blockquote footer {
   font-family: var(--adv-sans);
-  font-size: 11px;
-  letter-spacing: 0.24em;
+  font-size: 14px;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--adv-steel-soft);
   font-weight: 600;
@@ -450,8 +450,8 @@
 }
 .adv-problem-sub {
   font-family: var(--adv-sans);
-  font-size: 12px;
-  letter-spacing: 0.22em;
+  font-size: 14px;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   font-weight: 600;
   color: var(--adv-mute);
@@ -467,8 +467,8 @@
   align-items: center;
   justify-content: space-between;
   font-family: var(--adv-sans);
-  font-size: 12px;
-  letter-spacing: 0.18em;
+  font-size: 14px;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   font-weight: 600;
   color: var(--adv-ink-deep);
@@ -725,8 +725,8 @@
 }
 .adv-cta-button {
   font-family: var(--adv-sans);
-  font-size: 13px;
-  letter-spacing: 0.22em;
+  font-size: 15px;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   font-weight: 600;
   color: var(--adv-ink);
