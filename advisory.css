@@ -264,17 +264,17 @@
 .adv-hero-meta div { display: flex; flex-direction: column; gap: 4px; }
 .adv-hero-meta dt {
   font-family: var(--adv-sans);
-  font-size: 10px;
-  letter-spacing: 0.22em;
+  font-size: 12px;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   font-weight: 600;
-  color: var(--adv-steel-soft);
+  color: #C8DBED;
 }
 .adv-hero-meta dd {
   margin: 0;
   font-family: var(--adv-serif);
-  font-size: 15px;
-  line-height: 1.4;
+  font-size: 18px;
+  line-height: 1.5;
   color: var(--adv-bone);
 }
 
@@ -399,8 +399,8 @@
   padding-top: 24px;
   border-top: 1px solid var(--adv-rule);
   font-style: italic;
-  color: var(--adv-mute) !important;
-  font-size: 17px !important;
+  color: var(--adv-ink) !important;
+  font-size: 19px !important;
 }
 
 .adv-about-quote {
@@ -467,12 +467,12 @@
   align-items: center;
   justify-content: space-between;
   font-family: var(--adv-sans);
-  font-size: 10px;
-  letter-spacing: 0.24em;
+  font-size: 12px;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   font-weight: 600;
-  color: var(--adv-steel);
-  padding-bottom: 12px;
+  color: var(--adv-ink-deep);
+  padding-bottom: 16px;
 }
 
 [data-problem-style="dossier"] .adv-impact-grid {
