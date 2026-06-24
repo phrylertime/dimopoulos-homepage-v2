@@ -214,7 +214,7 @@
 .adv-hero-lede {
   font-family: var(--adv-serif);
   font-style: italic;
-  font-size: clamp(18px, 1.6vw, 22px);
+  font-size: clamp(20px, 1.7vw, 24px);
   line-height: 1.5;
   color: rgba(231, 235, 240, 0.86);
   margin: 0 0 32px;
@@ -388,7 +388,7 @@
 }
 .adv-about-text p {
   font-family: var(--adv-serif);
-  font-size: 19px;
+  font-size: 20px;
   line-height: 1.65;
   color: var(--adv-ink);
   margin: 0 0 18px;
@@ -400,7 +400,7 @@
   border-top: 1px solid var(--adv-rule);
   font-style: italic;
   color: var(--adv-ink) !important;
-  font-size: 19px !important;
+  font-size: 20px !important;
 }
 
 .adv-about-quote {
@@ -520,7 +520,7 @@
   display: block;
   font-family: var(--adv-serif);
   font-style: italic;
-  font-size: 18px;
+  font-size: 20px;
   line-height: 1.4;
   color: var(--adv-mute);
   text-align: right;
@@ -541,7 +541,7 @@
 .adv-program-lede {
   font-family: var(--adv-serif);
   font-style: italic;
-  font-size: clamp(18px, 1.6vw, 22px);
+  font-size: clamp(20px, 1.7vw, 24px);
   line-height: 1.5;
   color: var(--adv-mute);
   margin: 0;
@@ -633,7 +633,7 @@
 .adv-offering:hover .adv-offering-title { color: var(--adv-bone); }
 .adv-offering p {
   font-family: var(--adv-serif);
-  font-size: 17px;
+  font-size: 19px;
   line-height: 1.6;
   color: var(--adv-ink);
   margin: 0;
