@@ -28,11 +28,20 @@ To install manually instead, run for each: `/plugin marketplace add <repo>` then
 > `example-skills`, `claude-api`). `skill-creator` lives inside `example-skills`,
 > which is the one enabled here. Add the others if you want them.
 
-## 2. Claude Code skill (not a marketplace plugin)
+## 2. Taste Skill — vendored into this repo
 
-| Skill | Repo | Install |
-|-------|------|---------|
-| Taste Skill | `Leonxlnx/taste-skill` | `npx skills add https://github.com/Leonxlnx/taste-skill` (single skill: add `--skill "design-taste-frontend"`) |
+Source: `Leonxlnx/taste-skill` (MIT). Rather than `npx skills add`, all 13 skills
+from the bundle are committed under `.claude/skills/` so they load automatically
+as project skills (no install step). Directory names match each skill's
+frontmatter `name`:
+
+`brandkit`, `design-taste-frontend`, `design-taste-frontend-v1`,
+`full-output-enforcement`, `gpt-taste`, `high-end-visual-design`, `image-to-code`,
+`imagegen-frontend-mobile`, `imagegen-frontend-web`, `industrial-brutalist-ui`,
+`minimalist-ui`, `redesign-existing-projects`, `stitch-design-taste`.
+
+The primary one is `design-taste-frontend` (anti-slop frontend). To update, re-pull
+from the upstream repo's `skills/` directory.
 
 ## 3. Standalone CLIs (install the binary, then the agent uses it)
 
