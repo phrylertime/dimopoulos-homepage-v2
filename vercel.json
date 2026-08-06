@@ -16,6 +16,121 @@
       "source": "/Attorney - Kathleen Seavy.html",
       "destination": "/attorneys/kathleen-seavy",
       "permanent": true
+    },
+    {
+      "source": "/contact",
+      "destination": "/#contact",
+      "permanent": true
+    },
+    {
+      "source": "/FAQ",
+      "destination": "/faq",
+      "permanent": true
+    },
+    {
+      "source": "/ai-disclosure",
+      "destination": "/legal/ai-disclosure",
+      "permanent": true
+    },
+    {
+      "source": "/ai-disclsoure",
+      "destination": "/legal/ai-disclosure",
+      "permanent": true
+    },
+    {
+      "source": "/newsroom/asset-division-and-tax-considerations-in-high-net-worth-divorces",
+      "destination": "/blog/articles/asset-division-and-tax-considerations-in-high-net-worth-divorces",
+      "permanent": true
+    },
+    {
+      "source": "/newsroom/custody-litigation-by-the-numbers-a-q-a-with-westchester-divorce-attorney-gus-dimopoulos",
+      "destination": "/blog/articles/custody-litigation-by-the-numbers-a-q-a-with-westchester-divorce-attorney-gus-dimopoulos",
+      "permanent": true
+    },
+    {
+      "source": "/newsroom/four-strategies-when-dividing-retirement-assets-in-a-divorce",
+      "destination": "/blog/articles/four-strategies-when-dividing-retirement-assets-in-a-divorce",
+      "permanent": true
+    },
+    {
+      "source": "/newsroom/our-legal-system-misses-the-complexity-of-parental-alienation-that-needs-to-change",
+      "destination": "/blog/articles/our-legal-system-misses-the-complexity-of-parental-alienation-that-needs-to-change",
+      "permanent": true
+    },
+    {
+      "source": "/newsroom/prenuptial-agreements-what-financial-advisers-need-to-know",
+      "destination": "/blog/articles/prenuptial-agreements-what-financial-advisers-need-to-know",
+      "permanent": true
+    },
+    {
+      "source": "/newsroom/starting-fresh-building-a-healthy-post-divorce-routine-for-your-family",
+      "destination": "/blog/articles/starting-fresh-building-a-healthy-post-divorce-routine-for-your-family",
+      "permanent": true
+    },
+    {
+      "source": "/newsroom/the-equality-trap-why-splitting-custody-down-the-middle-can-tear-children-apart",
+      "destination": "/blog/articles/the-equality-trap-why-splitting-custody-down-the-middle-can-tear-children-apart",
+      "permanent": true
+    },
+    {
+      "source": "/newsroom/the-new-custody-battlefield-how-elite-youth-sports-are-reshaping-parenting-plans-and-courtroom-strategies",
+      "destination": "/blog/articles/the-new-custody-battlefield-how-elite-youth-sports-are-reshaping-parenting-plans-and-courtroom-strategies",
+      "permanent": true
+    },
+    {
+      "source": "/newsroom/what-the-legal-community-gets-wrong-about-parental-alienation",
+      "destination": "/blog/articles/what-the-legal-community-gets-wrong-about-parental-alienation",
+      "permanent": true
+    },
+    {
+      "source": "/newsroom/:path*",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/matrimonial-attorneys/gus-dimopoulos",
+      "destination": "/attorneys/gus-dimopoulos",
+      "permanent": true
+    },
+    {
+      "source": "/matrimonial-attorneys/hannah-gaudet",
+      "destination": "/attorneys/hannah-gaudet",
+      "permanent": true
+    },
+    {
+      "source": "/matrimonial-attorneys/kathleen-seavy",
+      "destination": "/attorneys/kathleen-seavy",
+      "permanent": true
+    },
+    {
+      "source": "/matrimonial-attorneys/:path*",
+      "destination": "/#attorneys",
+      "permanent": true
+    },
+    {
+      "source": "/attorneys",
+      "destination": "/#attorneys",
+      "permanent": true
+    },
+    {
+      "source": "/areas/:path*",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/about",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/gus-dimopoulos-published-articles",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/client-satisfaction-survey",
+      "destination": "/",
+      "permanent": true
     }
   ],
   "headers": [
