@@ -131,6 +131,15 @@
       "source": "/client-satisfaction-survey",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/index.php",
+      "has": [
+        { "type": "query", "key": "option", "value": "com_jmap" },
+        { "type": "query", "key": "view", "value": "sitemap" }
+      ],
+      "destination": "/sitemap.xml",
+      "permanent": true
     }
   ],
   "headers": [
