@@ -87,6 +87,12 @@
 
   .am-modal-foot { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 22px 48px 32px; border-top: 1px solid var(--hp-rule, #D7CFB8); background: var(--hp-paper, #F6F3EB); }
   .am-modal-foot .note { font-family: var(--hp-serif, "Cormorant Garamond", serif); font-style: italic; font-size: 14px; color: var(--hp-mute-deep, #5B6E89); max-width: 38ch; }
+  .am-ack-section { border-top: 1px solid rgba(27,42,63,.14); padding-top: 18px; }
+  .am-ack { display: grid; grid-template-columns: auto 1fr; gap: 12px; align-items: start; }
+  .am-ack input[type="checkbox"] { width: 18px; height: 18px; margin: 2px 0 0; flex: none; accent-color: #1B2A3F; cursor: pointer; }
+  .am-ack label { font-size: 14px; line-height: 1.55; color: #1B2A3F; cursor: pointer; }
+  .am-ack label a { color: #3A5F8E; text-underline-offset: 2px; }
+  .am-ack-err { display: block; margin-top: 8px; font-size: 14px; color: #b35a3c; }
   .am-modal-foot .actions { display: flex; align-items: center; gap: 20px; }
   .am-modal-foot .cancel { font-family: var(--hp-sans, "Source Sans 3", sans-serif); font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 600; color: var(--hp-ink-deep, #081A33); background: none; border: 0; cursor: pointer; padding: 6px 4px; }
   .am-modal-foot .cancel:hover { color: var(--steel-deep, #3A5F8E); text-decoration: underline; text-underline-offset: 4px; }
@@ -198,7 +204,17 @@
           </div>
         </section>
 
+        <section class="am-section am-ack-section">
+          <div class="am-ack">
+            <input type="checkbox" id="am-ack" name="notice_ack" value="yes" required>
+            <label for="am-ack">I have read the <a href="#notice" target="_blank" rel="noopener">Notice Regarding the Nature of These Services</a>. I understand that these services are not legal services, that no attorney-client relationship is created, and that the protections of an attorney-client relationship, including the attorney-client privilege, do not apply.</label>
+          </div>
+          <span class="am-ack-err" id="am-ack-err" hidden>Please confirm you have read the notice.</span>
+        </section>
+
         <input type="hidden" name="source_page" id="am-source-page" value="">
+        <input type="hidden" name="notice_version" value="2026-08-25">
+        <input type="hidden" name="notice_accepted_at" id="am-ack-at" value="">
       </form>
 
       <footer class="am-modal-foot">
@@ -305,6 +321,15 @@
         else if (f) f.style.borderColor = '';
       });
 
+      const ack = document.getElementById('am-ack');
+      const ackErr = document.getElementById('am-ack-err');
+      if (ack && !ack.checked) {
+        if (ackErr) ackErr.hidden = false;
+        markInvalid(ack);
+      } else if (ackErr) {
+        ackErr.hidden = true;
+      }
+
       const inquirySel = form.querySelector('input[name="inquiry_type"]:checked');
       const inquiryRow = form.querySelector('.am-chips[aria-label="Inquiry type"]');
       if (!inquirySel) {
@@ -322,6 +347,9 @@
         });
         return;
       }
+
+      const ackAt = document.getElementById('am-ack-at');
+      if (ackAt) ackAt.value = new Date().toISOString();
 
       const fd = new FormData(form);
       const interests = fd.getAll('interest');
