@@ -298,7 +298,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 85% 52%;
+  object-position: 85% 52%;   /* phones: square crop, favours Gus */
   display: block;
   filter: grayscale(0.12) contrast(1.02) brightness(1.02) saturate(1.06);
 }
@@ -961,3 +961,19 @@
 .adv-nav-logo { height: 26px; width: auto; display: block; }
 @media (max-width: 640px) { .adv-nav-logo { height: 21px; } }
 @media (max-width: 400px) { .adv-nav-logo { height: 18px; } }
+
+/* ===== HERO ART DIRECTION ===== */
+/* The image panel is 1fr of the hero grid, so its aspect ratio swings from
+   ~0.53 at 1120px to ~1.0 at 2200px. One crop cannot serve that range: the
+   full studio scene has the neon sign at the left edge and Gus at the right,
+   so any narrow panel cuts one of them. Hence three sources, each with its
+   own framing. Keep these in step with the <picture> media queries. */
+@media (min-width: 821px) {
+  /* Tight crop — centre on the face; horizontal clipping here is harmless
+     because there is no lettering left in the frame. */
+  .adv-hero-img-side img { object-position: 55% 45%; }
+}
+@media (min-width: 1900px) {
+  /* Full scene — panel ratio matches the crop, so almost nothing is cut. */
+  .adv-hero-img-side img { object-position: 50% 50%; }
+}
