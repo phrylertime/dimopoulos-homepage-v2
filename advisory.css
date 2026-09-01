@@ -953,14 +953,25 @@
 
 /* ===== NAV WORDMARK ===== */
 /* The firm logo was the masthead until the disclaimer landed. Section 1 of
-   the notice says Dimo Advisory is not a law firm and is separate from
+   the notice says Dimopoulos Advisory is not a law firm and is separate from
    Dimopoulos Law Firm, P.C., so leading with the firm's mark contradicted
    the notice on the same page. Wordmark instead, both breakpoints. */
-/* Kat's Dimo Advisory mark. Transparent PNG source, so it sits on the
+/* Kat's Dimopoulos Advisory mark. Transparent PNG source, so it sits on the
    #E7EBF0 nav without a white box. 6.78:1, so height drives the width. */
+/* The DIMOPOULOS | ADVISORY mark is 11.4:1 — nearly twice as wide as the
+   previous one for the same height — so the steps down are steeper and the
+   CTA gets a tighter label on the narrowest phones to keep both on one row. */
 .adv-nav-logo { height: 26px; width: auto; display: block; }
-@media (max-width: 640px) { .adv-nav-logo { height: 21px; } }
-@media (max-width: 400px) { .adv-nav-logo { height: 18px; } }
+@media (max-width: 900px) { .adv-nav-logo { height: 22px; } }
+@media (max-width: 640px) { .adv-nav-logo { height: 19px; } }
+@media (max-width: 430px) { .adv-nav-logo { height: 16px; } }
+@media (max-width: 380px) {
+  .adv-nav-logo { height: 15px; }
+  .adv-nav-cta { padding: 11px 8px; letter-spacing: 0.01em; }
+}
+@media (max-width: 340px) {
+  .adv-nav-logo { height: 14px; }
+}
 
 /* ===== HERO ART DIRECTION ===== */
 /* The image panel is 1fr of the hero grid, so its aspect ratio swings from

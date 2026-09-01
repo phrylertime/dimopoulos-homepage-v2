@@ -424,7 +424,7 @@ img { max-width: 100%; display: block; }
 }
 .hp-nav-item.has-dropdown:hover .hp-nav-caret { transform: rotate(180deg); opacity: 0.85; }
 
-/* Advisory — top-level, no dropdown. Dimo Advisory is a separate company from
+/* Advisory — top-level, no dropdown. Dimopoulos Advisory is a separate company from
    the firm (see the notice on /advisory), so it deliberately sits outside the
    Practice Areas menu rather than reading as one of the firm's legal services. */
 .hp-nav-item.is-advisory { display: inline-flex; align-items: center; }
