@@ -395,7 +395,7 @@ img { max-width: 100%; display: block; }
   padding: 18px 48px;
   gap: 24px;
 }
-.hp-nav-tabs { display: flex; gap: 28px; align-items: center; }
+.hp-nav-tabs { display: flex; gap: 24px; align-items: center; }  /* 28 -> 24 so four tabs stay inside their 1fr column */
 .hp-nav-tabs a {
   font-size: 12px; letter-spacing: 0.20em; text-transform: uppercase; font-weight: 500;
   color: var(--hp-mute-deep);
@@ -423,6 +423,19 @@ img { max-width: 100%; display: block; }
   color: currentColor;
 }
 .hp-nav-item.has-dropdown:hover .hp-nav-caret { transform: rotate(180deg); opacity: 0.85; }
+
+/* Advisory — top-level, no dropdown. Dimo Advisory is a separate company from
+   the firm (see the notice on /advisory), so it deliberately sits outside the
+   Practice Areas menu rather than reading as one of the firm's legal services. */
+.hp-nav-item.is-advisory { display: inline-flex; align-items: center; }
+.hp-nav-item.is-advisory .hp-nav-trigger { gap: 0; }
+
+/* A fourth tab widens the left grid column and pushes the centred logo off
+   centre. 20px of gap keeps the tab group inside its 1fr share all the way
+   down to the 1200px drawer breakpoint. */
+@media (max-width: 1280px) {
+  .hp-nav-tabs { gap: 20px; }
+}
 
 .hp-nav-menu {
   position: absolute; top: calc(100% + 14px); left: 0;
@@ -5223,7 +5236,9 @@ body.is-nav-open { overflow: hidden; }
    nav tabs + logo + phone+CTA cluster crowd the row and the logo gets
    horizontally squeezed. 1080 is the smallest width that keeps the
    desktop nav readable; tablets and small laptops use the drawer. */
-@media (max-width: 1080px) {
+/* Raised 1080 -> 1200: a fourth tab no longer fits beside the centred logo
+   below ~1200px, so the drawer takes over earlier. */
+@media (max-width: 1200px) {
   /* The header's backdrop-filter creates a containing block for fixed
      descendants — that traps the drawer inside the 60px header. Drop the
      blur on mobile so the drawer can position against the viewport. */
