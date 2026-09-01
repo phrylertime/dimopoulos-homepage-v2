@@ -144,6 +144,12 @@
   ],
   "headers": [
     {
+      "source": "/client-guide/(.*)",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow, noarchive, nosnippet, noimageindex" }
+      ]
+    },
+    {
       "source": "/(.*)\\.(css|js|webp|jpg|jpeg|png|svg|woff2|ico)",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }

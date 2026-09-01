@@ -8,4 +8,7 @@ Disallow: /admin/
 Disallow: /tmp/
 Disallow: /.git/
 
+# Private client onboarding guide — unlinked, not in the sitemap
+Disallow: /client-guide/
+
 Sitemap: https://www.dimolaw.com/sitemap.xml

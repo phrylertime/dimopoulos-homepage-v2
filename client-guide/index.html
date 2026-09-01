@@ -1,0 +1,1212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Private guide. Served only behind Cloudflare Access. Keep the noindex line. -->
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="180x180" href="assets/favicon-180.png">
+<link rel="apple-touch-icon" href="assets/favicon-180.png">
+<title>Welcome to Dimopoulos Law Firm, P.C. | Client Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#102649;
+  --navy-deep:#0b1c38;
+  --royal:#3b68b2;
+  --royal-soft:#5b82c4;
+  --paper:#f7f9fc;
+  --tint:#e9eff8;
+  --line:#d7e0ee;
+  --ink:#1d2b3f;
+  --muted:#5a6a80;
+  --white:#ffffff;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Source Sans 3','Segoe UI',Helvetica,Arial,sans-serif;
+  color:var(--ink);
+  background:var(--paper);
+  line-height:1.65;
+  font-size:17px;
+}
+h1,h2,h3,.wordmark{font-family:'Playfair Display',Georgia,'Times New Roman',serif}
+
+/* ---------- layout ---------- */
+.app{display:flex;min-height:100vh}
+.sidebar{
+  width:300px;flex-shrink:0;background:var(--navy);color:#c9d6ea;
+  position:fixed;top:0;left:0;bottom:0;overflow-y:auto;
+  padding:36px 0 28px;z-index:40;
+  transition:transform .3s ease;
+  box-shadow:inset -1px 0 0 rgba(255,255,255,.09), 3px 0 18px rgba(11,28,56,.13);
+}
+.main{margin-left:300px;flex:1;min-width:0}
+
+/* ---------- sidebar ---------- */
+.brand{padding:0 28px 26px;border-bottom:1px solid rgba(255,255,255,.12)}
+.wordmark{color:#fff;font-size:26px;font-weight:700;letter-spacing:.06em}
+.wordsub{color:var(--royal-soft);font-size:11.5px;letter-spacing:.42em;margin-top:3px;font-weight:600}
+.tagline{margin-top:14px;font-size:13px;font-style:italic;color:#9db1cf;line-height:1.5}
+.navgroup{padding:20px 16px 4px}
+.navlabel{font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:#7e93b6;padding:0 12px 8px}
+.navlink{
+  display:flex;align-items:center;gap:11px;width:100%;text-align:left;
+  background:none;border:none;color:#c9d6ea;font:inherit;font-size:14.5px;
+  padding:9px 12px;border-radius:7px;cursor:pointer;line-height:1.35;
+}
+.navlink:hover{background:rgba(255,255,255,.07);color:#fff}
+.navlink.active{background:var(--royal);color:#fff}
+.navnum{
+  flex-shrink:0;width:24px;font-size:11px;font-weight:700;letter-spacing:.05em;
+  color:var(--royal-soft);font-family:'Source Sans 3',sans-serif;text-align:left;
+}
+.navnum.dotmark{
+  width:24px;height:22px;display:flex;align-items:center;justify-content:flex-start;
+}
+.navnum.dotmark::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--royal-soft)}
+.navlink.active .navnum{color:#fff}
+.navlink.active .navnum.dotmark::before{background:#fff}
+.navlink.visited .navnum{color:#8ea3c4}
+.sidefoot{padding:22px 28px 0;font-size:12.5px;color:#8ea3c4;border-top:1px solid rgba(255,255,255,.12);margin-top:18px}
+.sidefoot a{color:#b9cae6;text-decoration:none}
+
+/* ---------- top bar (mobile) ---------- */
+.topbar{display:none}
+
+/* ---------- sections ---------- */
+.section{display:none;animation:fade .35s ease}
+.section.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+/* white header panel shared by the hero and every page head */
+.hero,.pagehead{
+  background:#fff;border-bottom:1px solid var(--line);position:relative;
+}
+.hero::before,.pagehead::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:4px;
+  background:linear-gradient(90deg,var(--navy) 0%,var(--navy) 22%,var(--royal) 62%,var(--royal-soft) 100%);
+}
+.hero{
+  background:
+    radial-gradient(1100px 380px at 8% -30%, #eef3fb 0%, rgba(238,243,251,0) 70%),
+    #fff;
+}
+.heroinner{padding:80px 60px 44px;max-width:900px}
+/* eyebrow label flanked by hairlines, after the firm site's rule-and-label device */
+.hero .kicker,.pagehead .kicker{
+  display:inline-flex;align-items:center;gap:12px;
+  font-size:11.5px;letter-spacing:.3em;text-transform:uppercase;font-weight:700;
+  color:var(--royal);margin-bottom:20px;
+}
+.hero .kicker::before,.hero .kicker::after,
+.pagehead .kicker::before,.pagehead .kicker::after{
+  content:"";width:28px;height:1px;background:var(--royal);opacity:.5;flex-shrink:0;
+}
+.hero h1{font-size:47px;line-height:1.12;font-weight:600;color:var(--navy);max-width:740px;letter-spacing:-.01em}
+/* the firm's signature move: one italicized word carrying the argument */
+h1 em,h2 em,h3 em{font-style:italic;font-weight:500;color:var(--royal)}
+.content em.term{font-style:italic;font-weight:600;color:var(--royal)}
+.hero p.lede{font-size:19px;color:var(--muted);max-width:700px;margin-top:22px;line-height:1.62}
+.herofoot{
+  border-top:1px solid var(--line);
+  background:linear-gradient(90deg,var(--tint) 0%,#fbfcfe 62%,#fff 100%);
+  padding:15px 60px;display:flex;justify-content:space-between;align-items:center;gap:18px;
+  font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--navy);
+}
+.herofoot .hfright{color:var(--royal);letter-spacing:.16em}
+.pagehead{padding:46px 60px 30px}
+.pagehead h1{font-size:36px;color:var(--navy);font-weight:600;line-height:1.2;max-width:760px}
+.pagehead .stage{
+  display:inline-flex;align-items:center;gap:11px;margin-bottom:16px;
+  font-size:11.5px;font-weight:700;color:var(--royal);
+  letter-spacing:.3em;text-transform:uppercase;
+}
+.stage .dot{
+  font-family:'Playfair Display',Georgia,serif;font-size:26px;font-weight:600;
+  color:var(--royal);letter-spacing:.02em;line-height:1;
+}
+.stage::after{content:"";width:28px;height:1px;background:var(--royal);opacity:.5}
+.content{padding:34px 60px 30px;max-width:860px}
+.content p{margin:0 0 18px;color:var(--ink)}
+.content p.big{font-size:19px;color:var(--navy);line-height:1.6}
+.content h2{font-size:24px;color:var(--navy);margin:36px 0 12px;font-weight:600}
+.content h2::before{content:"";display:block;width:30px;height:2px;background:var(--royal);opacity:.85;margin-bottom:13px}
+/* pull quote: italic serif, no quote marks, after the site's testimonial treatment */
+.pull{
+  margin:34px 0;padding:4px 0 4px 28px;border-left:3px solid var(--royal);
+  font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:500;
+  font-size:25px;line-height:1.42;color:var(--navy);max-width:740px;
+}
+/* who is handling this stage: the through-line of the guide */
+.atstage{
+  margin:30px 0 8px;padding:20px 0 20px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  display:flex;gap:20px;align-items:flex-start;
+}
+.atstage .aslabel{
+  flex-shrink:0;width:118px;font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;
+  font-weight:700;color:var(--royal);line-height:1.5;padding-top:3px;
+}
+.atstage p{margin:0;font-size:16px;color:var(--ink)}
+.atstage p strong{color:var(--navy)}
+@media (max-width:860px){
+  .atstage{flex-direction:column;gap:9px}
+  .atstage .aslabel{width:auto}
+}
+.pull .pattrib{
+  display:block;margin-top:15px;font-family:'Source Sans 3',sans-serif;font-style:normal;
+  font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--royal);font-weight:700;
+}
+.content h3{font-size:18.5px;color:var(--navy);margin:26px 0 10px;font-weight:600}
+.content a{color:var(--royal)}
+.rule{height:1px;background:var(--line);margin:34px 0}
+
+/* ---------- components ---------- */
+.callout{
+  background:var(--tint);border-left:4px solid var(--royal);
+  padding:18px 22px;border-radius:0 10px 10px 0;margin:24px 0;
+}
+.callout p{margin:0}
+.callout .ctitle{font-weight:700;color:var(--navy);display:block;margin-bottom:6px;font-size:15px;letter-spacing:.02em}
+.cardgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:22px 0}
+.card{
+  background:#fff;border:1px solid var(--line);border-top:3px solid var(--royal);
+  border-radius:4px 4px 12px 12px;
+  padding:22px 24px;box-shadow:0 1px 3px rgba(16,38,73,.05);
+}
+.card h3{margin:0 0 8px;font-size:17.5px}
+.card p{margin:0;font-size:15.5px;color:var(--muted)}
+.card .role{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--royal);font-weight:700;margin-bottom:6px}
+.card .cline{margin-top:10px;font-size:15px;color:var(--ink)}
+.card .cline span{color:var(--muted)}
+.steps{counter-reset:step;margin:22px 0}
+.step{
+  display:flex;gap:18px;background:#fff;border:1px solid var(--line);
+  border-radius:12px;padding:20px 24px;margin-bottom:12px;
+}
+.step .snum{
+  counter-increment:step;flex-shrink:0;width:34px;
+  color:var(--royal);font-family:'Playfair Display',Georgia,serif;
+  font-weight:600;font-size:26px;line-height:1;margin-top:1px;
+}
+.step .snum::before{content:"0" counter(step)}
+.step h3{margin:0 0 5px;font-size:17px}
+.step p{margin:0;font-size:15.5px;color:var(--muted)}
+.checklist{list-style:none;margin:16px 0 22px}
+.checklist li{
+  position:relative;padding:10px 14px 10px 44px;background:#fff;
+  border:1px solid var(--line);border-radius:9px;margin-bottom:8px;font-size:15.5px;
+}
+.checklist li::before{
+  content:"";position:absolute;left:14px;top:13px;width:18px;height:18px;
+  border:2px solid var(--royal);border-radius:5px;background:#fff;
+}
+.twocol{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin:22px 0}
+.deflist dt{font-weight:700;color:var(--navy);margin-top:16px}
+.deflist dd{margin:4px 0 0;color:var(--ink);font-size:16px}
+.lawbox{
+  border:1.5px solid var(--navy);border-radius:12px;background:#fff;
+  margin:26px 0;box-shadow:0 2px 8px rgba(16,38,73,.07);overflow:hidden;
+}
+.lawbox summary{
+  cursor:pointer;list-style:none;background:var(--navy);color:#fff;
+  padding:16px 22px;font-weight:700;font-size:15px;letter-spacing:.04em;
+}
+.lawbox summary::-webkit-details-marker{display:none}
+.lawbox summary .lsub{display:block;font-weight:400;font-size:13px;color:#a8bcdd;margin-top:3px;letter-spacing:0}
+.lawbox summary::after{content:"Click to read the full text";float:right;font-weight:400;font-size:12.5px;color:#a8bcdd}
+.lawbox[open] summary::after{content:"Click to collapse"}
+.lawbox .lawtext{padding:20px 26px;font-size:14.5px;color:var(--ink)}
+.lawbox .lawtext p{margin:0 0 13px;font-size:14.5px}
+.lawbox .lawtext .lawcenter{text-align:center;font-weight:700;color:var(--navy)}
+.formlink{
+  display:flex;gap:14px;align-items:flex-start;background:#fff;border:1.5px solid var(--royal);
+  border-radius:12px;padding:16px 20px;margin:22px 0;
+}
+.formlink .ficon{
+  flex-shrink:0;width:38px;height:38px;border-radius:9px;background:var(--tint);
+  color:var(--royal);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;
+}
+.formlink p{margin:0;font-size:15px}
+.formlink .ftitle{font-weight:700;color:var(--navy);display:block;font-size:15.5px}
+
+/* ---------- stage rail ---------- */
+.checklist li strong{color:var(--navy);font-weight:700}
+.cref{
+  display:inline-block;margin-left:6px;font-size:12.5px;font-weight:700;color:var(--royal);
+  background:var(--tint);border-radius:999px;padding:2px 11px;cursor:pointer;white-space:nowrap;
+}
+.cref:hover{background:var(--royal);color:#fff}
+.rail{display:grid;grid-template-columns:repeat(5,1fr);gap:9px;margin:26px 0 8px}
+.railstep{
+  background:#fff;border:1px solid var(--line);border-top:3px solid var(--royal-soft);
+  border-radius:4px 4px 10px 10px;padding:15px 12px 16px;cursor:pointer;transition:all .2s;
+}
+.railstep:hover{border-color:var(--royal);border-top-color:var(--royal);transform:translateY(-2px);box-shadow:0 4px 12px rgba(16,38,73,.09)}
+.railstep .rn{
+  font-family:'Playfair Display',Georgia,serif;font-size:21px;font-weight:600;
+  color:var(--royal-soft);line-height:1;margin-bottom:9px;
+}
+.railstep .rt{font-size:12.5px;font-weight:600;color:var(--navy);line-height:1.32}
+/* the palette deepens as the case advances toward trial */
+.railstep:nth-child(1){border-top-color:#93aede}.railstep:nth-child(1) .rn{color:#93aede}
+.railstep:nth-child(2){border-top-color:#7f9dd5}.railstep:nth-child(2) .rn{color:#7f9dd5}
+.railstep:nth-child(3){border-top-color:#6d8ecd}.railstep:nth-child(3) .rn{color:#6d8ecd}
+.railstep:nth-child(4){border-top-color:#5c7fc3}.railstep:nth-child(4) .rn{color:#5c7fc3}
+.railstep:nth-child(5){border-top-color:#4d71b8}.railstep:nth-child(5) .rn{color:#4d71b8}
+.railstep:nth-child(6){border-top-color:#4064a6}.railstep:nth-child(6) .rn{color:#4064a6}
+.railstep:nth-child(7){border-top-color:#365791}.railstep:nth-child(7) .rn{color:#365791}
+.railstep:nth-child(8){border-top-color:#2c4a7b}.railstep:nth-child(8) .rn{color:#2c4a7b}
+.railstep:nth-child(9){border-top-color:#1f3a64}.railstep:nth-child(9) .rn{color:#1f3a64}
+.railstep:nth-child(10){border-top-color:var(--navy)}.railstep:nth-child(10) .rn{color:var(--navy)}
+
+/* ---------- next/prev ---------- */
+.pager{
+  display:flex;justify-content:space-between;align-items:stretch;gap:16px;
+  padding:10px 60px 64px;max-width:860px;
+}
+.pbtn{
+  flex:1;display:block;text-align:left;background:#fff;border:1px solid var(--line);
+  border-radius:12px;padding:16px 22px;cursor:pointer;font:inherit;transition:all .2s;
+}
+.pbtn:hover{border-color:var(--royal);box-shadow:0 3px 10px rgba(16,38,73,.08)}
+.pbtn.next{text-align:right;background:var(--navy);border-color:var(--navy)}
+.pbtn.next:hover{background:var(--royal);border-color:var(--royal)}
+.pbtn .plabel{font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;color:var(--muted)}
+.pbtn.next .plabel{color:#a8bcdd}
+.pbtn .ptitle{font-size:16.5px;font-weight:700;color:var(--navy);margin-top:3px}
+.pbtn.next .ptitle{color:#fff}
+.pbtn.ghost{visibility:hidden}
+.cta{
+  display:inline-block;background:var(--navy);color:#fff;border:none;font:inherit;
+  font-weight:700;font-size:16px;padding:14px 30px;border-radius:9px;cursor:pointer;margin-top:8px;
+}
+.cta:hover{background:var(--royal)}
+
+@media (max-width:1020px){
+  .cardgrid,.twocol{grid-template-columns:1fr}
+  .rail{grid-template-columns:repeat(4,1fr)}
+}
+@media (max-width:860px){
+  .sidebar{transform:translateX(-100%)}
+  .sidebar.open{transform:none;box-shadow:0 0 40px rgba(0,0,0,.35)}
+  .main{margin-left:0}
+  .topbar{
+    display:flex;align-items:center;justify-content:space-between;
+    background:var(--navy);color:#fff;padding:14px 20px;position:sticky;top:0;z-index:30;
+  }
+  .topbar .wordmark{font-size:18px}
+  .menubtn{background:none;border:1px solid rgba(255,255,255,.4);color:#fff;font:inherit;font-size:14px;padding:7px 14px;border-radius:7px;cursor:pointer}
+  .heroinner{padding:44px 26px 34px}
+  .hero h1{font-size:31px}
+  .hero p.lede{font-size:17.5px}
+  .herofoot{padding:13px 26px;flex-direction:column;align-items:flex-start;gap:5px;font-size:10.5px}
+  .pagehead{padding:32px 26px 22px}
+  .pagehead h1{font-size:27px}
+  .content{padding:20px 26px 24px}
+  .pager{padding:6px 26px 48px;flex-direction:column}
+  .pbtn.ghost{display:none}
+  .rail{grid-template-columns:repeat(2,1fr)}
+}
+@media print{
+  .sidebar,.topbar,.pager{display:none}
+  .main{margin-left:0}
+  .section{display:block!important;page-break-after:always}
+}
+
+/* ============ opening sequence ============ */
+#splash{
+  display:none;position:fixed;inset:0;z-index:9999;overflow:hidden;
+  background:radial-gradient(120% 100% at 18% 30%, #16305c 0%, var(--navy-deep) 55%, #060f22 100%);
+}
+#splash.on{display:block}
+#splash .sportrait{
+  position:absolute;top:0;right:0;bottom:0;width:52%;
+  background-image:url("assets/gus-portrait.jpg");
+  background-size:cover;background-position:52% 22%;
+  opacity:0;transform:scale(1.07);
+  filter:saturate(.82) contrast(1.04);
+}
+#splash.go .sportrait{
+  opacity:1;transform:scale(1);
+  transition:opacity 1500ms ease, transform 5200ms cubic-bezier(.2,.6,.2,1);
+}
+#splash .sscrim{
+  position:absolute;inset:0;
+  background:
+    linear-gradient(90deg, #0a1730 0%, #0a1730 30%, rgba(10,23,48,.92) 44%, rgba(10,23,48,.55) 60%, rgba(10,23,48,.30) 78%, rgba(10,23,48,.45) 100%),
+    radial-gradient(70% 60% at 30% 50%, rgba(59,104,178,.20) 0%, rgba(0,0,0,0) 70%);
+}
+#splash .svignette{position:absolute;inset:0;box-shadow:inset 0 0 200px 60px rgba(3,9,20,.75)}
+#splash .sinner{
+  position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;
+  padding:0 8vw;max-width:1500px;
+}
+#splash .swm{width:min(430px,46vw);height:auto;opacity:0;transform:translateY(16px)}
+#splash .srule{width:min(430px,46vw);height:1px;background:linear-gradient(90deg,var(--royal-soft),rgba(168,196,238,.15));margin:30px 0 26px;transform:scaleX(0);transform-origin:left center}
+#splash .stag{
+  font-family:'Playfair Display',Georgia,serif;font-size:clamp(20px,2.5vw,31px);
+  line-height:1.35;color:#eaf0fa;max-width:560px;opacity:0;transform:translateY(12px);font-weight:500;
+}
+#splash .stag i{font-style:italic;color:#8fb3e6}
+#splash .smeta{
+  margin-top:26px;font-size:10.5px;letter-spacing:.34em;text-transform:uppercase;
+  color:#7f9bc8;font-weight:700;opacity:0;
+}
+#splash.go .swm{opacity:1;transform:none;transition:opacity 1000ms ease 380ms, transform 1100ms cubic-bezier(.2,.7,.2,1) 380ms}
+#splash.go .srule{transform:scaleX(1);transition:transform 900ms cubic-bezier(.6,0,.2,1) 1080ms}
+#splash.go .stag{opacity:1;transform:none;transition:opacity 900ms ease 1400ms, transform 900ms cubic-bezier(.2,.7,.2,1) 1400ms}
+#splash.go .smeta{opacity:1;transition:opacity 800ms ease 1980ms}
+#splash .sskip{
+  position:absolute;bottom:26px;right:30px;background:none;border:1px solid rgba(255,255,255,.22);
+  color:#a8bcdd;font:inherit;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;
+  padding:9px 18px;border-radius:999px;cursor:pointer;opacity:0;transition:opacity 600ms ease 2200ms,background .2s,color .2s;
+}
+#splash.go .sskip{opacity:1}
+#splash .sskip:hover{background:rgba(255,255,255,.1);color:#fff}
+#splash.out{opacity:0;transform:scale(1.025);transition:opacity 800ms ease, transform 900ms ease;pointer-events:none}
+body.splashlock{overflow:hidden}
+.app{opacity:1}
+.app.veil{opacity:0}
+.app.reveal{opacity:1;transition:opacity 700ms ease}
+@media (max-width:860px){
+  #splash .sportrait{width:100%;background-position:58% 16%}
+  #splash .sscrim{background:
+    linear-gradient(180deg, rgba(8,18,38,.62) 0%, rgba(8,18,38,.45) 34%, rgba(8,18,38,.92) 68%, #08122a 100%),
+    radial-gradient(80% 50% at 50% 80%, rgba(59,104,178,.22) 0%, rgba(0,0,0,0) 70%)}
+  #splash .sinner{justify-content:flex-end;padding:0 26px 15vh}
+  #splash .swm,#splash .srule{width:min(340px,74vw)}
+  #splash .stag{font-size:20px}
+}
+@media (prefers-reduced-motion:reduce){
+  #splash{display:none!important}
+}
+@media print{#splash{display:none!important}}
+
+
+/* ============================================================
+   v2 READABILITY + COLOR PASS
+   Narrower reading measure, more leading, full-bleed colour bands.
+   Adds a warm sand/gold third colour alongside the navy and royal.
+   ============================================================ */
+:root{
+  --sand:#f6e7c2;        /* warm band, sits under callouts */
+  --sand-deep:#efd9a6;   /* its border */
+  --gold:#a8801f;        /* readable gold on white */
+  --gold-lt:#e2c98a;     /* gold on navy */
+  --ice:#eef4fb;         /* cool band, sits under pull quotes */
+  --measure:640px;       /* reading column */
+  --wide:960px;          /* cards, rails, step lists */
+}
+body{font-size:16.5px;line-height:1.78}
+
+/* the reading column is centred; bands run the full width behind it */
+.content{padding:38px 0 44px;max-width:none}
+.content > *{width:min(var(--measure), calc(100% - 120px));margin-left:auto;margin-right:auto}
+.content > .cardgrid,
+.content > .twocol,
+.content > .rail,
+.content > .steps,
+.content > .checklist,
+.content > .lawbox{width:min(var(--wide), calc(100% - 120px))}
+
+/* full-bleed bands, text still aligned to the reading column */
+.content > .callout,
+.content > .atstage,
+.content > .pull,
+.content > .formlink{
+  width:100%;max-width:none;
+  padding-left:max(60px, calc((100% - var(--measure)) / 2));
+  padding-right:max(60px, calc((100% - var(--measure)) / 2));
+  box-sizing:border-box;
+}
+
+/* warm band for the "next step" callouts */
+.content > .callout{
+  background:var(--sand);border-left:none;
+  border-top:1px solid var(--sand-deep);border-bottom:1px solid var(--sand-deep);
+  border-radius:0;padding-top:26px;padding-bottom:26px;margin:38px 0;
+}
+.callout .ctitle{color:#6b5312;letter-spacing:.03em}
+.callout p{color:#4a3d17}
+
+/* navy band for "at this stage": Gus's role should carry the most weight */
+.content > .atstage{
+  background:var(--navy);border-top:none;border-bottom:none;
+  padding-top:26px;padding-bottom:26px;margin:40px 0;
+  color:#dce6f5;
+}
+.atstage .aslabel{color:var(--gold-lt)}
+.atstage p{color:#dce6f5}
+.atstage p strong{color:#fff}
+
+/* cool band for pull quotes */
+.content > .pull{
+  background:var(--ice);border-left:none;
+  padding-top:34px;padding-bottom:34px;margin:40px 0;
+  border-top:1px solid #dbe6f4;border-bottom:1px solid #dbe6f4;
+}
+.pull .pattrib{color:var(--gold)}
+
+/* form links sit on the cool band too, quieter than a card */
+.content > .formlink{
+  background:var(--ice);border:none;border-radius:0;
+  border-top:1px solid #dbe6f4;border-bottom:1px solid #dbe6f4;
+  padding-top:24px;padding-bottom:24px;margin:34px 0;
+}
+
+/* the accent word in a heading goes warm, the way the reference site does it */
+h1 em,h2 em,h3 em{color:var(--gold)}
+.hero h1 em{color:var(--gold)}
+
+/* headings and body: a little smaller, a lot more air */
+.hero h1{font-size:44px;line-height:1.14}
+.hero p.lede{font-size:19px;line-height:1.7;max-width:var(--measure)}
+.heroinner{padding:76px 60px 42px;max-width:none}
+.hero .kicker,.pagehead .kicker,.pagehead .stage{margin-bottom:18px}
+.pagehead{padding:44px 60px 30px}
+.pagehead h1{font-size:34px}
+.content h2{font-size:22.5px;margin:44px 0 14px}
+.content h3{font-size:17.5px}
+.content p{margin:0 0 20px}
+.content p.big{font-size:19px;line-height:1.66;color:var(--navy)}
+.deflist dd{font-size:16.5px;line-height:1.75}
+
+/* lists breathe */
+.checklist li{padding:13px 16px 13px 46px;line-height:1.7;margin-bottom:9px}
+.checklist li::before{top:16px}
+.step{padding:22px 26px;margin-bottom:14px}
+.step p{line-height:1.7}
+.card p{line-height:1.7}
+
+/* pager keeps to the reading column */
+.pager{padding:14px 0 70px;max-width:none;width:min(var(--wide), calc(100% - 120px));margin-left:auto;margin-right:auto}
+
+@media (max-width:1000px){
+  .content > *{width:calc(100% - 52px)}
+  .content > .cardgrid,.content > .twocol,.content > .rail,
+  .content > .steps,.content > .checklist,.content > .lawbox{width:calc(100% - 52px)}
+  .content > .callout,.content > .atstage,.content > .pull,.content > .formlink{
+    padding-left:26px;padding-right:26px}
+  .pager{width:calc(100% - 52px)}
+  .heroinner{padding:44px 26px 34px}
+  .pagehead{padding:32px 26px 22px}
+}
+
+/* centring must come last: the margin shorthands above reset the inline axis */
+.content > p,
+.content > h2,
+.content > h3,
+.content > ul,
+.content > ol,
+.content > dl,
+.content > .steps,
+.content > .cardgrid,
+.content > .twocol,
+.content > .rail,
+.content > .checklist,
+.content > .lawbox,
+.content > .rule{margin-left:auto;margin-right:auto}
+
+/* headers share the body column's left edge, then run wider to the right */
+.pagehead{padding:44px 0 30px}
+.pagehead > *{
+  margin-left:max(60px, calc((100% - var(--measure)) / 2));
+  margin-right:60px;max-width:820px;
+}
+.pagehead h1{max-width:820px}
+.heroinner{padding:76px 0 42px}
+.heroinner > *{
+  margin-left:max(60px, calc((100% - var(--measure)) / 2));
+  margin-right:60px;
+}
+.hero h1{max-width:820px}
+.hero p.lede{max-width:var(--measure)}
+.herofoot{
+  padding-left:max(60px, calc((100% - var(--measure)) / 2));
+  padding-right:60px;
+}
+@media (max-width:1000px){
+  .pagehead > *,.heroinner > *{margin-left:26px;margin-right:26px}
+  .herofoot{padding-left:26px;padding-right:26px}
+}
+
+</style>
+</head>
+<body>
+<div id="splash" role="presentation" aria-hidden="true">
+  <div class="sportrait"></div>
+  <div class="sscrim"></div>
+  <div class="svignette"></div>
+  <div class="sinner">
+    <img class="swm" alt="" src="assets/wordmark-white.png">
+    <div class="srule"></div>
+    <div class="stag">When everything is on the line, experience <i>matters</i>.</div>
+    <div class="smeta">A Guide for New Clients &nbsp;&middot;&nbsp; Westchester &nbsp;&middot;&nbsp; New York City</div>
+  </div>
+  <button class="sskip" type="button">Skip</button>
+</div>
+<div class="app">
+
+<nav class="sidebar" id="sidebar">
+  <div class="brand">
+    <div class="wordmark">DIMOPOULOS</div>
+    <div class="wordsub">LAW FIRM, P.C.</div>
+    <div class="tagline">When everything is on the line, experience matters.</div>
+  </div>
+  <div class="navgroup">
+    <div class="navlabel">Getting Started</div>
+    <button class="navlink" data-go="welcome"><span class="navnum dotmark"></span>Welcome</button>
+    <button class="navlink" data-go="retainer"><span class="navnum dotmark"></span>The Retainer Process</button>
+    <button class="navlink" data-go="team"><span class="navnum dotmark"></span>Your Team &amp; How to Reach Us</button>
+    <button class="navlink" data-go="groundrules"><span class="navnum dotmark"></span>Ground Rules That Protect You</button>
+  </div>
+  <div class="navgroup">
+    <div class="navlabel">Anatomy of a Divorce</div>
+    <button class="navlink" data-go="settlement"><span class="navnum">01</span>The Settlement Process</button>
+    <button class="navlink" data-go="commencement"><span class="navnum">02</span>Commencement &amp; Automatic Orders</button>
+    <button class="navlink" data-go="sonw"><span class="navnum">03</span>The Statement of Net Worth</button>
+    <button class="navlink" data-go="custody"><span class="navnum">04</span>Custody &amp; the Parenting Track</button>
+    <button class="navlink" data-go="pc"><span class="navnum">05</span>The Preliminary Conference</button>
+    <button class="navlink" data-go="discovery"><span class="navnum">06</span>The Discovery Process</button>
+    <button class="navlink" data-go="documents"><span class="navnum">07</span>The Exchange of Documents</button>
+    <button class="navlink" data-go="depositions"><span class="navnum">08</span>Depositions</button>
+    <button class="navlink" data-go="trialprep"><span class="navnum">09</span>Trial Preparation</button>
+    <button class="navlink" data-go="trial"><span class="navnum">10</span>Trial &amp; Judgment</button>
+  </div>
+  <div class="navgroup">
+    <div class="navlabel">Wrapping Up</div>
+    <button class="navlink" data-go="nextsteps"><span class="navnum dotmark"></span>Your Next Steps</button>
+  </div>
+  <div class="sidefoot">
+    73 Main Street, Tuckahoe, NY 10707<br>914-472-4242<br><br>
+    745 Fifth Avenue, Suite 500<br>New York, NY 10151<br>212-500-1778<br><br>
+    <a href="https://www.dimolaw.com">dimolaw.com</a>
+  </div>
+</nav>
+
+<div class="main">
+<div class="topbar">
+  <span class="wordmark">DIMOPOULOS</span>
+  <button class="menubtn" id="menubtn">Menu</button>
+</div>
+<!-- WELCOME -->
+<section class="section" id="welcome">
+  <div class="hero">
+    <div class="heroinner">
+      <div class="kicker">A Guide for New Clients</div>
+      <h1>Welcome. Here is <em>exactly</em> what happens next.</h1>
+      <p class="lede">Divorce is unfamiliar territory for almost everyone who goes through it. This guide walks you through your engagement with our firm and then through each stage of a New York divorce, from the first filing to trial, so that nothing that happens in your case ever comes as a surprise.</p>
+    </div>
+    <div class="herofoot">
+      <span>Dimopoulos Law Firm, P.C.</span>
+      <span class="hfright">Westchester &nbsp;&middot;&nbsp; New York City</span>
+    </div>
+  </div>
+  <div class="content">
+    <p class="big">Dimopoulos Law Firm, P.C. concentrates its practice in divorce, custody, support, and complex matrimonial litigation in Westchester County and New York City. We built this guide because informed clients make better decisions, and better decisions produce better outcomes.</p>
+    <h2>The lawyer on your <em>case</em></h2>
+    <p>One thing to be clear about before you read any further. When you retain this firm, you retain Gus Dimopoulos. He sets the strategy on your case, he stands up at the conferences and the hearings, he takes the depositions, he negotiates the settlement, and he tries the case if it goes to trial. The associates and paralegals around him are there to support that work, to keep your case moving between court dates, and to make sure the volume work is never billed at a partner's rate. They are not substitutes for him.</p>
+    <div class="pull">You will have his cell number. Clients who need him reach him.</div>
+    <p>Each of the ten stages below ends with a short note telling you exactly who is doing what at that point in your case, so you never have to wonder.</p>
+    <h2>How to use this guide</h2>
+    <p>Work through the menu in order, or jump to the stage your case has reached. The first three sections cover the practical side of working with us: the retainer process, who is on your team, and the ground rules that protect you while your case is pending. The ten numbered sections then walk through the anatomy of a divorce proceeding itself.</p>
+    <div class="rail">
+      <div class="railstep" data-go="settlement"><div class="rn">01</div><div class="rt">Settlement</div></div>
+      <div class="railstep" data-go="commencement"><div class="rn">02</div><div class="rt">Commencement</div></div>
+      <div class="railstep" data-go="sonw"><div class="rn">03</div><div class="rt">Statement of Net&nbsp;Worth</div></div>
+      <div class="railstep" data-go="custody"><div class="rn">04</div><div class="rt">Custody Track</div></div>
+      <div class="railstep" data-go="pc"><div class="rn">05</div><div class="rt">Preliminary Conference</div></div>
+      <div class="railstep" data-go="discovery"><div class="rn">06</div><div class="rt">Discovery</div></div>
+      <div class="railstep" data-go="documents"><div class="rn">07</div><div class="rt">Document Exchange</div></div>
+      <div class="railstep" data-go="depositions"><div class="rn">08</div><div class="rt">Depositions</div></div>
+      <div class="railstep" data-go="trialprep"><div class="rn">09</div><div class="rt">Trial Prep</div></div>
+      <div class="railstep" data-go="trial"><div class="rn">10</div><div class="rt">Trial</div></div>
+    </div>
+    <div class="rule"></div>
+    <h2>This week</h2>
+    <p>Before anything else, these are the four things that need to happen in your first week. Each one is explained in the section noted beside it.</p>
+    <ul class="checklist">
+      <li><strong>Set up a clean device and email account</strong> your spouse cannot reach, change your Apple or Google password, and turn on two-factor authentication. <span class="cref" data-go="groundrules">Ground Rules</span></li>
+      <li><strong>Start gathering your financial documents.</strong> They are due to us within one week. <span class="cref" data-go="sonw">Statement of Net Worth</span></li>
+      <li><strong>Stop posting on social media</strong> about your spouse, your family, or the case, and delete nothing. <span class="cref" data-go="groundrules">Ground Rules</span></li>
+      <li><strong>Schedule your onboarding conference</strong> with the office. <span class="cref" data-go="team">Your Team</span></li>
+    </ul>
+    <div class="callout">
+      <p><span class="ctitle">One thing to keep in mind from day one</span>The great majority of New York divorce cases settle by written agreement before trial. Every stage described in this guide serves two purposes at once: it prepares your case for trial, and it builds the leverage and the information needed to settle it well. Preparing seriously for trial is how favorable settlements get made.</p>
+    </div>
+    <p>Nothing in this guide is a substitute for advice about your own case. When your facts and this guide diverge, call us.</p>
+  </div>
+  <div class="pager">
+    <button class="pbtn ghost"></button>
+    <button class="pbtn next" data-go="retainer"><span class="plabel">Next</span><span class="ptitle">The Retainer Process &#8594;</span></button>
+  </div>
+</section>
+
+<!-- RETAINER -->
+<section class="section" id="retainer">
+  <div class="pagehead">
+    <div class="kicker">Getting Started</div>
+    <h1>The Retainer <em>Process</em></h1>
+  </div>
+  <div class="content">
+    <div class="callout">
+      <p><span class="ctitle">You have already signed this</span>You are reading this because you have retained us, so nothing on this page asks anything of you. It is here so you understand what you signed, what it obligates each of us to do, and the court rules the firm is held to in getting it right.</p>
+    </div>
+    <p class="big">Before we can act as your attorneys, New York law requires a written retainer agreement between you and the firm. It is a contract, and we want you to understand it before you sign it.</p>
+    <h2>What the retainer agreement is</h2>
+    <p>The retainer agreement defines the scope of our representation, how our fees and disbursements are billed, and the rights and responsibilities that run in both directions. In a matrimonial matter the agreement covers your case through the entry of a final judgment or settlement. Appeals, post-judgment enforcement, and modification proceedings fall outside that scope and would require a separate agreement if they arise.</p>
+    <div class="formlink">
+      <div class="ficon">&#8599;</div>
+      <p><span class="ftitle">The rules we are held to</span>Retainer agreements in divorce and family matters are not left to the lawyer's discretion. New York regulates them by court rule, and you can read the rule yourself: <a href="https://www.nycourts.gov/divorce-resources/procedure-attorneys-domestic-relations-matters" target="_blank" rel="noopener">Procedure for Attorneys in Domestic Relations Matters, 22 NYCRR Part 1400</a>. Among other things it requires a written agreement signed by both of us and filed with the court, prohibits nonrefundable retainers, requires billing at least every sixty days, and sets out your right to arbitrate a fee dispute. Everything in our agreement is built to comply with it.</p>
+    </div>
+    <p>Attached to every retainer agreement is the Statement of Client's Rights and Responsibilities required by the rules of the Appellate Division (22 NYCRR &sect; 1210.1). Read it. It describes, among other things, your right to courteous treatment, to itemized bills at reasonable intervals, to prompt responses to your questions, and to make the final decision on whether your case settles. That last decision is always yours, not ours.</p>
+    <h2>What you are retaining</h2>
+    <p>The engagement is with the firm as an entity rather than with one attorney exclusively, which is standard and which the agreement says plainly. What that language does not convey is how the firm actually works: Gus personally handles every significant aspect of your representation, including the court appearances, the hearings, the depositions, the negotiations, and the trial. Work is delegated to associates, paralegals, and law clerks precisely so that his hours go to the parts of your case that decide it, and so that assembling documents and organizing discovery is billed at a fraction of his rate. Delegation here is a cost control, not a handoff.</p>
+    <h2>How the retainer and billing work</h2>
+    <p>The retainer is an advance payment that is applied against our hourly time charges and out-of-pocket disbursements as your case proceeds. It is not a flat fee and it is not a prediction of what your case will cost. Each month you receive an itemized bill showing the date and nature of every service, who performed it, and the time charged, along with any disbursements such as court filing fees, court reporters, transcripts, and process servers.</p>
+    <p>Outside experts are common in matrimonial litigation: appraisers, forensic accountants, and mental health professionals among them. Their fees are separate from ours and are your responsibility, though here too the court can direct your spouse to share or carry the cost in appropriate cases.</p>
+    <p>If anything on a bill looks wrong to you, raise it right away. The agreement gives you a window of twenty days to object, and prompt questions get prompt fixes.</p>
+    <h2>Now that you have <em>signed</em></h2>
+    <div class="steps">
+      <div class="step"><span class="snum"></span><div><h3>Ask us anything that is still unclear</h3><p>Fee structure, scope, billing mechanics, anything. There are no bad questions about the agreement you have signed, and clarity now prevents friction later.</p></div></div>
+      <div class="step"><span class="snum"></span><div><h3>Keep your countersigned copy</h3><p>File it with your records, somewhere your spouse cannot access.</p></div></div>
+      <div class="step"><span class="snum"></span><div><h3>Schedule your onboarding conference</h3><p>We map the immediate strategy, identify anything urgent, and start your document collection for the Statement of Net Worth.</p></div></div>
+    </div>
+    <div class="callout">
+      <p><span class="ctitle">A note on candor</span>Everything we file for you rests on the information you give us. Court rules require us, as your attorneys, to certify the papers you submit. Complete honesty with your own lawyers, especially about finances, is not optional. It is the foundation of the case.</p>
+    </div>
+  </div>
+  <div class="pager">
+    <button class="pbtn" data-go="welcome"><span class="plabel">Back</span><span class="ptitle">Welcome</span></button>
+    <button class="pbtn next" data-go="team"><span class="plabel">Next</span><span class="ptitle">Your Team &amp; How to Reach Us &#8594;</span></button>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="section" id="team">
+  <div class="pagehead">
+    <div class="kicker">Getting Started</div>
+    <h1>Your Team &amp; How to <em>Reach</em> Us</h1>
+  </div>
+  <div class="content">
+    <p class="big">When you retain this firm, you retain Gus Dimopoulos. He is your lawyer in the plain sense of the word: he sets the strategy, he appears in court, he takes the depositions, he negotiates the settlement, and he tries the case if it is tried.</p>
+    <p>That does not change as your case gets busier, and it does not change at the stages that are inconvenient for a calendar. Everything in this guide that decides your case is work he does himself. The rest of the team exists so that his attention lands there.</p>
+    <p>One associate, Kassie or Hannah, is assigned to your matter and stays with it from beginning to end. Continuity is worth a great deal: your associate knows your file cold, is reachable day to day, and can answer most questions without your having to wait for Gus to come out of a courtroom. Brittany Vasile, our paralegal and Gus's assistant, runs the moving parts, and you will hear from her often. Work moves to them so that partner time is spent on judgment rather than paperwork, which keeps your bill honest. The important things and the strategy always come back to Gus.</p>
+    <p>You will also have his cell number. Clients who need him reach him.</p>
+    <div class="cardgrid">
+      <div class="card">
+        <div class="role">Your Attorney &middot; Managing Partner</div>
+        <h3>Gus Dimopoulos, Esq.</h3>
+        <p>More than twenty years of courtroom experience in complex matrimonial and civil litigation. Sets the strategy on your case and personally handles every court appearance, hearing, deposition, negotiation, and trial in it.</p>
+        <div class="cline">gd@dimolaw.com<br><span>914-472-4242, and his cell for anything urgent</span></div>
+      </div>
+      <div class="card">
+        <div class="role">Associate &middot; Assigned to your matter</div>
+        <h3>Kathleen "Kassie" Seavy, Esq.</h3>
+        <p>Supports Gus on your case from start to finish and stays reachable day to day. Handles motion practice and discovery with him, and answers most questions without your having to wait. Anything important goes to Gus.</p>
+        <div class="cline">ks@dimolaw.com<br><span>914-472-4242</span></div>
+      </div>
+      <div class="card">
+        <div class="role">Associate &middot; Assigned to your matter</div>
+        <h3>Hannah Gaudet, Esq.</h3>
+        <p>Supports Gus on your case from start to finish and stays reachable day to day. Handles motion practice and discovery with him, and answers most questions without your having to wait. Anything important goes to Gus.</p>
+        <div class="cline">hg@dimolaw.com<br><span>914-472-4242</span></div>
+      </div>
+      <div class="card">
+        <div class="role">Paralegal &amp; Assistant to Gus</div>
+        <h3>Brittany Vasile</h3>
+        <p>Keeps your case moving: day-to-day discovery and pleadings, scheduling with the court, and the coordination of experts. Brittany also runs Gus's calendar and appearances, so anything touching dates and availability goes through her.</p>
+        <div class="cline">bv@dimolaw.com<br><span>914-472-4242</span></div>
+      </div>
+      <div class="card">
+        <div class="role">Support Team</div>
+        <h3>Paralegals &amp; Law Clerks</h3>
+        <p>Document collection, discovery organization, scheduling, and filings, always under attorney supervision and at rates well below attorney time. Volume work belongs here, not on your partner bill.</p>
+        <div class="cline"><span>Reach via the main line, 914-472-4242</span></div>
+      </div>
+    </div>
+    <h2>Offices</h2>
+    <div class="twocol">
+      <div class="card"><div class="role">Westchester</div><h3>73 Main Street</h3><p>Tuckahoe, NY 10707</p><div class="cline">914-472-4242</div></div>
+      <div class="card"><div class="role">New York City</div><h3>745 Fifth Avenue, Suite 500</h3><p>New York, NY 10151</p><div class="cline">212-500-1778</div></div>
+    </div>
+    <p>Office hours are Monday through Friday, 9:00 a.m. to 6:00 p.m. Our website is <a href="https://www.dimolaw.com">dimolaw.com</a>.</p>
+    <h2>Response times, and what counts as urgent</h2>
+    <p>Non-urgent communications are always answered within one business day. Route them to your assigned associate first; most questions get resolved right there, same day, without waiting on Gus's court schedule. You are not calling into a queue and you will not be handed to whoever is free. The same three or four people handle your case for its entire life, and they know your name and your file when the phone rings.</p>
+    <p>Anything truly urgent goes directly to Gus by cell. You will receive his cell number at your onboarding conference; keep it stored under a discreet name in your phone. Urgent means urgent: a confrontation with your spouse, police involvement, something happening with the children, service of papers requiring an immediate response. A question about a bill or a document can wait for the morning; a crisis cannot, and we would rather get the call.</p>
+    <p>One request that saves clients real money: batch your questions. Five short emails cost more to answer than one organized one. Keep a running note on your phone and send it when it has a few items in it, unless something truly cannot wait.</p>
+  </div>
+  <div class="pager">
+    <button class="pbtn" data-go="retainer"><span class="plabel">Back</span><span class="ptitle">The Retainer Process</span></button>
+    <button class="pbtn next" data-go="groundrules"><span class="plabel">Next</span><span class="ptitle">Ground Rules That Protect You &#8594;</span></button>
+  </div>
+</section>
+
+<!-- GROUND RULES -->
+<section class="section" id="groundrules">
+  <div class="pagehead">
+    <div class="kicker">Getting Started</div>
+    <h1>Ground Rules That <em>Protect</em> You</h1>
+  </div>
+  <div class="content">
+    <p class="big">A handful of habits, adopted on day one, will protect your privilege, your evidence, and your position. These are not suggestions. They are the rules we ask every client to live by while a case is pending.</p>
+    <h2>Secure your communications</h2>
+    <p>Attorney-client privilege can be lost if your confidential communications are accessible to third parties. Never use a work email account for anything related to your case. Never use a shared device, or any device or account your spouse has access to or could gain access to. Set a fresh, unique password on the phone and email account you will use with us. If you have any doubt about whether an account is clean, say so and we will set up a new one with you.</p>
+    <p>Turn on two-factor authentication everywhere it is offered: your email, your Apple or Google account, your banking, and the client portal. Use your own phone as the second factor, never a shared number or a device your spouse can unlock. Two-factor authentication is the single cheapest protection available to you, and it defeats most of the ways a curious spouse gets into an account.</p>
+    <h2>Your iPhone knows more than you think</h2>
+    <p>Apple's ecosystem is built for family sharing, which is exactly the problem. A shared Apple ID, a Family Sharing group, an old iPad the kids use that is still signed into your account, a Mac that syncs your messages, a shared photo album, saved passwords in a shared Keychain, location visible through Find My: any one of these can hand your spouse a live feed of your texts, photos, passwords, and whereabouts without anything being "hacked."</p>
+    <p>In your first week with us: change your Apple ID password and your phone passcode, review the list of devices signed into your Apple ID and remove every one you do not physically control, turn off location sharing with your spouse, leave any shared Family group photo streams quietly alone until we discuss them, and check which devices receive your text messages. We will walk you through this at the onboarding conference; it takes twenty minutes and it matters more than almost anything else on this page. The same logic applies to Google accounts and Android devices.</p>
+    <h2>Send documents <em>securely</em>, never by email</h2>
+    <p>You will have two secure ways to send us documents, and you can use whichever suits what you are sending. Both are encrypted, both are access-controlled, and both land directly in your matter file where your legal team can work with them. Email attachments are none of those things: they can be intercepted, forwarded, or misaddressed, they sit unencrypted in inboxes that get compromised, and they leave no reliable record of what was sent when. In cases where a spouse may have visibility into an email account, and we handle many of those, this is not merely tidier. It is a safety measure. Bank statements, tax returns, photographs, anything at all: it goes through one of these two channels.</p>
+    <p>The first is your client portal, which runs through Clio, the system that manages our practice. You will receive an invitation by email when your matter opens, and it works in any browser and on your phone. It takes up to twenty documents at a time, which suits the steady flow of a case: a few statements here, a school record there. If you install the Clio app, you can photograph a document and have the app turn it into a clean PDF, which is far better than emailing yourself a picture. The second is a secure link through our Microsoft system, which we provide for large volumes. When you are sending three years of bank statements rather than three documents, use that one.</p>
+    <p>Beyond choosing between them, two habits carry you. Name files plainly, because "Chase checking statements 2024" beats "scan0001," and send as you go rather than saving everything for one avalanche. Treat your portal login the way you treat your email login: your own password, two-factor authentication on, never on a shared device, and never shared with anyone, including family members trying to help.</p>
+    <h2>Forward everything, answer nothing</h2>
+    <p>If your spouse, your spouse's lawyer, or anyone else contacts you about the case, do not engage on substance. Forward the communication to us the same day. What feels like a harmless reply can become an exhibit.</p>
+    <h2>Stay off social media</h2>
+    <p>While the case is pending, do not post about your spouse, the case, the court, the firm, or any witness. Do not delete, deactivate, or alter any existing account or content without talking to us first, because social media content is evidence and destroying it can hurt you far more than the content itself. Ask friends and family not to post about the matter either. Assume everything you have ever posted will be read by your spouse's lawyer, because it will be.</p>
+    <div class="pull">Assume everything you have ever posted will be read by your spouse's lawyer, because it will be.</div>
+    <h2>Recording conversations: ask us first</h2>
+    <p>New York is a one-party consent state. Under the Penal Law's eavesdropping provisions (Penal Law &sect;&sect; 250.00, 250.05), you may lawfully record a conversation you are party to, without telling the other person. What you may never do is record a conversation you are not a party to: planting a recorder in the house, tapping a phone, or leaving a device running to capture your spouse talking to someone else is felony eavesdropping, and the recording is worthless as evidence anyway. Recordings involving the children raise special rules of their own. The safe practice is simple: before you record anything, or if you already have recordings, talk to Gus. Some recordings win cases; others create criminal exposure for the person who made them.</p>
+    <h2>Preserve documents and records</h2>
+    <p>Keep every financial record, message, photo, and document that touches the marriage, the children, or the finances, even ones that seem unhelpful. Litigation carries a duty to preserve evidence, and gaps in records invite worse inferences than the records themselves.</p>
+    <h2>Gathering evidence the right way</h2>
+    <p>There is a bright line in evidence gathering, and staying on the right side of it is the difference between evidence we can use and evidence that damages you. You may copy and photograph what you lawfully have access to: joint tax returns, statements that arrive at the house, records of joint accounts, documents kept in shared spaces of the home, the contents of a shared safe. Make copies early, inventory valuables, and photograph anything that might later go missing.</p>
+    <p>You may not log into your spouse's email, phone, or accounts, guess their passwords, use their saved logins or Face ID, install tracking software, or go through a briefcase or office you have no right to access. Unauthorized access to accounts is a crime under both state and federal law, it can poison otherwise winnable issues, and anything it produces is usually unusable. If information exists that we need and you cannot lawfully reach it, that is what discovery, subpoenas, and forensic experts are for. Tell us what you believe exists and where, and let us get it the right way.</p>
+    <h2>If you think you are being monitored</h2>
+    <p>Spyware on phones, trackers on cars, and compromised accounts appear in matrimonial cases far more often than people expect, particularly in high-conflict ones. If your spouse seems to know things they should not know, say so at the first meeting. The firm works with the best digital forensic experts in the field, examiners who can inspect phones, computers, vehicles, and accounts, document what they find in a form a court will accept, and clean your devices without destroying the evidence. Do not try to find or remove spyware yourself first; how it is discovered and preserved determines whether it becomes leverage in your case.</p>
+    <h2>Tell us the bad facts first</h2>
+    <p>Every case has them. Bad facts we know about get managed; bad facts that surface for the first time in your spouse's papers, or at your deposition, do damage that is hard to undo. Nothing you tell Gus will shock him, and all of it is privileged. If a fact is bad enough that you are dreading the conversation, that is the one to bring to him first.</p>
+  </div>
+    <div class="pager">
+    <button class="pbtn" data-go="team"><span class="plabel">Back</span><span class="ptitle">Your Team &amp; How to Reach Us</span></button>
+    <button class="pbtn next" data-go="settlement"><span class="plabel">Anatomy of a Divorce, Part 1</span><span class="ptitle">The Settlement Process &#8594;</span></button>
+  </div>
+</section>
+<!-- COMMENCEMENT -->
+<section class="section" id="commencement">
+  <div class="pagehead">
+    <div class="stage"><span class="dot">02</span>Anatomy of a Divorce</div>
+    <h1>Commencement &amp; the <em>Automatic</em> Orders</h1>
+  </div>
+  <div class="content">
+    <p class="big">A New York divorce begins when a summons is filed with the County Clerk and served on the other spouse. From that moment, the case exists, the clock starts, and a set of automatic court orders takes effect.</p>
+    <h2>What happens</h2>
+    <p>The spouse who starts the action (the plaintiff) files a summons, either alone with a notice or together with a complaint setting out the claims. The other spouse (the defendant) is served and has a limited time to appear. Since 2010, New York permits no-fault divorce: a sworn statement that the marriage has broken down irretrievably for at least six months is a sufficient ground, so cases today are almost never fought over the divorce itself. They are fought over money and children.</p>
+    <h2>Does it matter who files first?</h2>
+    <p>For the most part, no. Clients often worry that filing second means starting behind, or that filing first signals aggression. Neither is true. Being the plaintiff carries no meaningful legal advantage in a New York divorce: it does not affect custody, support, or how property is divided. There are occasional tactical reasons to file promptly, locking in the valuation date and triggering the automatic orders among them, and we will tell you if your case presents one. But the caption of the case does not decide it.</p>
+    <h2>Filing does not mean a courtroom</h2>
+    <p>Just because an action has been started does not mean anyone is standing in front of a judge. A case only gets assigned to a Justice after one side files a <em class="term">Request for Judicial Intervention</em> (the RJI), and until that happens there may be no court appearances at all. Months sometimes pass between the summons and the first conference while the lawyers exchange information or explore settlement. That quiet period is normal, and often useful. When the RJI is filed, the case is assigned to a Justice of the Supreme Court who will preside over it from conference through trial, and the calendar begins.</p>
+    <h2>The automatic orders</h2>
+    <p>Domestic Relations Law &sect; 236(B)(2)(b) imposes <em class="term">automatic orders</em> on both spouses in every divorce. They bind the plaintiff upon filing and the defendant upon service, without either side asking for them. In broad terms: no selling, transferring, hiding, or borrowing against property outside the ordinary course; no touching retirement accounts; no running up unreasonable debt; no removing the other spouse or the children from insurance; and no changing life insurance beneficiaries. The full text you will receive with the summons is reproduced below, and it is worth reading once in its entirety.</p>
+    <details class="lawbox">
+      <summary>NOTICE OF AUTOMATIC ORDERS (DRL &sect; 236)<span class="lsub">Served with the summons in every New York matrimonial action</span></summary>
+      <div class="lawtext">
+        <p class="lawcenter">FAILURE TO COMPLY WITH THESE ORDERS MAY BE DEEMED A CONTEMPT OF COURT</p>
+        <p>PURSUANT TO DOMESTIC RELATIONS LAW &sect; 236 part B, section 2, as added by chapter 72 of the laws of 2009, both you and your spouse (the parties) are bound by the following AUTOMATIC ORDERS, which shall remain in full force and effect during the pendency of the action unless terminated, modified or amended by further order of the court or upon written agreement between the parties:</p>
+        <p>Upon service of the summons in every matrimonial action, it is hereby:</p>
+        <p>1. ORDERED: Neither party shall sell, transfer, encumber, conceal, assign, remove or in any way dispose of, without consent of the other party in writing, or by order of the court, any property (including, but not limited to, real estate, personal property, cash accounts, stocks, mutual funds, bank accounts, cars and boats) individually or jointly held by the parties except in the usual course of business, for customary and usual household expenses or for reasonable attorney's fees in connection with this action.</p>
+        <p>2. ORDERED: Neither party shall transfer, encumber, assign, remove, withdraw or in any way dispose of any tax deferred funds, stocks or other assets held in any individual retirement accounts, 401(k) accounts, profit sharing plans, Keogh accounts, or any other pension or retirement account, and the parties shall further refrain from applying for or requesting the payment of retirement benefits or annuity payments of any kind, without the consent of the other party in writing, or upon further order of the court; except that any party who is already in pay status may continue to receive such payments thereunder.</p>
+        <p>3. ORDERED: Neither party shall incur unreasonable debts hereafter, including, but not limited to further borrowing against any credit line secured by the family residence, further encumbrances on any assets, or unreasonably using credit cards or cash advances against credit cards, except in the usual course of business or for customary or usual household expenses, or for reasonable attorney's fees in connection with this action.</p>
+        <p>4. ORDERED: Neither party shall cause the other party or the children of the marriage to be removed from any existing medical, hospital and dental insurance coverage, and each party shall maintain the existing medical, hospital and dental insurance coverage in full force and effect.</p>
+        <p>5. ORDERED: Neither party shall change the beneficiaries of any existing life insurance policies, and each party shall maintain the existing life insurance, automobile insurance, homeowners and renters insurance policies in full force and effect.</p>
+        <p>IMPORTANT NOTE: After service of the Summons with Notice or Summons and Complaint for divorce, if you or your spouse wishes to modify or dissolve the automatic orders, you must ask the court for approval to do so, or enter into a written modification agreement with your spouse duly signed and acknowledged before a notary public.</p>
+      </div>
+    </details>
+    <p>These orders protect the marital estate while the case is decided. Violations can be punished as contempt, and courts take them seriously. If you think your spouse has violated them, or you are unsure whether something you want to do is permitted, ask us before acting.</p>
+    <div class="atstage"><div class="aslabel">At this stage</div><p><strong>Gus decides how your case opens.</strong> Whether to file first, what to file, and when are strategy calls, and he makes them with you. Nothing is filed or served in your name that he has not decided on.</p></div>
+    <div class="callout">
+      <p><span class="ctitle">Next step for you</span>Read the automatic orders when you receive them and follow them to the letter, even where your spouse does not. Courts remember which party kept its hands clean.</p>
+    </div>
+  </div>
+    <div class="pager">
+    <button class="pbtn" data-go="settlement"><span class="plabel">Back</span><span class="ptitle">The Settlement Process</span></button>
+    <button class="pbtn next" data-go="sonw"><span class="plabel">Next Stage</span><span class="ptitle">The Statement of Net Worth &#8594;</span></button>
+  </div>
+</section>
+
+<!-- SONW -->
+<section class="section" id="sonw">
+  <div class="pagehead">
+    <div class="stage"><span class="dot">03</span>Anatomy of a Divorce</div>
+    <h1>The Statement of Net <em>Worth</em></h1>
+  </div>
+  <div class="content">
+    <p class="big">The Statement of Net Worth is the single most important financial document in your divorce. It is a sworn, court-mandated statement of everything you earn, spend, own, and owe.</p>
+    <h2>What it is</h2>
+    <p>The court rules governing contested matrimonial cases (22 NYCRR &sect; 202.16) require each spouse to prepare, exchange, and file a Statement of Net Worth on the official form, and to do so early, no later than ten days before the preliminary conference. It is signed under oath. It follows your case everywhere: judges read it before conferences, support is calculated from it, lawyers cross-examine from it at depositions and at trial.</p>
+    <div class="formlink">
+      <div class="ficon">PDF</div>
+      <p><span class="ftitle">The official court form</span>You can see the Statement of Net Worth form itself on the New York courts website: <a href="https://www.nycourts.gov/forms/net-worth-statement" target="_blank" rel="noopener">Net Worth Statement (NY Unified Court System)</a>. Skim it now so you know what is coming; we prepare it together, but the categories below are what it will demand.</p>
+    </div>
+    <h2>What goes into it</h2>
+    <p>The form covers five financial areas in detail: your monthly expenses, category by category, from housing and utilities to groceries, insurance, and the children's activities; your income from every source, tied to your tax returns and pay records; your assets, including real estate, bank and brokerage accounts, retirement accounts, business interests, vehicles, and valuables; your liabilities, from mortgages to credit cards to loans; and supporting details such as household members and the fees you have paid your lawyers. Your most recent tax return and pay stubs are attached.</p>
+    <h2>Why accuracy matters so much</h2>
+    <p>Because it is sworn, an inaccurate Statement of Net Worth is not just an embarrassment; it is impeachment material for the other side and a credibility problem with the judge that can shadow the entire case. Estimates are sometimes unavoidable, and the form allows for them, but guesses dressed up as facts are dangerous. Gus goes through every line of it with you before anything is signed.</p>
+    <h2>What we need from you, within one week of engaging us</h2>
+    <p>Unless we tell you sooner, deliver the following within a week of retaining us. Send everything through the portal or the secure link, both covered in the ground rules.</p>
+    <ul class="checklist">
+      <li>Federal and state tax returns, with all schedules and W-2s or 1099s, for the last three years</li>
+      <li>Your last six pay stubs, or year-to-date income records if self-employed</li>
+      <li>Three (3) years of statements for every bank, brokerage, and retirement account</li>
+      <li>Three (3) years of credit card statements and balances for every card</li>
+      <li>Mortgage statements, deeds, and any appraisals for real estate</li>
+      <li>Insurance policies: life, health, homeowners, auto</li>
+      <li>Your best month-by-month accounting of household expenses; we will provide a worksheet</li>
+    </ul>
+    <div class="atstage"><div class="aslabel">At this stage</div><p><strong>Gus reviews your Statement of Net Worth line by line before you sign it.</strong> The team assembles it from your records; the sworn document itself is never delegated.</p></div>
+    <div class="callout">
+      <p><span class="ctitle">Next step for you</span>Start gathering these documents today. The one-week deadline is real: your Statement of Net Worth is built from these records, and it is due before the first conference. Clients who assemble their financial records early save themselves weeks of pressure later, and often meaningful legal fees as well.</p>
+    </div>
+  </div>
+  <div class="pager">
+    <button class="pbtn" data-go="commencement"><span class="plabel">Back</span><span class="ptitle">Commencement</span></button>
+    <button class="pbtn next" data-go="custody"><span class="plabel">Next Stage</span><span class="ptitle">Custody &amp; the Parenting Track &#8594;</span></button>
+  </div>
+</section>
+
+
+<!-- CUSTODY -->
+<section class="section" id="custody">
+  <div class="pagehead">
+    <div class="stage"><span class="dot">04</span>Anatomy of a Divorce</div>
+    <h1>Custody &amp; the <em>Parenting</em> Track</h1>
+  </div>
+  <div class="content">
+    <p class="big">If you have children, your divorce runs on two tracks at once. The financial track described in the surrounding sections is one. Custody and parenting time is the other, and it moves on its own schedule, starting immediately.</p>
+    <h2>Come to the preliminary conference with a plan</h2>
+    <p>By the preliminary conference, you need a parenting position: a proposed schedule for where the children are on school days, weekends, holidays, and vacations, and a proposal for how major decisions about education, health, and religion get made. We will build it with you. What you cannot do is arrive without one. When parents show the court that they have no framework and cannot discuss one, the court fills the vacuum: it appoints an Attorney for the Children, and in contested cases it may order a forensic custody evaluation. Both decisions are effectively out of your hands once made, both are expensive, and both put strangers between you and your children's case. A credible parenting plan, even one the other side has not yet accepted, is how you keep control of this track.</p>
+<div class="pull">A credible parenting plan, even one the other side has not yet accepted, is how you keep control of this track.</div>
+    <h2>Once an AFC is involved</h2>
+    <p>The <em class="term">Attorney for the Children</em>, or AFC, is a lawyer appointed by the court to represent your children, not either parent. The AFC meets with the children, speaks with both sides' counsel, and takes positions at every conference; in most cases the AFC is charged with advocating what the children actually want, not what either parent thinks is best for them. The parties typically pay the AFC's fees. Once appointed, the AFC is a permanent participant in the case, and how each parent deals with the AFC is noticed. Never coach the children before an AFC meeting, never quiz them after, and never speak to the AFC yourself without talking to us first. Children sense pressure, and AFCs are trained to spot it.</p>
+    <h2>The forensic evaluation</h2>
+    <p>In seriously contested custody cases, where there are allegations of mental illness, domestic violence, or addiction, the court may appoint a <em class="term">forensic evaluator</em>, a psychologist or psychiatrist, to evaluate the family. The process is thorough and slow: interviews with each parent, sessions with the children, observation of each parent with the children, psychological testing, and calls with collateral sources such as teachers, pediatricians, and therapists. It typically takes months and costs tens of thousands of dollars, usually allocated between the parties. The evaluator's report goes to the court, and while it does not bind the judge, it carries real weight. If a forensic is ordered in your case, we will prepare you carefully for it; how parents present across months of evaluation matters far more than any single session.</p>
+    <h2>Custody and money can settle separately</h2>
+    <p>Nothing requires the two tracks to finish together. Parents can sign a custody and parenting stipulation early, even while the financial case is fully contested, and courts encourage it. Settling custody first spares the children the longest and worst part of the fight, ends the AFC's and evaluator's involvement, and, candidly, removes the temptation each side otherwise has to use the children as leverage in the financial negotiation. Where custody can be resolved sensibly, we try to resolve it early.</p>
+    <div class="atstage"><div class="aslabel">At this stage</div><p><strong>Gus will thoroughly prepare you for interactions with the AFC and the forensic evaluator himself.</strong></p></div>
+    <div class="callout">
+      <p><span class="ctitle">Next step for you</span>Before the preliminary conference, write out your proposed weekly schedule and how you think major decisions should be made, then bring it to us. It becomes the first draft of your parenting position.</p>
+    </div>
+  </div>
+  <div class="pager">
+    <button class="pbtn" data-go="sonw"><span class="plabel">Back</span><span class="ptitle">Statement of Net Worth</span></button>
+    <button class="pbtn next" data-go="pc"><span class="plabel">Next Stage</span><span class="ptitle">The Preliminary Conference &#8594;</span></button>
+  </div>
+</section>
+
+<!-- PC -->
+<section class="section" id="pc">
+  <div class="pagehead">
+    <div class="stage"><span class="dot">05</span>Anatomy of a Divorce</div>
+    <h1>The <em>Preliminary</em> Conference</h1>
+  </div>
+  <div class="content">
+    <p class="big">The preliminary conference is your case's first appearance before the assigned judge. It is where the court takes control of the calendar and the roadmap for everything that follows gets written.</p>
+    <h2>When it happens</h2>
+    <p>Under the matrimonial rules, the court schedules the preliminary conference promptly after either party files a Request for Judicial Intervention. Both parties are expected to attend with their attorneys, and each side must have served and filed its Statement of Net Worth beforehand.</p>
+    <h2>Preparation is the whole game</h2>
+    <p>Here is a candid observation from decades of these conferences: most lawyers do not prepare enough for them. They treat the preliminary conference as a scheduling formality, show up, and let the form fill itself out. We treat it as the day the case gets framed. Before Gus walks in, he will have worked with you to identify, to the best of our shared ability at that early stage, every issue in the case, every category of documents we need from the other side, every claim we intend to make, and every expert we expect to hire: appraisers, business valuators, forensic accountants, vocational experts. The deadlines and expert provisions written into the order that day govern the case for a year or more. A side that has not thought its case through commits itself blind. We do not.</p>
+<div class="pull">Most lawyers do not prepare enough for the preliminary conference. We treat it as the day the case gets framed.<span class="pattrib">Gus Dimopoulos</span></div>
+    <h2>How the conference actually works</h2>
+    <p>Expect to spend the better part of a morning, often two to four hours, at the courthouse, most of it waiting. The Matrimonial Part calendars many cases the same day. When your case is called, the working session will be with the judge assigned to your case, which is the practice in Westchester and sometimes differs in other counties. The lawyers negotiate their way through the court's standard form order section by section: what issues are resolved, what is contested, the discovery timetable, appraisals and expert appointments, and any interim arrangements that need addressing. You will not testify and you will rarely address the court; your role is to be present, consult with us in the hallway as terms are negotiated, and make decisions. At the end, the completed stipulation is signed by counsel and so-ordered by the judge, and its deadlines become court orders, not aspirations.</p>
+    <div class="formlink">
+      <div class="ficon">PDF</div>
+      <p><span class="ftitle">See the actual form</span>The court's standard Preliminary Conference Stipulation/Order is public: <a href="https://www.nycourts.gov/LegacyPDFS/FORMS/matrimonial/Fillable-PC-Order.pdf" target="_blank" rel="noopener">Preliminary Conference Order (NY Unified Court System)</a>. Reading it in advance shows you exactly what will be negotiated on your behalf that morning.</p>
+    </div>
+    <h2>Dress, demeanor, and first impressions</h2>
+    <p>Assume you are being evaluated from the moment you enter the building, because you are. Judges, court attorneys, court officers, the AFC if one has been appointed, and opposing counsel all form impressions, and in a custody case those impressions matter. Dress in conservative business attire, the way you would for the most important job interview of your life. Arrive early. Keep your phone away and silenced. Speak only with us, never to your spouse or opposing counsel other than to introduce yourself and exchange pleasantries, and never react visibly to anything said in the courtroom or the hallway, no matter how false or provocative; composure under provocation reads as credibility, and the other side may be counting on the opposite. The elevator, the hallway, and the cafeteria line are all part of the courthouse. Conduct yourself accordingly.</p>
+    <div class="atstage"><div class="aslabel">At this stage</div><p><strong>Gus appears at your preliminary conference.</strong> We do not send a covering attorney to the appearance where your case gets framed for the next year.</p></div>
+    <div class="callout">
+      <p><span class="ctitle">Next step for you</span>Calendar every deadline in the preliminary conference order the day it is issued, and complete your homework with us in the week before: issues, documents, claims, experts. We track every deadline, but clients who know their own case make better witnesses to it.</p>
+    </div>
+  </div>
+  <div class="pager">
+    <button class="pbtn" data-go="custody"><span class="plabel">Back</span><span class="ptitle">Custody &amp; the Parenting Track</span></button>
+    <button class="pbtn next" data-go="discovery"><span class="plabel">Next Stage</span><span class="ptitle">The Discovery Process &#8594;</span></button>
+  </div>
+</section>
+
+<!-- DISCOVERY -->
+<section class="section" id="discovery">
+  <div class="pagehead">
+    <div class="stage"><span class="dot">06</span>Anatomy of a Divorce</div>
+    <h1>The <em>Discovery</em> Process</h1>
+  </div>
+  <div class="content">
+    <p class="big">Discovery is the formal, court-supervised exchange of information between the spouses. It is usually the longest phase of a divorce, and it is where financial cases are won or lost.</p>
+    <h2>The governing principle</h2>
+    <p>New York's disclosure statute, CPLR article 31, requires "full disclosure of all matter material and necessary" to the case. In a divorce, that reach is long. Compulsory financial disclosure applies in every contested matrimonial action; neither spouse can refuse to open the books, and hiding the ball has consequences that range from preclusion of evidence to adverse inferences at trial.</p>
+    <h2>The tools</h2>
+    <dl class="deflist">
+      <dt>Document demands</dt>
+      <dd>Written demands that the other side produce specified records: statements, tax returns, business books, contracts, messages. The workhorse of matrimonial discovery, covered in the next section.</dd>
+      <dt>Interrogatories</dt>
+      <dd>Written questions answered in writing under oath, typically used to pin down income sources, asset histories, and account inventories.</dd>
+      <dt>Notices to admit</dt>
+      <dd>Requests that the other side admit specific facts or the genuineness of documents, narrowing what has to be proven at trial.</dd>
+      <dt>Subpoenas to third parties</dt>
+      <dd>When a spouse's records are incomplete or not trusted, the records come from the source instead: banks, employers, business partners, credit card issuers.</dd>
+      <dt>Depositions</dt>
+      <dd>Sworn testimony taken before trial, covered in its own section of this guide.</dd>
+      <dt>Experts and appraisals</dt>
+      <dd>Neutral or retained experts value what cannot be read off a statement: businesses, professional practices, real estate, pensions, and in some cases a spouse's true earning capacity.</dd>
+    </dl>
+    <h2>Where cash and hidden income are involved</h2>
+    <p>Some cases involve a spouse whose lifestyle does not match the income being reported. Discovery is built for that problem. Lifestyle analysis, forensic accounting, third-party subpoenas, and deposition testimony under oath work together to establish what a household actually spends and what actually comes in, and courts are permitted to impute income to a spouse whose reported numbers do not add up. If this describes your case, the discipline of the document work ahead is not busywork. It is the case.</p>
+    <h2>How long it takes</h2>
+    <p>The preliminary conference order typically allots roughly six months for financial disclosure, and in a truly simple case that holds. In practice, cases with businesses to value, third-party subpoenas to fight over, or a spouse slow to produce run longer: a year of discovery is common in contested cases, and complex ones run beyond that. The single biggest driver of the timeline is not the court and not the lawyers. It is how completely and how quickly each side produces. One of the few schedule levers you personally control is being the side that is never the cause of delay.</p>
+    <h2>What it costs, honestly</h2>
+    <p>Discovery is usually the most expensive phase of a divorce short of trial, and it is where the size of your bill is decided. The cost drivers are volume (thousands of pages must be gathered, reviewed, and organized), disputes (every fight over what must be produced means letters, conferences, and sometimes motions), and experts (valuations and forensic accounting are their own budgets). We cannot quote a number in a general guide because the honest answer depends on your estate and your adversary. What we can tell you is how to keep your share down: produce completely and on time, use the portal so nothing is handled twice, batch your questions, and let our technology and support staff do the organizing that other firms bill out at attorney rates. The expensive discovery phases are almost always the ones where the parties fight about the process instead of doing it.</p>
+    <div class="atstage"><div class="aslabel">At this stage</div><p><strong>Gus sets the discovery strategy and decides what we pursue.</strong> The team does the gathering, indexing, and tracking. That is deliberate: you get his judgment on what matters and support rates on the paperwork.</p></div>
+    <div class="callout">
+      <p><span class="ctitle">Next step for you</span>Respond to our document requests promptly and completely, even when a document seems trivial or unflattering. What we produce is controlled and organized; what gets extracted later, after a motion to compel, looks like concealment.</p>
+    </div>
+  </div>
+  <div class="pager">
+    <button class="pbtn" data-go="pc"><span class="plabel">Back</span><span class="ptitle">Preliminary Conference</span></button>
+    <button class="pbtn next" data-go="documents"><span class="plabel">Next Stage</span><span class="ptitle">The Exchange of Documents &#8594;</span></button>
+  </div>
+</section>
+<!-- DOCUMENTS -->
+<section class="section" id="documents">
+  <div class="pagehead">
+    <div class="stage"><span class="dot">07</span>Anatomy of a Divorce</div>
+    <h1>The <em>Exchange</em> of Documents</h1>
+  </div>
+  <div class="content">
+    <p class="big">Document exchange is discovery made concrete: each side demands records, gathers its own, and produces them in an organized, numbered, and trackable form. Done well, it is methodical. Done badly, it is where the cost of a divorce gets out of control.</p>
+    <h2>How the exchange works</h2>
+    <div class="steps">
+      <div class="step"><span class="snum"></span><div><h3>Demands are served</h3><p>Each side serves a written demand listing the categories of documents it wants, with a court-ordered deadline to respond. The categories track what you saw in the Statement of Net Worth section, extended to the other side and reaching deeper into anything contested.</p></div></div>
+      <div class="step"><span class="snum"></span><div><h3>You gather, we review</h3><p>You collect what the demand calls for and send it through the portal or the secure link; we review everything before anything leaves the firm, assert any applicable objections and privileges, and decide what is properly withheld.</p></div></div>
+      <div class="step"><span class="snum"></span><div><h3>Production is numbered and served</h3><p>Every produced page carries a unique identifying stamp, so both sides and the court can cite any document precisely for the rest of the case.</p></div></div>
+      <div class="step"><span class="snum"></span><div><h3>We audit what comes back</h3><p>The other side's production is indexed against our demand, item by item. Gaps and evasions are documented in <em class="term">deficiency letters</em>, and if they persist, in motions to compel.</p></div></div>
+    </div>
+    <div class="formlink">
+      <div class="ficon">PDF</div>
+      <p><span class="ftitle">See a real demand</span>Most clients have never seen one of these documents. Below is a sample of the Notice for Discovery and Inspection this firm serves in a complex matrimonial case, anonymized and stripped of any client information. It runs nineteen pages and covers business interests, income and deferred compensation, tax returns, real estate, cryptocurrency, dissipation, and more. Read it to understand the scope of what gets demanded, in both directions.<br><br>
+      <a class="cta" style="margin-top:2px;padding:11px 22px;font-size:15px;text-decoration:none;display:inline-block" href="assets/sample-notice-discovery-inspection.pdf" target="_blank" rel="noopener">Open the sample demand (PDF)</a></p>
+    </div>
+    <h2>In a high-net-worth case</h2>
+    <p>Where the estate is substantial, the exchange goes far beyond bank statements. Much of the most important information comes from third parties rather than the spouse: subpoenas to banks, employers, business partners, fund administrators, and accountants, because records from the source cannot be curated by the person being examined. Where a spouse holds interests in a hedge fund or private equity firm, the analysis has its own vocabulary: partnership and operating agreements, K-1s, capital account statements, carried interest and co-investment rights, deferred and clawback-subject compensation, side letters, and the difference between what an interest pays this year and what it is actually worth. These structures are designed to be opaque, sometimes deliberately so in a divorce. Our forensic accountants and valuation experts have unwound them many times, and the discovery demands we serve in these cases are built from that experience.</p>
+    <h2>Discovery disputes, and why they cost so much</h2>
+    <p>When the other side does not produce, the court's rules require an escalation path. Counsel must first confer in good faith, and any discovery motion must include an affirmation that they did (22 NYCRR &sect; 202.7). The court holds compliance conferences to police its own deadlines, and most judges require a pre-motion letter or conference before a discovery motion may even be filed. Each step of that ladder is a letter, a court appearance, or a motion, and each carries hours of attorney time. Multiply by a dozen disputed items and you understand why this phase, more than any other, is where legal fees balloon. We escalate when the value of the information justifies it and tell you plainly when it does not; some fights are worth two court appearances and some are not, and you will always know which we think yours is.</p>
+<div class="pull">Some fights are worth two court appearances and some are not. You will always know which we think yours is.</div>
+    <h2>What sets us apart here</h2>
+    <p>Volume is the other enemy, and we solve it with technology rather than hours. The firm runs a secure electronic discovery platform that stores, indexes, and searches every production; every document the other side produces is matched against our demand, item by item, so nothing missing goes unnoticed, and every deficiency letter we send is built from that audit rather than from memory. Behind the technology sits the expert bench: forensic accountants, valuators, and digital forensic examiners. Most matrimonial firms handle document exchange by hand. The difference shows up in what gets found, and in what the finding costs.</p>
+    <h2>The finish line: certification and the note of issue</h2>
+    <p>Discovery does not fade out; it is formally closed. At the final compliance conference the court certifies that disclosure is complete, and the case is then ready for the <em class="term">note of issue</em>, the filing that places it on the trial calendar. Trial preparation, covered ahead, begins there.</p>
+    <div class="atstage"><div class="aslabel">At this stage</div><p><strong>Nothing is produced or served in your case without Gus reading it first.</strong> Brittany runs the mechanics and the platform does the sorting. The judgment about what goes out is his.</p></div>
+    <div class="callout">
+      <p><span class="ctitle">Next step for you</span>When a demand arrives, do not pre-screen your own documents by guessing what matters. Give us everything responsive and let us make the legal judgments. Deciding what is relevant is our job, and things clients assume are harmless or hopeless often turn out to be neither.</p>
+    </div>
+  </div>
+  <div class="pager">
+    <button class="pbtn" data-go="discovery"><span class="plabel">Back</span><span class="ptitle">The Discovery Process</span></button>
+    <button class="pbtn next" data-go="depositions"><span class="plabel">Next Stage</span><span class="ptitle">Depositions &#8594;</span></button>
+  </div>
+</section>
+
+<!-- DEPOSITIONS -->
+<section class="section" id="depositions">
+  <div class="pagehead">
+    <div class="stage"><span class="dot">08</span>Anatomy of a Divorce</div>
+    <h1>Depositions</h1>
+  </div>
+  <div class="content">
+    <p class="big">A deposition, called an <em class="term">examination before trial</em> or EBT in New York practice, is sworn testimony given before trial. You answer the other lawyer's questions under oath, a court reporter takes down every word, and the transcript can be used at trial.</p>
+    <h2>What it looks like</h2>
+    <p>Depositions usually take place in a law office conference room, not a courtroom. No judge is present. You, both lawyers, and a court reporter are in the room; your spouse is entitled to attend. The other side's lawyer asks questions, we object where the rules allow, and in most instances you answer even over an objection, with the dispute preserved for the judge to resolve later. A deposition can run a few hours or a full day, and complex financial cases sometimes need more than one session.</p>
+    <p>Your spouse will be deposed too. That session is frequently one of the most productive events in the case: it is the first time the other spouse must answer our questions, under oath, on the record, with the documents in front of them.</p>
+    <h2>How to be a good witness</h2>
+    <p>Gus prepares you himself before you testify, and that session matters as much as the deposition itself. The core of it comes down to a few disciplines. Listen to the whole question before answering. Answer only the question asked, then stop; volunteering is how testimony goes wrong. Never guess: "I don't know" and "I don't recall" are honest, complete answers when they are true. Take your time, because the transcript does not show pauses. If you do not understand a question, say so. And tell the truth without exception, because a witness caught shading the record once is doubted on everything.</p>
+    <h2>Why it matters</h2>
+    <p>Deposition testimony is locked in. Contradict it at trial and the transcript is read back to you in front of the judge. Depositions therefore do more than gather information: they fix each side's story, expose the weaknesses in it, and very often move cases decisively toward settlement once both sides have seen how the witnesses hold up.</p>
+    <div class="atstage"><div class="aslabel">At this stage</div><p><strong>Gus takes your spouse's deposition and often defends yours.</strong> That work is not handed off lightly, and he is the one who prepares you for the chair.</p></div>
+    <div class="callout">
+      <p><span class="ctitle">Next step for you</span>Block out the full day, plus a separate preparation session with Gus beforehand. Come rested. Nothing about a deposition rewards improvisation.</p>
+    </div>
+  </div>
+    <div class="pager">
+    <button class="pbtn" data-go="documents"><span class="plabel">Back</span><span class="ptitle">Exchange of Documents</span></button>
+    <button class="pbtn next" data-go="trialprep"><span class="plabel">Next Stage</span><span class="ptitle">Trial Preparation &#8594;</span></button>
+  </div>
+</section>
+
+<!-- SETTLEMENT -->
+<section class="section" id="settlement">
+  <div class="pagehead">
+    <div class="stage"><span class="dot">01</span>Anatomy of a Divorce</div>
+    <h1>The <em>Settlement</em> Process</h1>
+  </div>
+  <div class="content">
+    <p class="big">The great majority of New York divorce cases end in a written agreement rather than a verdict.</p>
+    <p>Settlement can happen at almost any point: before anything is filed, during the months of disclosure, or on the courthouse steps. The serious push usually comes later in the process, once both sides know what the other's case actually looks like and what a trial would risk. Everything in the stages that follow is building toward this, whether or not anyone says so out loud.</p>
+    <h2>What the process actually looks like</h2>
+    <p>Clients sometimes imagine settlement as one dramatic meeting. It is the opposite: many meetings and many calls over weeks or months. Attorney-to-attorney negotiations. Four-way conferences with both spouses and both lawyers in the room. Term sheets exchanged, marked up, and exchanged again. Court-encouraged settlement conferences. Sometimes a mediator for the last stubborn issues. Progress is rarely linear; deals come together, fall apart over one provision, and come together again. That is normal, not a bad sign.</p>
+    <h2>The experts stay involved</h2>
+    <p>Numbers drive matrimonial settlements, so the experts who developed the numbers stay at the table. Valuations set the range for buyouts of a business or practice. Accountants model what different support structures actually cost after tax, and what each proposal leaves each household to live on. Where the experts disagree, the negotiation is often really about whose analysis a judge would credit, and we will tell you frankly how we assess that risk.</p>
+    <h2>Be honest with yourself about the toll</h2>
+    <p>This phase is time-consuming and stressful in a way clients do not expect. By the time serious negotiation begins the document work is largely behind you, but now every draft that arrives asks you to make decisions about your home, your children, and your financial future, often with a deadline attached. Emotional exhaustion is a real negotiating force, and the other side may try to use it. Part of Gus's job is pacing: knowing when pressing hard wins the point and when patience does, and making sure you never sign anything because you are simply worn out. The decision to settle is always yours; our job is to make sure it is made with clear eyes.</p>
+<div class="pull">The decision to settle is always yours. Our job is to make sure it is made with clear eyes.</div>
+    <h2>What a settlement becomes</h2>
+    <p>Agreements are papered as <em class="term">stipulations of settlement</em>: sometimes one global agreement, and sometimes a custody and parenting stipulation signed separately from the financial stipulation. As the custody section explains, the two tracks can resolve at different times.</p>
+    <h2>Signing is not the last step</h2>
+    <p>Clients are often surprised by this. A signed stipulation of settlement resolves your case, but it does not by itself end your marriage. Once it is signed, the lawyers have to convert the case into an uncontested divorce: we prepare the proposed judgment of divorce along with the full set of uncontested papers, the findings of fact, the affirmations, the child support and case registry forms, and the rest, and submit the package to the assigned Justice for signature. Your stipulation is incorporated into the judgment and carries the same force.</p>
+    <p>It is a simple process and it does not require you to appear. But it is a real final step, and it has to be taken carefully, because the judgment is the document you will rely on for years and errors in it are tedious to fix. Expect several months of court processing time between submission and a signed judgment. Your stipulation governs your lives in the meantime, so nothing is in limbo while you wait.</p>
+    <div class="atstage"><div class="aslabel">At this stage</div><p><strong>Gus negotiates your settlement and sits at every four-way.</strong> No one else trades terms on your behalf, and no agreement reaches you without his read on it.</p></div>
+    <div class="callout">
+      <p><span class="ctitle">Next step for you</span>Before serious negotiations begin, work out with us your true priorities and your walk-away points, in writing, while your head is calm. The middle of a four-way conference is the worst possible place to discover what you actually care about.</p>
+    </div>
+  </div>
+    <div class="pager">
+    <button class="pbtn" data-go="groundrules"><span class="plabel">Back</span><span class="ptitle">Ground Rules That Protect You</span></button>
+    <button class="pbtn next" data-go="commencement"><span class="plabel">Next Stage</span><span class="ptitle">Commencement &amp; Automatic Orders &#8594;</span></button>
+  </div>
+</section>
+
+<!-- TRIAL PREP -->
+<section class="section" id="trialprep">
+  <div class="pagehead">
+    <div class="stage"><span class="dot">09</span>Anatomy of a Divorce</div>
+    <h1>Trial <em>Preparation</em> &amp; the Close of Discovery</h1>
+  </div>
+  <div class="content">
+    <p class="big">You reach this stage one of two ways. Settlement has failed outright, or, more often, negotiations are still technically alive while both sides edge toward a trial date, each waiting for the other to blink.</p>
+    <h2>The game of chicken, and the mistake it breeds</h2>
+    <p>That second scenario produces the biggest mistake lawyers make at this stage, and clients rarely know enough to catch it: treating the trial date as a bluff. A lawyer who believes the case will settle prepares half-heartedly, and when the deal falls through three weeks before trial, there is no recovering the lost months. The irony is that under-preparing also kills the settlement itself, because the other side can read preparation across the table, and nobody improves an offer to a lawyer who is visibly not ready to try the case. We prepare as if trial is certain from the moment the note of issue is filed. It is the only honest way to litigate, and it is also, not coincidentally, the best settlement strategy available.</p>
+<div class="pull">We prepare as if trial is certain. It is the only honest way to litigate, and it is also the best settlement strategy available.<span class="pattrib">Gus Dimopoulos</span></div>
+    <h2>What the calendar demands</h2>
+    <p>The note of issue and certificate of readiness close discovery and place the case on the trial calendar. From there the deadlines come quickly: expert reports must be exchanged within the timeframes set by the court's rules and your case's orders, rebuttal reports follow, witnesses are lined up and subpoenaed where needed, exhibits are assembled and exchanged, and your Statement of Net Worth is updated so the court has current numbers. The court will hold a pretrial conference to narrow the issues and set the trial schedule, and most judges use it to press the parties hard toward resolution. Throughout, we prepare you for your own testimony: direct examination with us, and cross-examination by your spouse's lawyer, rehearsed until neither holds surprises.</p>
+    <h2>The cost conversation, had plainly</h2>
+    <p>Trial preparation is the most expensive stretch of a divorce, week for week, and it is also when the retainer agreement's trial retainer provision comes into play, with a written estimate before any additional deposit is requested. So this is when we put the numbers side by side with you: the best offer available, the realistic range of trial outcomes, and what getting from here to a verdict will cost in fees, in time, and in wear on you and your children. If there is a fair deal to be had, this is the time to take it, and we will tell you so directly. If the offer on the table is worse than your realistic downside at trial, we will tell you that too. What Gus will not do is let that decision get made by drift.</p>
+    <div class="atstage"><div class="aslabel">At this stage</div><p><strong>Gus prepares your case and prepares you.</strong> He also gives you the candid arithmetic on whether to try it or settle it, which is a conversation a client deserves from the lawyer who would actually be trying it.</p></div>
+    <div class="callout">
+      <p><span class="ctitle">Next step for you</span>Stay closely available to us during this stretch. Preparation runs on quick answers to small questions, and the weeks before trial are the wrong time to be hard to reach. Block the trial dates on your calendar now, plus preparation time around them.</p>
+    </div>
+  </div>
+    <div class="pager">
+    <button class="pbtn" data-go="depositions"><span class="plabel">Back</span><span class="ptitle">Depositions</span></button>
+    <button class="pbtn next" data-go="trial"><span class="plabel">Next Stage</span><span class="ptitle">Trial &amp; Judgment &#8594;</span></button>
+  </div>
+</section>
+
+<!-- TRIAL -->
+<section class="section" id="trial">
+  <div class="pagehead">
+    <div class="stage"><span class="dot">10</span>Anatomy of a Divorce</div>
+    <h1>Trial &amp; <em>Judgment</em></h1>
+  </div>
+  <div class="content">
+    <p class="big">If the case does not settle, it is tried to the judge. There is no jury in a New York divorce trial: the assigned Justice hears the evidence and decides custody, support, maintenance, and the division of property. And you should know before choosing this path: trial is grueling, all-encompassing, and time-consuming in ways this page will spell out plainly.</p>
+    <h2>How a divorce trial runs</h2>
+    <p>Each side presents its case through witnesses and exhibits. Witnesses are examined by the lawyer who called them and cross-examined by the other side; the financial records, expert reports, and deposition transcripts built up over the preceding year do their work here. The plaintiff's case goes in first, then the defendant's. You will almost certainly testify, and our preparation builds on everything that came before: the document production, the sworn Statement of Net Worth, the deposition. Composure counts. Judges watch how parties conduct themselves in the courtroom, particularly in custody cases.</p>
+    <h2>How long it really takes</h2>
+    <p>Even a simple divorce trial takes about five trial days, and those days are often scheduled consecutively, which is harder on your life than people expect. A block of consecutive trial days means arranging childcare and time away from work for a solid stretch you cannot move. Other times the court spreads the days out across weeks, slotted between its other matters, and each gap means re-preparing witnesses and re-orienting the court. Either way you are not in control of the calendar. A complex case, with multiple experts, contested valuations, custody proof, and evidentiary fights, can take twenty or thirty trial days or more.</p>
+<div class="pull">Trial consumes the household that goes through it.</div>
+    <h2>The Statement of Proposed Disposition</h2>
+    <p>Before trial, the court's timelines require each side to file a Statement of Proposed Disposition. It sets out your positions issue by issue and tells the court exactly what you are asking it to order: how each asset should be classified and divided, what maintenance and child support should be, what the parenting arrangement should be, and why. It is a long, painstaking document, and it is often the single most important paper filed in your case. The court reads it as the roadmap of what you want and what you can prove.</p>
+    <p>Here is the practical advice that follows. Because it takes substantial attorney time to prepare, it is expensive, and the fees are unavoidable once the deadline is upon you. If your case can be settled, the right time to settle it is before that document has to be drafted. Clients who resolve their cases ahead of that deadline save real money; clients who go past it have paid for a trial document whether or not the case is ever tried. Gus will tell you when that date is coming and what it will cost, well before it arrives.</p>
+    <h2>What it does to your life</h2>
+    <p>You are away from work for every trial day, and effectively for the days around them. If you are a stay-at-home parent, expect to leave the house by 8:00 a.m. and not return until 5:00 or 6:00 p.m., every trial day, with childcare covered for that entire window. And the day frequently does not end at the courthouse: you will often need to stay with your lawyers into the evening preparing for the next day's witnesses. Trial consumes the household that goes through it. None of this is said to frighten you; it is said because the decision to try a case should be made by someone who knows exactly what it costs, in every currency.</p>
+    <h2>The trial ends. The case does not.</h2>
+    <p>The judge almost never rules from the bench. When the proof closes, the trial transcripts are ordered, which takes weeks and carries its own cost. The lawyers then submit post-trial briefs arguing what the evidence proved. And then you wait: months, commonly, for the court's written decision resolving each contested issue. That decision is reduced to a judgment of divorce, the document that legally ends the marriage and sets out every obligation: the parenting schedule, support, maintenance, and the division of property, with additional orders directing retirement plan administrators where those assets are divided.</p>
+    <h2>Appeal</h2>
+    <p>Either side may appeal the judgment to the Appellate Division, which for Westchester cases is the Second Department. Appeals run on strict deadlines measured from service of the judgment with notice of entry, take a year or more to resolve, and are a separate engagement outside the original retainer's scope. If there are issues worth appealing in your case, or if your spouse appeals, we will give you a candid assessment of the odds and the cost before anything is filed.</p>
+    <div class="atstage"><div class="aslabel">At this stage</div><p><strong>Gus tries your case.</strong> The lawyer you retained is the lawyer standing up in that courtroom, every day of it, start to finish.</p></div>
+    <div class="callout">
+      <p><span class="ctitle">Next step for you</span>Keep your judgment, your stipulation, and your closing file somewhere safe and permanent. You will need them for years: for refinancing, for taxes, for schools, and for the occasional dispute that the passage of time produces.</p>
+    </div>
+  </div>
+  <div class="pager">
+    <button class="pbtn" data-go="trialprep"><span class="plabel">Back</span><span class="ptitle">Trial Preparation</span></button>
+    <button class="pbtn next" data-go="nextsteps"><span class="plabel">Wrapping Up</span><span class="ptitle">Your Next Steps &#8594;</span></button>
+  </div>
+</section>
+
+<!-- NEXT STEPS -->
+<section class="section" id="nextsteps">
+  <div class="pagehead">
+    <div class="kicker">Wrapping Up</div>
+    <h1>Your Next <em>Steps</em></h1>
+  </div>
+  <div class="content">
+    <p class="big">You now know more about the road ahead than most litigants learn in their first year of a case. Your first week is set out on the welcome page. What follows is different: the handful of habits that matter for as long as your case is open, from tomorrow through the day the judgment is signed.</p>
+    <ul class="checklist">
+      <li><strong>Keep the expense record current.</strong> Update it monthly rather than reconstructing a year of spending under deadline. Nothing you do for this case is cheaper or more useful later.</li>
+      <li><strong>Forward everything, answer nothing.</strong> Anything that arrives from your spouse, their lawyer, or a third party comes to us the same day, without a reply from you.</li>
+      <li><strong>Stay off social media, and delete nothing.</strong> Both halves matter. What you post becomes evidence, and what you delete becomes a different and worse problem.</li>
+      <li><strong>Produce documents on time, without being chased.</strong> Being the side that is never the cause of delay shortens your case and lowers your bill, and it is one of the few levers you personally control.</li>
+      <li><strong>Keep your communications on the clean device and account.</strong> The privilege that protects them depends on it for the whole life of the case, not just the first month.</li>
+      <li><strong>Bring Gus the bad facts early.</strong> Every case has them. The ones he knows about get managed; the ones that surface in your spouse's papers do damage that is hard to undo.</li>
+    </ul>
+    <p>Then take a breath. Divorce litigation is a marathon with sprints inside it, and you have a lawyer who has run it many times, supported by people who know your file. When something in your case is about to happen, Gus will make sure you understand it before it does. That is the whole point of this guide, and of how the firm is built.</p>
+    <p style="margin-top:30px">
+      <button class="cta" onclick="location.href='mailto:gd@dimolaw.com'">Email the Firm</button>
+      &nbsp;&nbsp;<span style="color:var(--muted)">or call 914-472-4242</span>
+    </p>
+    <div class="rule"></div>
+    <p style="font-size:13.5px;color:var(--muted)">This guide describes New York matrimonial practice in general terms for the orientation of clients of Dimopoulos Law Firm, P.C. It is not legal advice for any particular situation, and the handling of your own matter may differ. Court rules and statutes referenced are current as of the date of preparation. Always rely on advice from your attorneys about your own case.</p>
+  </div>
+  <div class="pager">
+    <button class="pbtn" data-go="trial"><span class="plabel">Back</span><span class="ptitle">Trial &amp; Judgment</span></button>
+    <button class="pbtn next" data-go="welcome"><span class="plabel">Return</span><span class="ptitle">Back to Welcome</span></button>
+  </div>
+</section>
+</div>
+</div>
+<script>
+(function(){
+  var sp=document.getElementById('splash'), app=document.querySelector('.app');
+  if(!sp) return;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce){ sp.parentNode.removeChild(sp); return; }
+  var done=false;
+  function finish(){
+    if(done) return; done=true;
+    sp.classList.add('out');
+    document.body.classList.remove('splashlock');
+    app.classList.remove('veil'); app.classList.add('reveal');
+    setTimeout(function(){ if(sp.parentNode) sp.parentNode.removeChild(sp); }, 950);
+  }
+  app.classList.add('veil');
+  document.body.classList.add('splashlock');
+  sp.classList.add('on');
+  requestAnimationFrame(function(){ requestAnimationFrame(function(){ sp.classList.add('go'); }); });
+  var timer=setTimeout(finish, 3450);
+  function skip(){ clearTimeout(timer); finish(); }
+  sp.addEventListener('click', skip);
+  window.addEventListener('keydown', function h(e){ window.removeEventListener('keydown',h); skip(); });
+  setTimeout(function(){ if(!done) app.classList.add('reveal'); }, 6000);
+})();
+</script>
+<script>
+(function(){
+  var order=["welcome","retainer","team","groundrules","settlement","commencement","sonw","custody","pc","discovery","documents","depositions","trialprep","trial","nextsteps"];
+  var visited={};
+  function go(id){
+    document.querySelectorAll('.section').forEach(function(s){s.classList.toggle('on',s.id===id);});
+    document.querySelectorAll('.navlink').forEach(function(b){
+      var on=b.getAttribute('data-go')===id;
+      b.classList.toggle('active',on);
+      if(visited[b.getAttribute('data-go')]&&!on)b.classList.add('visited');
+    });
+    visited[id]=true;
+    document.getElementById('sidebar').classList.remove('open');
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  document.addEventListener('click',function(e){
+    var t=e.target.closest('[data-go]');
+    if(t){go(t.getAttribute('data-go'));}
+  });
+  document.getElementById('menubtn').addEventListener('click',function(){
+    document.getElementById('sidebar').classList.toggle('open');
+  });
+  go('welcome');
+})();
+</script>
+</body>
+</html>
