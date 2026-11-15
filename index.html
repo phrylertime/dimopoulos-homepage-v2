@@ -33,7 +33,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Source+Sans+3:wght@300;400;500;600;700&display=swap"></noscript>
-  <link rel="preload" as="image" href="/assets/gus-hero-smokey.webp" imagesrcset="/assets/gus-hero-smokey-mobile.webp 800w, /assets/gus-hero-smokey.webp 1400w" imagesizes="(max-width: 700px) 100vw, 50vw" fetchpriority="high">
+  <!-- Media queries must mirror the hero <picture> source (max-width: 700px);
+       a density-based imagesrcset here made phones preload the desktop file too. -->
+  <link rel="preload" as="image" href="/assets/gus-hero-smokey-mobile.webp" media="(max-width: 700px)" fetchpriority="high">
+  <link rel="preload" as="image" href="/assets/gus-hero-smokey.webp" media="(min-width: 701px)" fetchpriority="high">
   <link rel="stylesheet" href="styles.css?v=launch-75">
   <style>
     /* Overrides the source CSS's terracotta accent with the steel-blue brand color.
@@ -365,7 +368,7 @@
       </svg>
 
       <div class="pcC-image">
-        <img src="assets/gus-podcast-studio.webp?v=launch-61" alt="Gus Dimopoulos recording Split, a podcast on modern divorce" width="1086" height="1448">
+        <img loading="lazy" decoding="async" src="assets/gus-podcast-studio.webp?v=launch-61" alt="Gus Dimopoulos recording Split, a podcast on modern divorce" width="1086" height="1448">
         <span class="pcC-image-cap">
           <span class="dot"></span> Recording &mdash; Studio · NY
         </span>
@@ -550,21 +553,21 @@
         </div>
         <div class="hpB-att-row hp-reveal-stagger is-visible">
           <a class="hpB-att" href="/attorneys/gus-dimopoulos">
-            <div class="photo"><img src="assets/gus-smokey-1.webp" alt="Gus Dimopoulos" width="1086" height="1448"></div>
+            <div class="photo"><img loading="lazy" decoding="async" src="assets/gus-smokey-1.webp" alt="Gus Dimopoulos" width="1086" height="1448"></div>
             <div class="meta">
               <span class="role">Managing Partner</span>
               <span class="name">Gus Dimopoulos</span>
             </div>
           </a>
           <a class="hpB-att" href="/attorneys/kathleen-seavy">
-            <div class="photo"><img fetchpriority="high" loading="eager" decoding="async" src="assets/attorney-kathleen.webp" alt="Kathleen Seavy" width="500" height="642"></div>
+            <div class="photo"><img loading="lazy" decoding="async" src="assets/attorney-kathleen.webp" alt="Kathleen Seavy" width="500" height="642"></div>
             <div class="meta">
               <span class="role">Associate</span>
               <span class="name">Kathleen Seavy</span>
             </div>
           </a>
           <a class="hpB-att" href="/attorneys/hannah-gaudet">
-            <div class="photo"><img fetchpriority="high" loading="eager" decoding="async" src="assets/attorney-hannah.webp" alt="Hannah Gaudet" width="500" height="642"></div>
+            <div class="photo"><img loading="lazy" decoding="async" src="assets/attorney-hannah.webp" alt="Hannah Gaudet" width="500" height="642"></div>
             <div class="meta">
               <span class="role">Associate</span>
               <span class="name">Hannah Gaudet</span>
@@ -633,7 +636,7 @@
       </div>
       <div class="hpB-pa-grid hp-reveal-stagger is-visible">
         <article class="hpB-pa feature feature--image">
-          <div class="img"><img src="assets/gus-practice-portrait.webp" alt="Gus Dimopoulos" width="2700" height="3600"></div>
+          <div class="img"><img loading="lazy" decoding="async" src="assets/gus-practice-portrait.webp" alt="Gus Dimopoulos" width="2700" height="3600"></div>
         </article>
         <a class="hpB-pa" href="/practice-areas/high-net-worth-divorce">
           <span class="n">01</span>
