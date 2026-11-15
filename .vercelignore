@@ -5,3 +5,17 @@
 /deploy.command
 /docs
 /scripts
+
+# Leftover redesign prototypes: no served page loads these.
+# (podcast.html still needs EpisodesData.jsx and EpisodesGrid.jsx — keep them deployed.)
+/EpisodesRow.jsx
+/NewsroomVariants.jsx
+/PodcastBlocks.jsx
+/SplitCover.jsx
+/VariationB.jsx
+/data.jsx
+/shared.jsx
+/tweaks-panel.jsx
+/design-system.css
+/newsroom-variants.css
+/podcast-blocks.css

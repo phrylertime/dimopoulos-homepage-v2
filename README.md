@@ -1,33 +1,46 @@
-# Dimopoulos Law — Homepage v2
+# dimolaw.com
 
-Static preview of the redesigned homepage. Deploys via GitHub Pages.
+The Dimopoulos Law Firm website: static HTML, CSS and a little JavaScript. There is no build step and nothing to install.
+
+## How it goes live
+
+- **Hosting:** Vercel project `dimopoulos`, connected to this GitHub repo.
+- **Production:** every push to `main` deploys to https://www.dimolaw.com automatically.
+- **Previews:** every push to any other branch gets its own private preview URL (Vercel login required). Do work on a branch, check the preview, then merge to `main`.
+- **Config:** `vercel.json` (clean URLs, redirects, headers). `.vercelignore` keeps repo-only files (docs, scripts, old prototypes) off the public site.
+
+See `HOW TO DEPLOY.md` for the step-by-step.
 
 ## What's here
 
-- `index.html` — entry point
-- `design-system.css` — brand tokens (color, type, spacing)
-- `styles.css`, `podcast-blocks.css`, `episodes.css` — layout
-- `*.jsx` — React components, transpiled in-browser via Babel Standalone
-- `assets/` — local imagery (Gus portraits, logo, studio shot)
-
-Some imagery (attorney headshots, award badges) hotlinks to dimolaw.com. If those break, replace with local copies in `assets/`.
+- `index.html`, `faq.html`, `podcast.html`, `testimonials.html`, `advisory.html`, `404.html`: top-level pages
+- `practice-areas/`, `attorneys/`, `blog/`, `about/`, `legal/`: section pages
+- `client-guide/`: private client guide (noindex, not in the sitemap)
+- `styles.css` (+ section CSS files), `script.js`, `*-modal.js`, `analytics.js`: shared styling and behavior
+- `EpisodesData.jsx`, `EpisodesGrid.jsx`: the podcast episode grid, compiled in the browser on `/podcast`
+- `assets/`: images, logos and award badges
+- `sitemap.xml`, `robots.txt`, `llms.txt`: search engine and AI crawler files
 
 ## Local preview
 
 ```bash
-# any static server will do
 python3 -m http.server 8000
-# → http://localhost:8000
+# open http://localhost:8000/index.html
 ```
 
-## Sitemap dates
+Clean URLs like `/faq` only work on Vercel; locally, add `.html` (`/faq.html`).
 
-`sitemap.xml` `<lastmod>` dates come from git. After editing pages (or adding a page to the sitemap), run this before committing:
+## Maintenance scripts
 
-```bash
-node scripts/update-sitemap-dates.mjs
-```
+Run these before committing, when they apply:
 
-## Deploy
+| When | Run |
+|---|---|
+| You edited any page, or added one to `sitemap.xml` | `node scripts/update-sitemap-dates.mjs` |
+| You edited a question or answer on `/faq` | `node scripts/update-faq-schema.mjs` |
 
-GitHub Pages: Settings → Pages → Source: `main` branch, `/` (root). URL goes live at `https://<user>.github.io/<repo>/`.
+The first sets each sitemap `<lastmod>` from git history; the second rebuilds the FAQ structured data from the visible Q&A so they never drift apart.
+
+## Legacy files
+
+`deploy.sh` and `deploy.command` are from the old GitHub Pages setup. Don't use them: deploys now happen through Vercel on push.
