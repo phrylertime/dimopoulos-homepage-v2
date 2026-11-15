@@ -1,0 +1,7 @@
+# Repo-only files: kept in git, left out of the public deployment.
+/README.md
+/HOW TO DEPLOY.md
+/deploy.sh
+/deploy.command
+/docs
+/scripts
