@@ -34,7 +34,37 @@
   <link rel="preload" as="image" href="/assets/gus-advisory-wide.webp" fetchpriority="high" media="(min-width: 1900px)">
   <link rel="preload" as="image" href="/assets/gus-advisory-desk.webp" fetchpriority="high" media="(min-width: 821px) and (max-width: 1899px)">
   <link rel="preload" as="image" href="/assets/gus-podcast-advisory.webp" fetchpriority="high" media="(max-width: 820px)">
-  <link rel="stylesheet" href="advisory.css?v=launch-76">
+  <link rel="stylesheet" href="advisory.css?v=launch-77">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.dimolaw.com/advisory#organization",
+        "name": "Dimopoulos Advisory",
+        "url": "https://www.dimolaw.com/advisory",
+        "description": "New York limited liability company offering a confidential advisory and workshop program for executives, founders and finance professionals. Not a law firm; separate from Dimopoulos Law Firm, P.C.",
+        "member": { "@id": "https://www.dimolaw.com/attorneys/gus-dimopoulos#person" }
+      },
+      {
+        "@type": "Service",
+        "@id": "https://www.dimolaw.com/advisory#service",
+        "name": "Executive Advisory Program",
+        "url": "https://www.dimolaw.com/advisory",
+        "description": "A confidential advisory and workshop program for high-performing executives, founders, and finance professionals, protecting personal stability before it becomes a professional risk.",
+        "provider": { "@id": "https://www.dimolaw.com/advisory#organization" },
+        "audience": { "@type": "BusinessAudience", "audienceType": "Executives, founders and finance professionals" }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://www.dimolaw.com/attorneys/gus-dimopoulos#person",
+        "name": "Gus Dimopoulos",
+        "url": "https://www.dimolaw.com/attorneys/gus-dimopoulos"
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body class="adv-root" data-screen-label="Advisory">
@@ -269,6 +299,10 @@
       <span class="adv-foot-mark">Dimopoulos Advisory</span>
       <span class="adv-foot-copy">&copy; 2007&ndash;2026. All rights reserved.</span>
       <span class="adv-foot-note">All inquiries handled with complete discretion.</span>
+    </div>
+    <div class="adv-foot-row adv-foot-links">
+      <span class="adv-foot-copy">Gus Dimopoulos practices matrimonial and family law through <a href="/">Dimopoulos Law Firm, P.C.</a></span>
+      <a class="adv-foot-copy" href="/attorneys/gus-dimopoulos">About Gus Dimopoulos</a>
     </div>
   </footer>
 
