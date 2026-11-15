@@ -166,6 +166,14 @@
   text-wrap: balance;
 }
 .epx--dark .epx-title { color: #f6f4ef; }
+/* Linked titles take the card's title color; the global link blue was unreadable on dark cards. */
+.epx-title-link { color: inherit; text-decoration: none; }
+.epx-title-link:hover,
+.epx-title-link:focus-visible {
+  text-decoration: underline;
+  text-decoration-color: var(--epx-blue);
+  text-underline-offset: 4px;
+}
 .epx-guest {
   font-size: 14px;
   color: #6b6358;
