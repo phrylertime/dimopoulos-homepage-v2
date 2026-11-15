@@ -17,7 +17,7 @@ See `HOW TO DEPLOY.md` for the step-by-step.
 - `practice-areas/`, `attorneys/`, `blog/`, `about/`, `legal/`: section pages
 - `client-guide/`: private client guide (noindex, not in the sitemap)
 - `styles.css` (+ section CSS files), `script.js`, `*-modal.js`, `analytics.js`: shared styling and behavior
-- `EpisodesData.jsx`, `EpisodesGrid.jsx`: the podcast episode grid, compiled in the browser on `/podcast`
+- `EpisodesData.jsx`: the podcast episode list (repo-only; the grid on `/podcast` is generated from it)
 - `assets/`: images, logos and award badges
 - `sitemap.xml`, `robots.txt`, `llms.txt`: search engine and AI crawler files
 
@@ -38,8 +38,9 @@ Run these before committing, when they apply:
 |---|---|
 | You edited any page, or added one to `sitemap.xml` | `node scripts/update-sitemap-dates.mjs` |
 | You edited a question or answer on `/faq` | `node scripts/update-faq-schema.mjs` |
+| You added or changed a podcast episode in `EpisodesData.jsx` | `node scripts/build-podcast-grid.mjs` |
 
-The first sets each sitemap `<lastmod>` from git history; the second rebuilds the FAQ structured data from the visible Q&A so they never drift apart.
+The first sets each sitemap `<lastmod>` from git history; the second rebuilds the FAQ structured data from the visible Q&A so they never drift apart; the third writes the `/podcast` episode grid into the page as plain HTML.
 
 ## Legacy files
 

@@ -6,8 +6,12 @@
 /docs
 /scripts
 
+# Podcast episode data: source for scripts/build-podcast-grid.mjs, which writes
+# the grid into podcast.html as plain HTML. No page loads these files.
+/EpisodesData.jsx
+/EpisodesGrid.jsx
+
 # Leftover redesign prototypes: no served page loads these.
-# (podcast.html still needs EpisodesData.jsx and EpisodesGrid.jsx — keep them deployed.)
 /EpisodesRow.jsx
 /NewsroomVariants.jsx
 /PodcastBlocks.jsx
