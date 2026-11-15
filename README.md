@@ -20,6 +20,14 @@ python3 -m http.server 8000
 # → http://localhost:8000
 ```
 
+## Sitemap dates
+
+`sitemap.xml` `<lastmod>` dates come from git. After editing pages (or adding a page to the sitemap), run this before committing:
+
+```bash
+node scripts/update-sitemap-dates.mjs
+```
+
 ## Deploy
 
 GitHub Pages: Settings → Pages → Source: `main` branch, `/` (root). URL goes live at `https://<user>.github.io/<repo>/`.
