@@ -41,7 +41,3 @@ Run these before committing, when they apply:
 | You added or changed a podcast episode in `EpisodesData.jsx` | `node scripts/build-podcast-grid.mjs` |
 
 The first sets each sitemap `<lastmod>` from git history; the second rebuilds the FAQ structured data from the visible Q&A so they never drift apart; the third writes the `/podcast` episode grid into the page as plain HTML.
-
-## Legacy files
-
-`deploy.sh` and `deploy.command` are from the old GitHub Pages setup. Don't use them: deploys now happen through Vercel on push.
